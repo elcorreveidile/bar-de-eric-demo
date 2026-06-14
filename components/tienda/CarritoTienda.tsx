@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { productos } from "@/lib/productos-tienda";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function CarritoTienda({ carrito, onQuitar }: Props) {
-  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const items = Array.from(carrito.entries()).map(([id, cantidad]) => ({
     producto: productos.find((p) => p.id === id)!,
@@ -26,23 +26,13 @@ export function CarritoTienda({ carrito, onQuitar }: Props) {
     currency: "EUR",
   }).format(total / 100);
 
-  async function handleCheckout() {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: items.map((i) => ({ id: i.producto.id, cantidad: i.cantidad })),
-        }),
-      });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      }
-    } finally {
-      setLoading(false);
-    }
+  function handleCheckout() {
+    const carritoData = items.map((i) => ({
+      id: i.producto.id,
+      cantidad: i.cantidad,
+    }));
+    localStorage.setItem("carrito-tienda", JSON.stringify(carritoData));
+    router.push("/tienda/checkout");
   }
 
   return (
@@ -71,10 +61,9 @@ export function CarritoTienda({ carrito, onQuitar }: Props) {
           <span className="text-dorado font-bold text-lg">{totalFormateado}</span>
           <button
             onClick={handleCheckout}
-            disabled={loading}
-            className="bg-rojo hover:bg-rojo/80 disabled:opacity-50 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
+            className="bg-rojo hover:bg-rojo/80 text-white font-medium px-6 py-2.5 rounded-lg transition-colors"
           >
-            {loading ? "Procesando..." : "Pagar"}
+            Pagar
           </button>
         </div>
       </div>
