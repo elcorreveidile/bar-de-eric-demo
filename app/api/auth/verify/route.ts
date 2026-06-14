@@ -2,8 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db/client";
 import { magicTokens } from "@/lib/db/schema";
 import { eq, and, gt } from "drizzle-orm";
-import { cookies } from "next/headers";
 import { randomUUID } from "crypto";
+
+const COOKIE_NAME = process.env.NODE_ENV === "production"
+  ? "__Secure-next-auth.session-token"
+  : "next-auth.session-token";
 
 export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token");
@@ -19,14 +22,15 @@ export async function GET(req: NextRequest) {
     .limit(1);
 
   if (!record) {
-    return NextResponse.redirect(new URL("/auth/verify?error=invalid", req.url));
+    return NextResponse.redirect(new URL("/auth/signin?error=invalid", req.url));
   }
 
   await db.delete(magicTokens).where(eq(magicTokens.token, token));
 
   const sessionToken = randomUUID();
-  const cookieStore = await cookies();
-  cookieStore.set("next-auth.session-token", sessionToken, {
+  const response = NextResponse.redirect(new URL("/dashboard", req.url));
+
+  response.cookies.set(COOKIE_NAME, sessionToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
@@ -34,5 +38,5 @@ export async function GET(req: NextRequest) {
     maxAge: 60 * 60 * 24 * 7,
   });
 
-  return NextResponse.redirect(new URL("/dashboard", req.url));
+  return response;
 }
