@@ -224,6 +224,42 @@ Social share image for "El Bar de Eric" rock bar-museum. Black wall of framed bl
 
 ---
 
+### 10. Fondos / Texturas de Fondo (8 imágenes)
+**Propósito:** Fondos de página y de sección (body global, hero, secciones de tapas/eventos/CTA, divisores). Deben ser **sutiles y oscuros** para no competir con el texto (paleta `#1a1a1a`).
+**Formato:** JPG/WebP (fondos completos) y PNG (patrones repetibles con transparencia)
+**Uso técnico:** aplicar con `background-image` + overlay oscuro (`rgba(26,26,26,0.85)`) o como capa con `opacity: 0.1–0.25` detrás del contenido.
+
+**Prompt base:**
+```
+Dark, subtle, seamless background texture for a rock music bar-museum website.
+- Predominantly matte black (#1a1a1a), very low contrast so overlaid white/gold text stays legible
+- Faint vintage gold (#FFD700) and rock red (#8B0000) accents only
+- Moody, atmospheric, editorial; NOT busy or distracting
+- Designed to sit BEHIND text with a dark overlay
+```
+
+**Prompts específicos:**
+
+1. **Fondo global de página (body)** — `Seamless tileable dark texture: subtle black concrete/plaster wall with faint grain and vignette, almost solid #1a1a1a, barely-there texture. Tileable, 2048x2048px.`
+
+2. **Fondo del Hero (collage de museo)** — `Full-bleed black wall densely covered with framed black-and-white rock photos and concert posters, heavily darkened and slightly out of focus, warm gold vignette. Space for text on the left. 1920x1080px. Strong dark overlay friendly.`
+
+3. **Patrón repetible de vinilos** — `Seamless repeating pattern of vintage vinyl records and music notes, dark charcoal on black (#1a1a1a), extremely low contrast, subtle gold #FFD700 line accents. Tileable PNG with transparency, 800x800px.`
+
+4. **Fondo sección Menú (madera oscura)** — `Seamless dark aged wood bar-counter texture, deep brown-black, warm low light from the side, subtle gold reflections. Tileable, 2048x1024px.`
+
+5. **Fondo sección Eventos (cartel grunge)** — `Distressed silkscreen gig-poster paper texture, torn edges, black with faint red (#8B0000) and gold (#FFD700) ink stains, halftone grain. 1920x1080px, dark and subtle.`
+
+6. **Fondo CTA Reservas (neón tenue)** — `Dark bar wall at night with a soft out-of-focus warm neon glow (gold/red bokeh), heavy blur, mostly black. Cinematic, low contrast. 1920x800px.`
+
+7. **Divisor / textura de separación** — `Thin horizontal grunge divider strip: distressed film-strip / equalizer-bars motif in gold (#FFD700) on transparent background. 1920x120px PNG.`
+
+8. **Fondo del Dashboard admin** — `Very subtle dark texture: faint diagonal carbon-fiber / brushed-metal pattern in near-black tones (#1a1a1a / #2a2a2a), minimal, professional. Tileable, 2048x2048px.`
+
+> **Nota de implementación:** en la web actual los fondos son colores sólidos (`bg-negro`, `bg-negro-light`) y gradientes CSS. Estas texturas son **opcionales** y deben colocarse en `public/images/fondos/` y referenciarse con `next/image` o `background-image`, siempre con un overlay oscuro encima para mantener el contraste AA del texto.
+
+---
+
 ## 📋 Checklist de Imágenes
 
 - [ ] Logo horizontal + favicon cuadrado
@@ -235,8 +271,9 @@ Social share image for "El Bar de Eric" rock bar-museum. Black wall of framed bl
 - [ ] Fachada / ubicación
 - [ ] 6 iconos de UI
 - [ ] Open Graph
+- [ ] 8 fondos / texturas de fondo
 
-**Total aproximado: ~41 imágenes**
+**Total aproximado: ~49 imágenes**
 
 ---
 
