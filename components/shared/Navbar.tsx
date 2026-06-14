@@ -18,11 +18,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur-md border-b border-ambar/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-1.5 group">
-          <span className="text-dorado text-3xl font-bold leading-none select-none" aria-hidden="true">&times;</span>
-          <span className="font-display text-xl sm:text-2xl font-bold text-dorado tracking-wide group-hover:text-dorado-dark transition-colors">
-            El Bar <span className="font-normal text-[0.75em]">de</span> Eric
-          </span>
+        <Link href="/" className="shrink-0">
+          <img
+            src="/images/logo/logo-horizontal.png"
+            alt="El Bar de Eric — Donde la música se hace tapa"
+            className="h-10 sm:h-12 w-auto"
+          />
         </Link>
 
         {/* Desktop links */}

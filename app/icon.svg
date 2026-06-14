@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="El Bar de Eric">
-  <rect width="512" height="512" rx="64" fill="#1a1a1a"/>
-  <g transform="translate(256 220)" stroke="#E8313F" stroke-width="28" stroke-linecap="round">
-    <line x1="-80" y1="-80" x2="80" y2="80"/>
-    <line x1="80" y1="-80" x2="-80" y2="80"/>
-  </g>
-  <text x="256" y="400" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="700" font-size="64" fill="#E8313F" letter-spacing="3">ERIC</text>
-</svg>
