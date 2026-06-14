@@ -72,7 +72,7 @@ export function Navbar() {
         />
 
         {/* Panel */}
-        <div className="absolute right-0 top-0 h-full w-72 bg-negro/95 backdrop-blur-lg border-l border-ambar/25 p-6">
+        <div className="absolute right-0 top-0 h-full w-72 bg-negro border-l border-ambar/25 p-6">
           <ul className="flex flex-col">
             {navLinks.map((link) => (
               <li key={link.href} className="border-b border-ambar/10 last:border-b-0">
