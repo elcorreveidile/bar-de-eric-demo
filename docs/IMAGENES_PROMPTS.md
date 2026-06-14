@@ -148,48 +148,51 @@ Technical: 1000x1000px or 1200x800px, JPG.
 
 ---
 
-### 3. Tapas Musicales — 15 fotos de platos — 🔴 PENDIENTE
-**Propósito:** Tarjetas de tapa (`/menu`, `/menu/[slug]`)
-**Archivos:** `menu/tapa-1.svg` … `menu/tapa-15.svg`
+### 3. Platos del Menú Real — 15 fotos — 🔴 PENDIENTE
+**Propósito:** Tarjetas de plato (`/menu`, `/menu/[slug]`)
+**Archivos:** `menu/tapa-1.png` … `menu/tapa-15.png`
 **Resolución:** 800×800px (cuadrado)
-**Formato:** JPG/WebP
+**Formato:** PNG/JPG/WebP
 
-> **Referencia real:** Las fotos `bar-real/tapa-salmorejo.jpg` (salmorejo con brotes) y `bar-real/tapa-gourmet.jpg` (tapa con salsa) muestran el estilo de presentación real del bar: platos blancos cuadrados, presentación cuidada, sin pretensiones pero con nivel.
+> **Referencia real:** Las fotos `bar-real/tapa-salmorejo.jpg` y `bar-real/tapa-gourmet.jpg` muestran el estilo de presentación: platos blancos cuadrados, presentación cuidada tipo gastrobar, sin pretensiones pero con nivel. El menú real incluye raviolis de pasta brick, roscas crujientes al grill, chapatas, ensaladas y raciones.
 
 **Prompt base:**
 ```
-Appetizing close-up food photography of a Spanish tapa, served on a white square ceramic plate, on a dark bar table.
+Appetizing close-up food photography of a dish from a Spanish rock bar-museum in Granada.
+Served on a white square ceramic plate on a dark wooden bar counter.
 
-Reference style: Real photos from the bar show clean white square plates, elegant but unpretentious plating, natural restaurant lighting.
+Reference style: Real photos from "El Bar de Eric" show clean white square plates,
+elegant but unpretentious gastrobar plating, natural warm restaurant lighting.
 
 Style requirements:
-- Warm directional light, dark background with subtle warm ambient light
+- Warm directional light from the left, dark background with subtle warm ambient
 - Editorial gastronomy style, shallow depth of field, steam/texture visible
-- Small, elegant, "gastrobar" plating — not fast food, not Michelin-star either
-- Realistic restaurant photography, NOT overly styled stock
+- Gastrobar level — above casual tapas, below Michelin fine dining
+- Realistic restaurant photography, NOT stock, NOT AI-looking
+- Slight warmth in shadows, wood/dark surface visible at edges
 
 Technical: 800x800px square, JPG.
 ```
 
-**Prompts específicos (nombre musical → plato):**
+**Prompts específicos (platos reales del menú):**
 
-| # | Nombre | Banda | Prompt del plato |
-|---|--------|-------|------------------|
-| 1 | Inercia | Lagartija Nick | `Golden crispy croquetas de jamón ibérico (3 pieces) on white square plate, parsley garnish, dark table.` |
-| 2 | Omega | Lagartija Nick + Morente | `Artisan cheese and Iberian ham board with grapes, breadsticks, on wooden serving board.` |
-| 3 | Qué Puedo Hacer | Los Planetas | `Sizzling garlic prawns (gambas al ajillo) in a clay cazuela with chili, oil and parsley.` |
-| 4 | Pop | Los Planetas | `Mushroom and truffle croquettes, one cut open showing creamy interior, dusted with herbs.` |
-| 5 | Keith Moon | The Who | `Mixed grilled meats platter (surtido de carnes a la brasa), smoky, charred edges, on slate.` |
-| 6 | Un Buen Día | Los Planetas | `Spanish ensaladilla rusa, elegant quenelle shape, olive oil drizzle, paprika, on white plate.` |
-| 7 | Lagartija | – | `Mini gourmet hamburgers (2) with caramelized onion and melted cheese, on a wooden board.` |
-| 8 | Joe Strummer | The Clash | `Nachos with guacamole and pico de gallo, vibrant colors, sharing plate, casual style.` |
-| 9 | 091 | Banda granadina | `Patatas bravas in a rustic bowl, homemade alioli and spicy red bravas sauce, golden potatoes.` |
-| 10 | Los Evangelistas | Banda de Eric | `Large mixed sharing board: cheeses, cured meats, croquettes, olives, breadsticks, for 2-3 people.` |
-| 11 | Lux Interior | The Cramps | `Glazed chicken wings (5-6 pieces), glossy sauce, sesame seeds, with dipping sauce on the side.` |
-| 12 | Sonic Youth | – | `Cold salmorejo in a white square bowl, topped with diced serrano ham and sprouts (similar to bar-real/tapa-salmorejo.jpg).` |
-| 13 | Patti Smith | – | `Smoked salmon toast (tosta) with capers, dill and cream cheese on artisan sourdough bread.` |
-| 14 | Satisfaction | Rolling Stones | `Pork loin and roasted red pepper montadito on crusty bread, toothpick, olive on top.` |
-| 15 | London Calling | The Clash | `Fish & chips: golden battered fish, thick-cut fries, tartar sauce, lemon wedge, paper-lined basket.` |
+| # | Plato | Precio | Prompt del plato |
+|---|-------|--------|------------------|
+| 1 | Carpaccio de Calabacín | 8,00€ | `Thin translucent slices of raw zucchini carpaccio, fanned on white square plate. Topped with lemon zest, shaved Parmesan, arugula, black pepper, soy sauce drizzle, toasted sesame seeds, and EVOO. Light, fresh, elegant. Garnished with microgreens.` |
+| 2 | Ensaladilla Tartara de Atún | 11,00€ | `Spanish ensaladilla rusa reimagined: potato salad with tartare sauce, tuna (atún), boiled egg, olives, capers, black olives, served as an elegant quenelle on white plate. Drizzled with EVOO, pimentón, soy, caramelized sesame. Crispy lentil crouton on the side.` |
+| 3 | Ravioli de Queso y Brie | 12,00€ | `Crispy golden brick-pastry ravioli (rollito de pasta brick) filled with melted Brie cheese, mixed with cherry tomato, vegan soy mayo. On white plate with caramelized sesame, EVOO, pimentón, soy drizzle. Cut open showing melted cheese interior. Honey and sugarcane drizzle.` |
+| 4 | Ravioli de Salmón | 13,50€ | `Crispy golden brick-pastry ravioli filled with smoked salmon and cream cheese (Philadelphia), Greek yogurt-garlic sauce. On white plate with capers scattered, caramelized pimentón, EVOO, soy, sesame. One cut open showing pink salmon filling. Honey and sugarcane drizzle.` |
+| 5 | Ravioli Vegano | 12,00€ | `Crispy golden brick-pastry ravioli filled with aged manchego-style vegan cheese. On white plate with EVOO, pimentón, toasted sesame, soy drizzle, sugarcane honey. Artfully plated with fresh herbs.` |
+| 6 | Rollitos Crujientes de Lomo | 13,40€ | `Golden crispy phyllo-wrapped rolls (rollitos de pasta filo) stuffed with slow-cooked pork loin (lomo a la leña), with honey-mustard vinaigrette. On white plate with caramelized sesame, pimentón, soy drizzle, sugarcane honey. Two rolls cut diagonally showing tender meat inside.` |
+| 7 | Serrat | 12,00€ | `Seared tuna belly (ventresca de atún) on a golden puff pastry base (hojaldre). Topped with piquillo peppers, chorizo crumbles. On white plate with EVOO, caramelized pimentón, soy, sesame. Rich amber-red colors, glistening surface.` |
+| 8 | Rosca de Jamón Reserva de Castaña | 12,50€ | `Crispy pressed rosca (round grilled sandwich) cut in half, showing interior of acorn-fed Iberian ham (jamón reserva de castaña), shaved Parmesan, fresh tomato, and arugula. Golden grill marks on bread exterior. On white plate, toasted and crunchy. Spanish gourmet sandwich.` |
+| 9 | Rosca de Salmón Ahumado | 12,50€ | `Crispy pressed rosca cut in half showing smoked salmon filling with cream cheese, fresh dill, and crispy onion. Golden grill marks on the bread. On white plate, elegant presentation. Pink salmon visible through the cut.` |
+| 10 | Rosca Mallorquina | 12,50€ | `Crispy pressed rosca cut in half showing sobrasada (Mallorcan spreadable sausage) melted with Brie cheese and drizzled with honey (miel de abeja). Golden grill marks, rustic but refined. On white plate. The red-orange sobrasada contrasting with melted white cheese.` |
+| 11 | Chapata de Jamón, Pera y Gorgonzola | 8,00€ | `Artisan ciabatta sandwich (chapata) filled with acorn-fed ham (jamón de castaña), sliced fresh pear, melted Gorgonzola cheese, arugula. On white plate with cherry tomatoes, soy, caramelized sesame garnish. Cut diagonally showing layers of filling.` |
+| 12 | Chapata Vegana de Hummus | 8,00€ | `Artisan ciabatta sandwich filled with hummus, roasted piquillo peppers, fresh spinach sprouts (brotes de espinacas). On white plate with cherry tomatoes, soy, caramelized sesame. Colorful cross-section showing layers of orange hummus and green sprouts.` |
+| 13 | Sandwich de Pollo con Alioli de Azafrán y Manzana | 8,00€ | `Gourmet chicken sandwich on a hamburger bun: roasted chicken breast with saffron-apple alioli (alioli de azafrán y manzana), roasted tomato, topped with sherry-caramelized tomato relish, soy, caramelized sesame. On white plate, golden and appetizing. The yellow saffron alioli visible.` |
+| 14 | Ensalada de Quinoa, Lentejas y Frutos Rojos | 9,80€ | `Colorful healthy salad: quinoa, lentils, and red berries (frutos rojos — cranberries, pomegranate) on white plate. Topped with crispy lentil crouton, EVOO, pimentón, soy, caramelized sesame. Fresh and vibrant, pink-red-green-brown earth tones.` |
+| 15 | Tabla de Jamón y Queso | 15,50€ | `Generous Spanish sharing board: sliced jamón gran reserva de castaña (acorn-fed ham) and extra-aged raw-milk Manchego cheese. On dark wooden board with piquillo peppers, breadsticks (picos), and walnuts. Warm spotlight, dark bar background. Artisan, generous, authentic.` |
 
 ---
 

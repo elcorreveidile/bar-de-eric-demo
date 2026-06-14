@@ -3,62 +3,40 @@
 import { useState } from "react";
 import { TapaCard } from "@/components/menu/TapaCard";
 
-const categorias = ["Tapas Clasicas", "Especialidades", "Raciones", "Bebidas"];
+const categorias = ["Para Comer", "Roscas", "Raciones", "Para Beber"];
 
 const items = [
-  { nombre: "La Omega", banda: "Lagartija Nick", anio: 1996, descripcion: "Fusion de sabores mediterraneos con un toque picante, como la fusion de Omega.", precio: 850, slug: "la-omega", categoria: "Tapas Clasicas" },
-  { nombre: "Encuentros con Entidades", banda: "Los Planetas", anio: 2000, descripcion: "Tapa misteriosa con ingredientes que cambian segun la temporada.", precio: 950, slug: "encuentros-con-entidades", categoria: "Especialidades" },
-  { nombre: "London Calling", banda: "The Clash", anio: 1979, descripcion: "Fish & chips con un toque andaluz. Homenaje a Joe Strummer.", precio: 750, slug: "london-calling", categoria: "Tapas Clasicas" },
-  { nombre: "Inercia", banda: "Lagartija Nick", anio: 1992, descripcion: "Croquetas caseras que no puedes dejar de comer. Pura inercia.", precio: 650, slug: "inercia", categoria: "Tapas Clasicas" },
-  { nombre: "El Vacio", banda: "Los Planetas", anio: 1996, descripcion: "Huevos rotos con jamon: sencillo pero devastador.", precio: 900, slug: "el-vacio", categoria: "Especialidades" },
-  { nombre: "Racion KGB", banda: "KGB", anio: 1982, descripcion: "Tabla de quesos y embutidos ibericos. Contundente como el punk.", precio: 1450, slug: "racion-kgb", categoria: "Raciones" },
-  { nombre: "Jamon al Morente", banda: "Enrique Morente", anio: 2000, descripcion: "Jamon iberico de bellota cortado a mano. Puro arte.", precio: 1800, slug: "jamon-al-morente", categoria: "Raciones" },
-  { nombre: "Cerveza Strummer", banda: "The Clash", anio: 1991, descripcion: "Cerveza artesana granadina con caracter rebelde.", precio: 350, slug: "cerveza-strummer", categoria: "Bebidas" },
-  { nombre: "Tinto de Rock", banda: "Varios", anio: 2013, descripcion: "Seleccion de vinos tintos con denominacion de origen Granada.", precio: 400, slug: "tinto-de-rock", categoria: "Bebidas" },
-  { nombre: "Patatas Punk", banda: "Sex Pistols", anio: 1977, descripcion: "Patatas bravas con salsa casera. Anarquia en cada bocado.", precio: 550, slug: "patatas-punk", categoria: "Tapas Clasicas" },
-  { nombre: "Ensaladilla Indie", banda: "091", anio: 1990, descripcion: "Ensaladilla rusa con un twist alternativo. Clasico reinventado.", precio: 600, slug: "ensaladilla-indie", categoria: "Tapas Clasicas" },
-  { nombre: "Tabla Evangelista", banda: "Los Evangelistas", anio: 2007, descripcion: "Seleccion de tostas variadas con ingredientes de temporada.", precio: 1200, slug: "tabla-evangelista", categoria: "Raciones" },
+  { nombre: "Inercia", nombreReal: "Carpaccio de Calabacín", descripcion: "Finas láminas de calabacín con limón, parmesano rallado, rúcula, aceite, pimentón, soja y sésamo caramelizado.", precio: 800, slug: "inercia", categoria: "Para Comer", imagen: "/images/menu/tapa-1.png" },
+  { nombre: "Omega", nombreReal: "Ensaladilla Tartara de Atún", descripcion: "Ensaladilla de patatas con salsa tártara, atún, huevo cocido, alcaparras, aceitunas negras y mostaza. Con crujiente de lentejas.", precio: 1100, slug: "omega", categoria: "Para Comer", imagen: "/images/menu/tapa-2.png" },
+  { nombre: "Qué Puedo Hacer", nombreReal: "Ravioli de Queso y Brie", descripcion: "Rollito de pasta brick relleno de queso brie, mezcla de brotes tiernos, cherry de tomate, mayonesa vegana de soja. Con sésamo caramelizado y miel de caña.", precio: 1200, slug: "que-puedo-hacer", categoria: "Para Comer", imagen: "/images/menu/tapa-3.png" },
+  { nombre: "Sonic Youth", nombreReal: "Ravioli de Salmón", descripcion: "Rollito de pasta brick relleno de salmón ahumado, queso crema, reducción de yogur griego. Con alcaparras, pimentón, soja, sésamo caramelizado y miel de caña.", precio: 1350, slug: "sonic-youth", categoria: "Para Comer", imagen: "/images/menu/tapa-4.png" },
+  { nombre: "Pop", nombreReal: "Ravioli Vegano", descripcion: "Rollito de pasta brick relleno de queso de anacardos. Con aceite, pimentón, soja, sésamo caramelizado y miel de caña.", precio: 1200, slug: "pop", categoria: "Para Comer", imagen: "/images/menu/tapa-5.png" },
+  { nombre: "Satisfaction", nombreReal: "Rollitos Crujientes de Lomo", descripcion: "Rollitos de pasta filo rellenos de lomo a la leña con vinagreta de miel y mostaza, caramelo, aceite, pimentón, soja, sésamo caramelizado y miel de caña.", precio: 1340, slug: "satisfaction", categoria: "Para Comer", imagen: "/images/menu/tapa-6.png" },
+  { nombre: "Serrat", nombreReal: "Ventresca de Atún sobre Hojaldre", descripcion: "Ventresca de atún marinada sobre base de hojaldre, pimientos de piquillo, chorizos. Con aceite, pimentón, soja, sésamo caramelizado y miel de caña.", precio: 1200, slug: "serrat", categoria: "Para Comer", imagen: "/images/menu/tapa-7.png" },
+  { nombre: "Patti Smith", nombreReal: "Chapata de Jamón, Pera y Gorgonzola", descripcion: "Pan de chapata relleno de jamón reserva de castaña, pera, queso gorgonzola, rúcula con tomate cherry, soja y sésamo caramelizado.", precio: 800, slug: "patti-smith", categoria: "Para Comer", imagen: "/images/menu/tapa-8.png" },
+  { nombre: "London Calling", nombreReal: "Chapata Vegana de Hummus", descripcion: "Pan de chapata relleno de hummus, pimientos de piquillo, brotes frescos de espinacas con tomate cherry, soja y sésamo caramelizado.", precio: 750, slug: "london-calling", categoria: "Para Comer", imagen: "/images/menu/tapa-9.png" },
+  { nombre: "Joe Strummer", nombreReal: "Sandwich de Pollo con Alioli de Azafrán y Manzana", descripcion: "Pan de hamburguesa relleno de pollo asado, alioli de azafrán y manzana, tomate cherry, soja y sésamo caramelizado.", precio: 800, slug: "joe-strummer", categoria: "Para Comer", imagen: "/images/menu/tapa-10.png" },
+  { nombre: "Un Buen Día", nombreReal: "Ensalada de Quinoa, Lentejas y Frutos Rojos", descripcion: "Ensalada de quinoa, lentejas y frutos rojos con crujiente de lentejas, aceite, pimentón, soja y sésamo caramelizado.", precio: 980, slug: "un-buen-dia", categoria: "Para Comer", imagen: "/images/menu/tapa-11.png" },
+  { nombre: "Maxi-Quesadilla Pepperoni", nombreReal: "Quesadilla de Pepperoni", descripcion: "Quesadilla rellena de pepperoni, queso cheddar, rodajas de tomate, aceite, pimentón y sésamo.", precio: 750, slug: "maxi-quesadilla-pepperoni", categoria: "Para Comer", imagen: "/images/menu/tapa-12.png" },
+  { nombre: "Maxi-Quesadilla Margarita", nombreReal: "Quesadilla Margarita", descripcion: "Quesadilla rellena de queso mozzarella, albahaca fresca, rodajas de tomate, pesto, aceite, pimentón y sésamo caramelizado.", precio: 750, slug: "maxi-quesadilla-margarita", categoria: "Para Comer", imagen: "/images/menu/tapa-13.png" },
+  { nombre: "Keith Moon", nombreReal: "Rosca de Jamón Reserva de Castaña", descripcion: "Crujiente rosca prensada al grill con jamón reserva de castaña, parmesano, tomate natural y rúcula.", precio: 1250, slug: "keith-moon", categoria: "Roscas", imagen: "/images/menu/tapa-14.png" },
+  { nombre: "Lux Interior", nombreReal: "Rosca de Lomo a la Leña (cara A)", descripcion: "Rosca crujiente prensada al grill con lomo a la leña, dijonesa (mayonesa con toque de mostaza y pepinillos).", precio: 1250, slug: "lux-interior", categoria: "Roscas", imagen: "/images/menu/tapa-14.png" },
+  { nombre: "Lagartija", nombreReal: "Rosca de Pollo", descripcion: "Rosca crujiente prensada al grill con pechuga de pollo al horno, mahonesa vegana de wasabi y pimientos rojos.", precio: 1250, slug: "lagartija", categoria: "Roscas", imagen: "/images/menu/tapa-14.png" },
+  { nombre: "091", nombreReal: "Rosca Mallorquina", descripcion: "Rosca crujiente prensada al grill con sobrasada, queso brie y miel de abeja.", precio: 1250, slug: "091", categoria: "Roscas", imagen: "/images/menu/tapa-16.png" },
+  { nombre: "Encuentros", nombreReal: "Rosca de Salmón Ahumado", descripcion: "Rosca crujiente prensada al grill con queso crema, eneldo y cebolla crujiente.", precio: 1250, slug: "encuentros", categoria: "Roscas", imagen: "/images/menu/tapa-15.png" },
+  { nombre: "Rosca Vegana", nombreReal: "Rosca Vegana (cara A)", descripcion: "Rosca crujiente prensada al grill con hummus, champiñones salteados y aceitunas negras.", precio: 1250, slug: "rosca-vegana", categoria: "Roscas", imagen: "/images/menu/tapa-14.png" },
+  { nombre: "Los Evangelistas", nombreReal: "Tabla de Jamón y Queso", descripcion: "Jamón gran reserva de castaña y queso manchego extra de leche cruda, acompañado de piquitos, pan y nueces.", precio: 1550, slug: "los-evangelistas", categoria: "Raciones", imagen: "/images/menu/tapa-17.png" },
+  { nombre: "Racion Morente", nombreReal: "Ración de Jamón Gran Reserva de Castaña", descripcion: "Jamón gran reserva de castaña cortado a mano.", precio: 1550, slug: "racion-morente", categoria: "Raciones", imagen: "/images/menu/tapa-17.png" },
+  { nombre: "Racion Omega", nombreReal: "Ración de Queso Manchego Extra", descripcion: "Queso manchego extra de leche cruda.", precio: 1250, slug: "racion-omega", categoria: "Raciones", imagen: "/images/menu/tapa-17.png" },
+  { nombre: "Cerveza Strummer", nombreReal: "Copa de Cerveza", descripcion: "Cerveza de grifo.", precio: 290, slug: "cerveza-strummer", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
+  { nombre: "Tinto de Rock", nombreReal: "Tinto de Verano", descripcion: "Tinto de verano clásico.", precio: 280, slug: "tinto-de-rock", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
+  { nombre: "Vermú Rockero", nombreReal: "Vermut Casero", descripcion: "Vermut casero de la casa.", precio: 380, slug: "vermu-rockero", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
+  { nombre: "Mojito Punk", nombreReal: "Mojito Tradicional", descripcion: "Mojito clásico.", precio: 700, slug: "mojito-punk", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
+  { nombre: "Sangría Indie", nombreReal: "Sangría", descripcion: "Sangría de la casa.", precio: 450, slug: "sangria-indie", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
 ];
-
-// Orden exacto de tapas para /images/menu/tapa-N.svg
-const tapasOrden = [
-  "Inercia",
-  "Omega",
-  "Que Puedo Hacer",
-  "Pop",
-  "Keith Moon",
-  "Un Buen Dia",
-  "Lagartija",
-  "Joe Strummer",
-  "091",
-  "Los Evangelistas",
-  "Lux Interior",
-  "Sonic Youth",
-  "Patti Smith",
-  "Satisfaction",
-  "London Calling",
-];
-
-function normaliza(texto: string) {
-  return texto
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase();
-}
-
-// Devuelve /images/menu/tapa-N.svg buscando coincidencia por nombre/banda.
-// Si no encuentra, cicla por indice sobre tapa-1..15.
-function imagenTapa(nombre: string, banda: string, indice: number): string {
-  const candidato = `${normaliza(nombre)} ${normaliza(banda)}`;
-  const encontrado = tapasOrden.findIndex((t) =>
-    candidato.includes(normaliza(t))
-  );
-  const num = encontrado >= 0 ? encontrado + 1 : (indice % 15) + 1;
-  return `/images/menu/tapa-${num}.svg`;
-}
 
 export function MenuCategories() {
-  const [categoriaActiva, setCategoriaActiva] = useState("Tapas Clasicas");
+  const [categoriaActiva, setCategoriaActiva] = useState("Para Comer");
 
   const itemsFiltrados = items.filter(
     (item) => item.categoria === categoriaActiva
@@ -83,16 +61,15 @@ export function MenuCategories() {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {itemsFiltrados.map((item, indice) => (
+        {itemsFiltrados.map((item) => (
           <TapaCard
             key={item.slug}
             nombre={item.nombre}
-            banda={item.banda}
-            anio={item.anio}
+            nombreReal={item.nombreReal}
             descripcion={item.descripcion}
             precio={item.precio}
             slug={item.slug}
-            imagen={imagenTapa(item.nombre, item.banda, indice)}
+            imagen={item.imagen}
           />
         ))}
       </div>
