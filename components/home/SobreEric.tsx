@@ -8,7 +8,7 @@ export function SobreEric() {
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-dorado">
             Eric Jiménez
           </h2>
-          <div className="mt-3 w-24 h-1 bg-dorado rounded-full" />
+          <div className="mt-3 w-24 h-1 bg-ambar rounded-full" />
 
           <p className="mt-6 text-lg text-gris-light leading-relaxed">
             Batería de{" "}
@@ -21,13 +21,13 @@ export function SobreEric() {
 
           <p className="mt-4 text-lg text-gris-light leading-relaxed">
             Autor de los libros{" "}
-            <em className="text-dorado-dark">&quot;Cuatro millones de golpes&quot;</em>{" "}
+            <em className="text-ambar">&quot;Cuatro millones de golpes&quot;</em>{" "}
             y{" "}
-            <em className="text-dorado-dark">
+            <em className="text-ambar">
               &quot;Viaje al centro de mi cerebro&quot;
             </em>
             . Protagonista del documental{" "}
-            <em className="text-dorado-dark">
+            <em className="text-ambar">
               &quot;La importancia de llamarse Ernesto…&quot;
             </em>
             .
@@ -41,7 +41,7 @@ export function SobreEric() {
           <div className="mt-8">
             <Link
               href="/sobre-eric"
-              className="text-dorado hover:text-dorado-dark transition-colors font-semibold text-lg"
+              className="text-dorado hover:text-ambar transition-colors font-semibold text-lg"
             >
               Conocer más →
             </Link>

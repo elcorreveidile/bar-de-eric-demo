@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-negro-light border-t border-dorado/20">
+    <footer className="bg-negro-light border-t border-ambar/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contacto */}
           <div>
-            <h3 className="font-display text-lg text-dorado mb-4">Contacto</h3>
+            <h3 className="font-display text-lg text-ambar mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-gris-light">
               <li>Calle Escuelas 8, Centro</li>
               <li>18001 Granada</li>
@@ -25,7 +25,7 @@ export function Footer() {
 
           {/* Navegacion */}
           <div>
-            <h3 className="font-display text-lg text-dorado mb-4">
+            <h3 className="font-display text-lg text-ambar mb-4">
               Navegaci&oacute;n
             </h3>
             <ul className="space-y-2 text-sm text-gris-light">
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Redes Sociales */}
           <div>
-            <h3 className="font-display text-lg text-dorado mb-4">
+            <h3 className="font-display text-lg text-ambar mb-4">
               Redes Sociales
             </h3>
             <ul className="space-y-2 text-sm text-gris-light">

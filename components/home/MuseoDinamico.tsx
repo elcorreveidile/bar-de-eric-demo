@@ -16,7 +16,7 @@ export function MuseoDinamico() {
         <h2 className="font-display text-4xl sm:text-5xl font-bold text-dorado">
           El Museo del Rock
         </h2>
-        <div className="mt-3 mx-auto w-24 h-1 bg-dorado rounded-full" />
+        <div className="mt-3 mx-auto w-24 h-1 bg-ambar rounded-full" />
         <p className="mt-4 text-gris-light text-lg max-w-2xl mx-auto">
           Más de 170 fotografías históricas del rock nacional e internacional recorren las paredes del bar.
         </p>
@@ -35,7 +35,7 @@ export function MuseoDinamico() {
           >
             <div className="absolute inset-0 bg-gradient-to-t from-negro via-negro/40 to-transparent" />
             <div className="relative z-10 p-5 w-full">
-              <p className="text-sm text-dorado font-semibold">{photo.band}</p>
+              <p className="text-sm text-ambar font-semibold">{photo.band}</p>
               <h3 className="text-lg font-display font-semibold text-white mt-1">
                 {photo.title}
               </h3>

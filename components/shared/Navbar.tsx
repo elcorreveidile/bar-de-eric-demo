@@ -16,7 +16,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur-md border-b border-dorado/20">
+    <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur-md border-b border-ambar/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo — PLACEHOLDER: reemplazar por logo real en preproducción */}
         <Link href="/" className="flex items-center gap-2 group">
@@ -76,7 +76,7 @@ export function Navbar() {
         />
 
         {/* Panel */}
-        <div className="absolute right-0 top-0 h-full w-64 bg-negro-light border-l border-dorado/20 p-6">
+        <div className="absolute right-0 top-0 h-full w-64 bg-negro-light border-l border-ambar/20 p-6">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>

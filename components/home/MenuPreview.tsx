@@ -39,7 +39,7 @@ export function MenuPreview() {
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-dorado">
             Tapas con Nombre de Canción
           </h2>
-          <div className="mt-3 mx-auto w-24 h-1 bg-dorado rounded-full" />
+          <div className="mt-3 mx-auto w-24 h-1 bg-ambar rounded-full" />
           <p className="mt-4 text-gris-light text-lg max-w-2xl mx-auto">
             Cada plato es un homenaje a la música que suena entre estas paredes.
           </p>
@@ -49,7 +49,7 @@ export function MenuPreview() {
           {tapas.map((tapa) => (
             <div
               key={tapa.name}
-              className="bg-negro rounded-xl overflow-hidden border border-dorado/10 hover:border-dorado/30 transition-colors"
+              className="bg-negro rounded-xl overflow-hidden border border-ambar/15 hover:border-ambar/35 transition-colors"
             >
               <div
                 className="relative aspect-[16/9] bg-negro-light bg-blend-overlay"
@@ -66,11 +66,11 @@ export function MenuPreview() {
                 <h3 className="font-display text-xl font-bold text-white">
                   {tapa.name}
                 </h3>
-                <span className="text-dorado font-bold text-lg shrink-0 ml-2">
+                <span className="text-ambar font-bold text-lg shrink-0 ml-2">
                   {tapa.price}
                 </span>
               </div>
-              <p className="text-sm text-dorado-dark mt-1 italic">{tapa.band}</p>
+              <p className="text-sm text-ambar/70 mt-1 italic">{tapa.band}</p>
               <p className="text-gris-light mt-3">{tapa.description}</p>
               </div>
             </div>

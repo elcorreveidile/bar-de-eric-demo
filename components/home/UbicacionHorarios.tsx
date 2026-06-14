@@ -7,7 +7,7 @@ export function UbicacionHorarios() {
         <h2 className="font-display text-4xl sm:text-5xl font-bold text-dorado">
           Encuéntranos
         </h2>
-        <div className="mt-3 mx-auto w-24 h-1 bg-dorado rounded-full" />
+        <div className="mt-3 mx-auto w-24 h-1 bg-ambar rounded-full" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -61,7 +61,7 @@ export function UbicacionHorarios() {
                   <svg
                     key={star}
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-dorado"
+                    className="h-5 w-5 text-ambar"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -70,7 +70,7 @@ export function UbicacionHorarios() {
                 ))}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-dorado/40"
+                  className="h-5 w-5 text-ambar/40"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -87,7 +87,7 @@ export function UbicacionHorarios() {
               href="https://maps.google.com/?q=Calle+Escuelas+8+Granada"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-dorado text-dorado font-semibold hover:bg-dorado/10 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-ambar text-ambar font-semibold hover:bg-ambar/10 transition-colors"
             >
               Cómo llegar
             </a>

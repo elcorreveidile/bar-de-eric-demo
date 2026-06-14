@@ -34,14 +34,14 @@ export function EventosDestacados() {
         <h2 className="font-display text-4xl sm:text-5xl font-bold text-dorado">
           Próximos Eventos
         </h2>
-        <div className="mt-3 mx-auto w-24 h-1 bg-dorado rounded-full" />
+        <div className="mt-3 mx-auto w-24 h-1 bg-ambar rounded-full" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {eventos.map((evento) => (
           <div
             key={evento.title}
-            className="bg-negro-light rounded-xl overflow-hidden border border-dorado/10 hover:border-dorado/30 transition-colors"
+            className="bg-negro-light rounded-xl overflow-hidden border border-ambar/15 hover:border-ambar/35 transition-colors"
           >
             <div
               className="relative aspect-[16/9] bg-negro-light bg-blend-overlay"
@@ -63,7 +63,7 @@ export function EventosDestacados() {
                 </span>
               </div>
               <div>
-                <span className="text-xs font-semibold text-dorado uppercase tracking-wider">
+                <span className="text-xs font-semibold text-ambar uppercase tracking-wider">
                   {evento.type}
                 </span>
                 <h3 className="font-display text-lg font-bold text-white mt-1">
