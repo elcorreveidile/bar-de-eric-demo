@@ -31,8 +31,13 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-dorado leading-tight tracking-wide">
-          Donde la música se hace tapa
+        <h1>
+          <img
+            src="/images/logo/logo-horizontal.png"
+            alt="El Bar de Eric — Donde la música se hace tapa"
+            className="max-w-full h-auto mx-auto"
+            style={{ maxHeight: "clamp(80px, 12vw, 160px)" }}
+          />
         </h1>
 
         <p className="mt-6 text-xl sm:text-2xl text-gris-light font-body">
