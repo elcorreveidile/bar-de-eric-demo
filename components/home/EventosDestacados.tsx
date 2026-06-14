@@ -23,7 +23,7 @@ const eventos = [
     type: "Concierto especial",
     description:
       "Homenaje al maestro granadino con artistas invitados de la escena local.",
-    image: "/images/bar-real/pared-fotos-musicos.jpg",
+    image: "/images/eventos/concierto-rock.png",
   },
 ];
 

@@ -17,6 +17,9 @@ export default async function FotoDetallePage({
     2: "/images/museo/foto-2.png",
     3: "/images/museo/foto-3.png",
     4: "/images/museo/foto-4.png",
+    5: "/images/museo/foto-5.png",
+    6: "/images/museo/foto-6.png",
+    7: "/images/museo/foto-7.png",
   };
   const imagenUrl = fotosConImagen[fotoId] || `/images/museo/foto-${fotoId}.svg`;
 

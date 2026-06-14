@@ -40,16 +40,13 @@ export default function SobreEricPage() {
             <div
               className="relative aspect-[3/4] bg-negro-light rounded-xl overflow-hidden border border-gris/20"
               style={{
-                backgroundImage: "url('/images/equipo/eric.svg')",
+                backgroundImage: "url('/images/sobre-eric/eric-retrato.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-t from-negro/60 to-transparent" />
             </div>
-            <p className="text-gris-light text-xs mt-2 text-center italic">
-              Imagen de marcador: sustituir por una foto real de Eric.
-            </p>
           </div>
         </div>
 
