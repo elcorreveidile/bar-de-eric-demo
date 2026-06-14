@@ -25,7 +25,7 @@ export function HeroSection() {
           className="w-full h-full"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(232,49,63,0.1) 35px, rgba(232,49,63,0.1) 36px)",
+              "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(212,160,23,0.08) 35px, rgba(212,160,23,0.08) 36px)",
           }}
         />
       </div>
@@ -52,7 +52,7 @@ export function HeroSection() {
           </Link>
           <Link
             href="/menu"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-dorado text-dorado font-semibold text-lg hover:bg-dorado/10 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-ambar text-ambar font-semibold text-lg hover:bg-ambar/10 transition-colors"
           >
             Ver Menú
           </Link>
@@ -62,7 +62,7 @@ export function HeroSection() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-dorado/50"
+          className="h-6 w-6 text-ambar/50"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

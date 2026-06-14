@@ -16,7 +16,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur-md border-b border-dorado/20">
+    <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur-md border-b border-ambar/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo — PLACEHOLDER: reemplazar por logo real en preproducción */}
         <Link href="/" className="flex items-center gap-2 group">
@@ -76,13 +76,13 @@ export function Navbar() {
         />
 
         {/* Panel */}
-        <div className="absolute right-0 top-0 h-full w-64 bg-negro-light border-l border-dorado/20 p-6">
-          <ul className="flex flex-col gap-4">
+        <div className="absolute right-0 top-0 h-full w-72 bg-negro/95 backdrop-blur-lg border-l border-ambar/25 p-6">
+          <ul className="flex flex-col">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="border-b border-ambar/10 last:border-b-0">
                 <Link
                   href={link.href}
-                  className="block text-lg text-gris-light hover:text-dorado transition-colors"
+                  className="block py-4 text-lg text-gris-light hover:text-dorado transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -90,6 +90,15 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          <div className="mt-8 pt-6 border-t border-ambar/15">
+            <Link
+              href="/reservas"
+              className="block w-full text-center py-3 rounded-lg bg-dorado text-white font-semibold hover:bg-dorado-dark transition-colors"
+              onClick={() => setMobileOpen(false)}
+            >
+              Reservar mesa
+            </Link>
+          </div>
         </div>
       </div>
     </header>
