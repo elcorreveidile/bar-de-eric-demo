@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 interface CartItem {
   id: number;
@@ -99,12 +100,12 @@ export function CarritoContent() {
           <p className="text-gris-light/60 text-sm">
             Explora nuestro menú y añade platos para llevar.
           </p>
-          <a
+          <Link
             href="/menu"
             className="inline-block mt-6 px-6 py-2 bg-rojo text-dorado rounded-lg hover:bg-rojo/80 transition-colors"
           >
             Ver menú
-          </a>
+          </Link>
         </div>
       ) : (
         <>

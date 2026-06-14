@@ -10,7 +10,7 @@ import {
 async function seed() {
   console.log("Seeding database...");
 
-  const [tapas, especialidades, raciones, bebidas] = await db
+  const [tapas, especialidades, raciones] = await db
     .insert(menuCategories)
     .values([
       { nombre: "Tapas Clásicas", descripcion: "Las tapas de siempre con el toque del Bar de Eric", orden: 1 },

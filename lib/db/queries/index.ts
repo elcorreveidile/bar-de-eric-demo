@@ -8,7 +8,6 @@ import {
   mesas,
   reservas,
   pedidos,
-  pedidoItems,
 } from "../schema";
 
 export async function getMenuCategories() {

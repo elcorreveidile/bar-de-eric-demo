@@ -1,18 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function VerifyPage() {
+  return (
+    <Suspense fallback={<VerifyFallback />}>
+      <VerifyContent />
+    </Suspense>
+  );
+}
+
+function VerifyFallback() {
+  return (
+    <section className="min-h-[70vh] flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-negro-light border border-gris-light/20 rounded-xl p-8 text-center">
+        <div className="w-12 h-12 border-4 border-dorado/30 border-t-dorado rounded-full animate-spin mx-auto mb-6" />
+        <h1 className="font-display text-2xl font-bold text-dorado mb-2">
+          Verificando acceso...
+        </h1>
+      </div>
+    </section>
+  );
+}
+
+function VerifyContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
-  const [status, setStatus] = useState<"loading" | "success" | "error">("loading");
+  const [status, setStatus] = useState<"loading" | "success" | "error">(
+    token ? "loading" : "error"
+  );
 
   useEffect(() => {
-    if (!token) {
-      setStatus("error");
-      return;
-    }
+    if (!token) return;
 
     const timer = setTimeout(() => {
       setStatus("success");
