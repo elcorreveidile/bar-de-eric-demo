@@ -1,6 +1,38 @@
 # Prompts para Generar Imágenes — El Bar de Eric
 
+> ⚠️ **Todas las imágenes actuales de la web son placeholders temporales** (ver «Estado actual» abajo). Se reemplazarán por las fotos reales de Eric / del bar en preproducción, cuando tengamos su permiso.
+
 Este documento contiene los prompts para generar todas las imágenes de la web de **El Bar de Eric** (bar museo del rock + tapas musicales + eventos, Granada) con herramientas de IA (Midjourney, DALL·E 3, Stable Diffusion…), además de un listado de **fuentes reales de fotos de Eric Jiménez y sus bandas** disponibles en Internet.
+
+---
+
+## 🔴 Estado actual: PLACEHOLDERS (a reemplazar en preproducción)
+
+> **Toda la web usa imágenes _placeholder_ temporales.** Son ilustraciones **SVG** generadas automáticamente con la identidad visual del proyecto, ya colocadas en `public/images/` y cableadas en los componentes (como `background-image`). **Deben sustituirse por las fotos reales de Eric / del bar cuando tengamos su permiso, en preproducción** — esto aplica a TODA la web, no solo a una sección.
+>
+> - **Generador:** `scripts/generate-placeholders.mjs` → `node scripts/generate-placeholders.mjs`
+> - **Aviso y guía de reemplazo:** `public/images/README.md`
+> - Cada SVG incluye el comentario interno `<!-- PLACEHOLDER: reemplazar por imagen real… -->` y cada componente que las usa lleva `{/* PLACEHOLDER: reemplazar por imagen real en preproducción */}`.
+> - Los **prompts** de este documento sirven para generar las **versiones definitivas** (con IA o como guion de la sesión de fotos real).
+
+### 🗂️ Inventario de placeholders generados (58 archivos)
+
+| Sección del documento | Placeholder(s) en `public/images/` | Cantidad | Estado |
+| --- | --- | :---: | --- |
+| 1. Logo | `logo/logo-horizontal.svg`, `logo/logo-square.svg`, `app/icon.svg` (favicon) | 3 | 🟡 placeholder |
+| 2. Hero | `fondos/hero-collage.svg` | 1 | 🟡 placeholder |
+| 3. Museo | `museo/foto-1.svg` … `museo/foto-20.svg` | 20 | 🟡 placeholder |
+| 4. Tapas | `menu/tapa-1.svg` … `menu/tapa-15.svg` (orden = catálogo) | 15 | 🟡 placeholder |
+| 5. Eventos | `eventos/{concierto,exposicion,guia-rockera,taller}.svg` | 4 | 🟡 placeholder |
+| 6. Sobre Eric | `equipo/eric.svg` | 1 | 🟡 placeholder |
+| 7. Ubicación | `ubicacion/fachada.svg` | 1 | 🟡 placeholder |
+| 8. Iconos UI | `iconos/{museo,menu,programacion,guia,reservas,pedidos}.svg` | 6 | 🟡 placeholder |
+| 9. Open Graph | `og/og-image.svg` | 1 | 🟡 placeholder |
+| 10. Fondos | `fondos/{textura-global,patron-vinilos,madera-menu,cartel-eventos,neon-reservas,dashboard-textura,divisor}.svg` | 7 | 🟡 placeholder |
+
+**Mapa tapa → nombre** (para reemplazo directo): 1 Inercia · 2 Omega · 3 Qué Puedo Hacer · 4 Pop · 5 Keith Moon · 6 Un Buen Día · 7 Lagartija · 8 Joe Strummer · 9 091 · 10 Los Evangelistas · 11 Lux Interior · 12 Sonic Youth · 13 Patti Smith · 14 Satisfaction · 15 London Calling.
+
+> **Para reemplazar:** sustituir el archivo manteniendo el **mismo nombre y ruta** (idealmente exportando la foto real a `.svg`/`.jpg`/`.webp` con ese nombre, o actualizando la referencia en el componente y en `lib/db/seed.ts`).
 
 ---
 
@@ -256,24 +288,28 @@ Dark, subtle, seamless background texture for a rock music bar-museum website.
 
 8. **Fondo del Dashboard admin** — `Very subtle dark texture: faint diagonal carbon-fiber / brushed-metal pattern in near-black tones (#1a1a1a / #2a2a2a), minimal, professional. Tileable, 2048x2048px.`
 
-> **Nota de implementación:** en la web actual los fondos son colores sólidos (`bg-negro`, `bg-negro-light`) y gradientes CSS. Estas texturas son **opcionales** y deben colocarse en `public/images/fondos/` y referenciarse con `next/image` o `background-image`, siempre con un overlay oscuro encima para mantener el contraste AA del texto.
+> **Nota de implementación:** ya hay versiones **placeholder** de estos fondos en `public/images/fondos/`, y algunos están cableados (textura global en `body`, collage en el hero) vía `background-image` con overlay oscuro para mantener el contraste AA del texto. Sustituir por las texturas/fotos definitivas en preproducción.
 
 ---
 
 ## 📋 Checklist de Imágenes
 
-- [ ] Logo horizontal + favicon cuadrado
-- [ ] Hero home (1920×1080)
-- [ ] 12 fotos de museo (3 por categoría × 4 categorías)
-- [ ] 15 fotos de tapas
-- [ ] 4 banners de eventos
-- [ ] Retrato de Eric (real o placeholder)
-- [ ] Fachada / ubicación
-- [ ] 6 iconos de UI
-- [ ] Open Graph
-- [ ] 8 fondos / texturas de fondo
+Leyenda: ✅ placeholder generado y cableado · 🔴 pendiente foto real (preproducción)
 
-**Total aproximado: ~49 imágenes**
+| Imagen | Placeholder | Foto real |
+| --- | :---: | :---: |
+| Logo horizontal + favicon cuadrado | ✅ | 🔴 |
+| Hero home | ✅ | 🔴 |
+| 20 fotos de museo | ✅ | 🔴 |
+| 15 fotos de tapas | ✅ | 🔴 |
+| 4 banners de eventos | ✅ | 🔴 |
+| Retrato de Eric | ✅ | 🔴 |
+| Fachada / ubicación | ✅ | 🔴 |
+| 6 iconos de UI | ✅ | 🔴 |
+| Open Graph | ✅ | 🔴 |
+| 7 fondos / texturas | ✅ | 🔴 |
+
+**Total: 58 placeholders generados** · **0 fotos reales** (pendientes de la sesión / archivo de Eric en preproducción).
 
 ---
 
