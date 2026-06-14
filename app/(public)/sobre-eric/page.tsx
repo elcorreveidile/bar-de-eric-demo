@@ -6,27 +6,57 @@ export const metadata = {
 const bandas = [
   {
     nombre: "KGB",
-    periodo: "1982-1988",
+    periodo: "1982-1985",
     descripcion:
-      "La primera banda de Eric. Punk y rock alternativo en la Granada de los 80. Una de las formaciones pioneras de la escena granadina.",
+      "La primera banda de Eric. Punk crudo en la Granada de los 80, con Paco Cara, José Ángel Ruiz y Maroto. Publicaron el single Treblinka/Luftwaffe (DRO, 1983) y participaron en la mítica compilación Punk Qué? Punk.",
   },
   {
     nombre: "Lagartija Nick",
     periodo: "1985-presente",
     descripcion:
-      "La banda que cambio el rock espanol. Con discos como Inercia y la colaboracion historica con Enrique Morente en Omega, Lagartija Nick llevo el rock granadino al mundo.",
+      "La banda que cambió el rock español. Discos fundamentales como Inercia (1992), Su (1995) y la colaboración histórica con Enrique Morente en Omega (1996), que fusionó flamenco y rock y transformó la música española para siempre.",
   },
   {
     nombre: "Los Planetas",
-    periodo: "1993-presente",
+    periodo: "1998-presente",
     descripcion:
-      "Eric se une como bateria a Los Planetas, la banda que definio el indie espanol. Juntos crearon algunos de los discos mas importantes del rock en castellano.",
+      "Eric se incorpora como batería en el tercer disco, Una semana en el motor de un autobús, y se convierte en miembro permanente de la banda que definió el indie español.",
+  },
+  {
+    nombre: "Napoleón Solo",
+    periodo: "2009-presente",
+    descripcion:
+      "Proyecto con Alonso Díaz, Jaime Cordones y José Ubago. Publicaron el EP Será maravilloso (2009) y el álbum Napoleón Solo en la ópera (2010).",
   },
   {
     nombre: "Los Evangelistas",
     periodo: "2007-presente",
     descripcion:
       "Proyecto paralelo donde Eric explora nuevos territorios sonoros sin abandonar la esencia del rock granadino.",
+  },
+];
+
+const testimonios = [
+  {
+    texto:
+      "Mi experiencia como cliente en el bar de Eric fue muy grata. Nos atendió Eric personalmente y demostró ser un anfitrión súper correcto, profesional, amable y atento al cliente. Nunca antes había tenido una experiencia en la hostelería como cliente de un profesional de la industria musical y me gustó mucho por mostrarme a una persona que además de ser un excelente batería, se esfuerza por tener un bar original abierto en su ciudad, en ser buen anfitrión y en dar lo mejor que puede a sus clientes.",
+    titulo: "Servicio amable, correcto y experiencia entrañable e inspiradora",
+    fecha: "Mayo 2021",
+    estrellas: 5,
+  },
+  {
+    texto:
+      "Es una experiencia inolvidable que un músico como Eric esté sirviéndote unas cañas con esa simpatía que siempre le ha caracterizado. El lugar es muy original y acogedor. Es un pequeño templo que sirve como homenaje a la música, en la que destacan las paredes llenas de fotos de cantantes y artistas, todo ello, con una banda sonora de sonido ambiente en el que predomina el rock.",
+    titulo: "Ideal para sumergirte en un mundo underground",
+    fecha: "Mayo 2022",
+    estrellas: 5,
+  },
+  {
+    texto:
+      "Es un bar-bistró un poco lejos del centro, llegando a la zona de las facultades, sin embargo a mí me parece que merece la pena pegarse el paseíto para ir a tomar unas cañas y si hay hambre alguna tapa. El bar está muy bien decorado, con numerosos detalles de grupos de música, en especial de Los Planetas, desde entradas, instrumentos, fotos, ropa... Si eres fan es parada obligatoria.",
+    titulo: "Para los Fans de la música indie",
+    fecha: "",
+    estrellas: 4,
   },
 ];
 
@@ -53,26 +83,49 @@ export default function SobreEricPage() {
         <div className="md:col-span-2 space-y-8">
           <div>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-dorado mb-4">
-              Eric Jimenez
+              Eric Jiménez
             </h1>
+            <p className="text-ambar/80 text-sm italic mb-4">
+              Ernesto &ldquo;Eric&rdquo; Jiménez Linares &middot; Granada, 1967
+            </p>
             <p className="text-gris-light text-lg leading-relaxed">
-              Bateria, escritor, documentalista y hostelero. Eric Jimenez es
-              una de las figuras fundamentales del rock espanol. Desde sus
-              inicios con KGB en 1982 hasta la apertura de su bar-museo en
-              2013, su vida ha estado marcada por la musica, la cultura y
-              Granada.
+              Batería, escritor, hostelero y una de las figuras fundamentales
+              del rock español. Desde sus inicios con KGB en 1982 hasta la
+              apertura de su bar-museo en 2013, su vida ha estado marcada por
+              la música, la cultura y Granada. Durante más de veinte años
+              consecutivos fue reconocido como el mejor batería alternativo de
+              España.
             </p>
           </div>
 
-          <div>
+          <div className="space-y-4">
             <p className="text-gris-light leading-relaxed">
-              Nacido en Granada, Eric comenzo su carrera musical a principios
-              de los 80 con KGB. Pronto se unio a Lagartija Nick, donde
-              participo en la creacion de Omega junto a Enrique Morente, un
-              disco que fusiono flamenco y rock y cambio la musica espanola.
-              Como bateria de Los Planetas, contribuyo a definir el sonido
-              del indie espanol. Durante mas de 20 anos fue reconocido como
-              el mejor bateria de Espana.
+              Eric empezó a tocar la batería de forma autodidacta en 1982 con
+              KGB, banda punk pionera de la Granada de los 80. Poco después
+              cofundó Lagartija Nick, donde participó en la creación de discos
+              fundamentales como <span className="text-white italic">Inercia</span> (1992)
+              y <span className="text-white italic">Su</span> (1995). En 1996 llegó el
+              hito que cambió la música española: <span className="text-white italic">Omega</span>,
+              la colaboración histórica con Enrique Morente que fusionó flamenco
+              y rock de una forma que nadie había imaginado.
+            </p>
+            <p className="text-gris-light leading-relaxed">
+              En 1998 se incorporó como batería permanente a Los Planetas,
+              la banda que definió el indie español, comenzando con su tercer
+              álbum <span className="text-white italic">Una semana en el motor de un
+              autobús</span>. También ha formado parte de Napoleón Solo y Los
+              Evangelistas, y en el año 2000 fundó una academia de batería y
+              percusión en Granada.
+            </p>
+            <p className="text-gris-light leading-relaxed">
+              En 2013, Eric y David Ramírez abrieron El Bar de Eric en la
+              Calle Escuelas 8, junto a la Facultad de Derecho. Un &ldquo;Hard
+              Rock Café casero&rdquo; con alma de museo: 170 fotografías que
+              recorren la historia de la música en España, objetos fetiche como
+              la chupa de cuero de Ana Curra, recuerdos del paso de Joe Strummer
+              por Granada, memorabilia de 091, Lori Meyers, Enrique Morente...
+              Un punto de encuentro donde se fusionan las tapas mediterráneas
+              con la historia musical de la ciudad.
             </p>
           </div>
         </div>
@@ -109,10 +162,13 @@ export default function SobreEricPage() {
             <h3 className="font-display text-lg font-semibold text-white">
               Cuatro millones de golpes
             </h3>
+            <p className="text-ambar/70 text-xs mt-1">Plaza &amp; Janés, 2017 &middot; con Holden Centeno</p>
             <p className="text-gris-light text-sm mt-2 leading-relaxed">
-              Memorias de un bateria que ha vivido la historia del rock
-              espanol desde dentro. Un relato en primera persona de cuatro
-              decadas de musica.
+              La insólita y emocionante historia del batería de Lagartija Nick
+              y Los Planetas. Las memorias de un hombre que ha vivido al filo
+              entre ganar y perder, entre la vida y la muerte, entre la música
+              y la locura. Elegido mejor libro nacional de música del año por
+              la revista Mondo Sonoro.
             </p>
           </div>
           <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
@@ -120,7 +176,7 @@ export default function SobreEricPage() {
               Viaje al centro de mi cerebro
             </h3>
             <p className="text-gris-light text-sm mt-2 leading-relaxed">
-              Un viaje introspectivo a traves de la musica, la creatividad y
+              Un viaje introspectivo a través de la música, la creatividad y
               la vida de un artista que nunca ha dejado de explorar.
             </p>
           </div>
@@ -133,37 +189,130 @@ export default function SobreEricPage() {
         </h2>
         <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
           <h3 className="font-display text-lg font-semibold text-white">
-            La importancia de llamarse Ernesto...
+            La importancia de llamarse Ernesto y la gilipollez de llamarse Eric
           </h3>
+          <p className="text-ambar/70 text-xs mt-1">Dir. César Martínez Herrada &middot; Movistar+, 2023 &middot; 1h 35min</p>
           <p className="text-gris-light text-sm mt-2 leading-relaxed">
-            Documental que recorre la vida y carrera de Eric Jimenez, desde
-            los escenarios hasta detras de la barra de su bar. Una pelicula
-            sobre musica, amistad y la Granada que suena a rock.
+            Documental que mezcla emoción y humor negro al ritmo de la
+            batería. Cuarenta años tocando con la misma fuerza con la que la
+            vida le ha golpeado. Premio del público en el Festival Dock of
+            the Bay de San Sebastián de cine documental musical.
           </p>
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <h2 className="font-display text-2xl font-bold text-dorado mb-6">
+          Premios y Reconocimientos
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 w-16 h-16 rounded-full bg-dorado/10 flex items-center justify-center border border-dorado/30">
+                <span className="font-display text-2xl font-bold text-dorado">
+                  20
+                </span>
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-semibold text-white">
+                  Mejor Batería Alternativo
+                </h3>
+                <p className="text-gris-light text-sm mt-1">
+                  Veinte años consecutivos reconocido como el mejor batería
+                  alternativo de España.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 w-16 h-16 rounded-full bg-dorado/10 flex items-center justify-center border border-dorado/30">
+                <svg className="w-8 h-8 text-dorado" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-4.5A3.375 3.375 0 0019.875 10.875 3.375 3.375 0 0016.5 7.5h-9a3.375 3.375 0 00-3.375 3.375A3.375 3.375 0 007.5 14.25v4.5" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-semibold text-white">
+                  Medalla de Plata al Mérito
+                </h3>
+                <p className="text-gris-light text-sm mt-1">
+                  Concedida por el Ayuntamiento de Granada en 2014 por su
+                  trayectoria como figura clave del rock.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 w-16 h-16 rounded-full bg-dorado/10 flex items-center justify-center border border-dorado/30">
+                <svg className="w-8 h-8 text-dorado" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-semibold text-white">
+                  Premio Latino de Oro 2021
+                </h3>
+                <p className="text-gris-light text-sm mt-1">
+                  Mejor batería de grupos latinos de rock e indie.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 w-16 h-16 rounded-full bg-dorado/10 flex items-center justify-center border border-dorado/30">
+                <svg className="w-8 h-8 text-dorado" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-display text-lg font-semibold text-white">
+                  Mejor Libro de Música 2017
+                </h3>
+                <p className="text-gris-light text-sm mt-1">
+                  Cuatro millones de golpes, elegido por la revista Mondo
+                  Sonoro.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section>
         <h2 className="font-display text-2xl font-bold text-dorado mb-6">
-          Premios y Reconocimientos
+          Lo que dicen nuestros visitantes
         </h2>
-        <div className="bg-negro-light rounded-lg p-5 border border-gris/20">
-          <div className="flex items-center gap-4">
-            <div className="shrink-0 w-16 h-16 rounded-full bg-dorado/10 flex items-center justify-center border border-dorado/30">
-              <span className="font-display text-2xl font-bold text-dorado">
-                20
-              </span>
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-semibold text-white">
-                20 anos Premio Mejor Bateria espanol
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {testimonios.map((t) => (
+            <div
+              key={t.titulo}
+              className="bg-negro-light rounded-lg p-5 border border-gris/20"
+            >
+              <div className="flex gap-0.5 mb-3">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <svg
+                    key={i}
+                    className={`w-4 h-4 ${i < t.estrellas ? "text-green-500" : "text-gris/40"}`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <circle cx="10" cy="10" r="8" />
+                  </svg>
+                ))}
+              </div>
+              <h3 className="font-display text-sm font-semibold text-white mb-2">
+                {t.titulo}
               </h3>
-              <p className="text-gris-light text-sm mt-1">
-                Reconocido durante dos decadas consecutivas como el mejor
-                bateria de Espana por la critica y el publico.
+              {t.fecha && (
+                <p className="text-ambar/60 text-xs mb-3">{t.fecha}</p>
+              )}
+              <p className="text-gris-light text-sm leading-relaxed line-clamp-5">
+                {t.texto}
               </p>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
