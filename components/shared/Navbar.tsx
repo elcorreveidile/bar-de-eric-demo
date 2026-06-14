@@ -67,18 +67,18 @@ export function Navbar() {
       >
         {/* Overlay */}
         <div
-          className="absolute inset-0 bg-black/60"
+          className="absolute inset-0 bg-black/80"
           onClick={() => setMobileOpen(false)}
         />
 
         {/* Panel */}
-        <div className="absolute right-0 top-0 h-full w-72 bg-negro border-l border-ambar/25 p-6">
+        <div className="absolute right-0 top-0 h-full w-72 bg-[#2a0a0d] border-l-2 border-dorado p-6">
           <ul className="flex flex-col">
             {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-ambar/10 last:border-b-0">
+              <li key={link.href} className="border-b border-dorado/15 last:border-b-0">
                 <Link
                   href={link.href}
-                  className="block py-4 text-lg text-gris-light hover:text-dorado transition-colors"
+                  className="block py-4 text-lg text-white font-medium hover:text-ambar transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -86,7 +86,7 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 pt-6 border-t border-ambar/15">
+          <div className="mt-8 pt-6 border-t border-dorado/20">
             <Link
               href="/reservas"
               className="block w-full text-center py-3 rounded-lg bg-dorado text-white font-semibold hover:bg-dorado-dark transition-colors"
