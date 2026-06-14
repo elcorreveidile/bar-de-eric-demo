@@ -10,14 +10,14 @@ const fotos = [
   { id: "2", titulo: "Lagartija Nick en directo", banda: "Lagartija Nick", anio: 1995, categoria: "Conciertos", imagen: "/images/museo/foto-2.png" },
   { id: "3", titulo: "Grabacion de Omega", banda: "Lagartija Nick", anio: 1996, categoria: "Estudio", imagen: "/images/museo/foto-3.png" },
   { id: "4", titulo: "Los Planetas en Planta Baja", banda: "Los Planetas", anio: 1998, categoria: "Conciertos", imagen: "/images/museo/foto-4.png" },
-  { id: "5", titulo: "Enrique Morente retrato", banda: "Enrique Morente", anio: 2005, categoria: "Personajes", imagen: "/images/museo/foto-5.svg" },
-  { id: "6", titulo: "KGB primer concierto", banda: "KGB", anio: 1982, categoria: "Conciertos", imagen: "/images/museo/foto-6.svg" },
-  { id: "7", titulo: "Guitarra firmada por J", banda: "Los Planetas", anio: 2010, categoria: "Mementos", imagen: "/images/museo/foto-7.svg" },
+  { id: "5", titulo: "Enrique Morente retrato", banda: "Enrique Morente", anio: 2005, categoria: "Personajes", imagen: "/images/museo/foto-5.png" },
+  { id: "6", titulo: "KGB primer concierto", banda: "KGB", anio: 1982, categoria: "Conciertos", imagen: "/images/museo/foto-6.png" },
+  { id: "7", titulo: "Guitarra firmada por J", banda: "Los Planetas", anio: 2010, categoria: "Mementos", imagen: "/images/museo/foto-7.png" },
   { id: "8", titulo: "Eric en el estudio", banda: "Los Evangelistas", anio: 2007, categoria: "Estudio", imagen: "/images/museo/foto-8.svg" },
-  { id: "9", titulo: "Cartel Omega Tour", banda: "Lagartija Nick", anio: 1997, categoria: "Mementos", imagen: "/images/museo/foto-9.svg" },
-  { id: "10", titulo: "091 despedida", banda: "091", anio: 1996, categoria: "Conciertos", imagen: "/images/museo/foto-10.svg" },
-  { id: "11", titulo: "Apertura Bar de Eric", banda: "Varios", anio: 2013, categoria: "Personajes", imagen: "/images/museo/foto-11.svg" },
-  { id: "12", titulo: "Baquetas de Eric", banda: "Los Planetas", anio: 2015, categoria: "Mementos", imagen: "/images/museo/foto-12.svg" },
+  { id: "9", titulo: "Cartel Omega Tour", banda: "Lagartija Nick", anio: 1997, categoria: "Mementos", imagen: "/images/museo/foto-9.png" },
+  { id: "10", titulo: "091 despedida", banda: "091", anio: 1996, categoria: "Conciertos", imagen: "/images/museo/foto-10.png" },
+  { id: "11", titulo: "Apertura Bar de Eric", banda: "Varios", anio: 2013, categoria: "Personajes", imagen: "/images/museo/foto-11.png" },
+  { id: "12", titulo: "Baquetas de Eric", banda: "Los Planetas", anio: 2015, categoria: "Mementos", imagen: "/images/museo/foto-12.png" },
 ];
 
 export function GaleriaFotos() {
