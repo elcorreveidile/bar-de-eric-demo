@@ -27,6 +27,11 @@ const platos: Record<string, { nombre: string; nombreReal: string; descripcion: 
   "los-evangelistas": { nombre: "Los Evangelistas", nombreReal: "Tabla de Jamón y Queso", descripcion: "Jamón gran reserva de castaña y queso manchego extra de leche cruda, acompañado de piquitos, pan y nueces.", precio: 1550, imagen: "/images/menu/tapa-17.png" },
   "racion-morente": { nombre: "Ración Morente", nombreReal: "Ración de Jamón Gran Reserva de Castaña", descripcion: "Jamón gran reserva de castaña cortado a mano.", precio: 1550, imagen: "/images/menu/tapa-18.png" },
   "racion-omega": { nombre: "Ración Omega", nombreReal: "Ración de Queso Manchego Extra", descripcion: "Queso manchego extra de leche cruda.", precio: 1250, imagen: "/images/menu/tapa-19.png" },
+  "cerveza-strummer": { nombre: "Cerveza Strummer", nombreReal: "Copa de Cerveza", descripcion: "Cerveza de grifo.", precio: 290, imagen: "/images/menu/bebida-cerveza.png" },
+  "tinto-de-rock": { nombre: "Tinto de Rock", nombreReal: "Tinto de Verano", descripcion: "Tinto de verano clásico.", precio: 280, imagen: "/images/menu/bebida-tinto.png" },
+  "vermu-rockero": { nombre: "Vermú Rockero", nombreReal: "Vermut Casero", descripcion: "Vermut casero de la casa.", precio: 380, imagen: "/images/menu/bebida-vermu.png" },
+  "mojito-punk": { nombre: "Mojito Punk", nombreReal: "Mojito Tradicional", descripcion: "Mojito clásico.", precio: 700, imagen: "/images/menu/bebida-mojito.png" },
+  "sangria-indie": { nombre: "Sangría Indie", nombreReal: "Sangría", descripcion: "Sangría de la casa.", precio: 450, imagen: "/images/menu/bebida-sangria.png" },
 };
 
 export default async function MenuItemPage({

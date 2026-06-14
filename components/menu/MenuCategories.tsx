@@ -28,11 +28,11 @@ const items = [
   { nombre: "Los Evangelistas", nombreReal: "Tabla de Jamón y Queso", descripcion: "Jamón gran reserva de castaña y queso manchego extra de leche cruda, acompañado de piquitos, pan y nueces.", precio: 1550, slug: "los-evangelistas", categoria: "Raciones", imagen: "/images/menu/tapa-17.png" },
   { nombre: "Racion Morente", nombreReal: "Ración de Jamón Gran Reserva de Castaña", descripcion: "Jamón gran reserva de castaña cortado a mano.", precio: 1550, slug: "racion-morente", categoria: "Raciones", imagen: "/images/menu/tapa-18.png" },
   { nombre: "Racion Omega", nombreReal: "Ración de Queso Manchego Extra", descripcion: "Queso manchego extra de leche cruda.", precio: 1250, slug: "racion-omega", categoria: "Raciones", imagen: "/images/menu/tapa-19.png" },
-  { nombre: "Cerveza Strummer", nombreReal: "Copa de Cerveza", descripcion: "Cerveza de grifo.", precio: 290, slug: "cerveza-strummer", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
-  { nombre: "Tinto de Rock", nombreReal: "Tinto de Verano", descripcion: "Tinto de verano clásico.", precio: 280, slug: "tinto-de-rock", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
-  { nombre: "Vermú Rockero", nombreReal: "Vermut Casero", descripcion: "Vermut casero de la casa.", precio: 380, slug: "vermu-rockero", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
-  { nombre: "Mojito Punk", nombreReal: "Mojito Tradicional", descripcion: "Mojito clásico.", precio: 700, slug: "mojito-punk", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
-  { nombre: "Sangría Indie", nombreReal: "Sangría", descripcion: "Sangría de la casa.", precio: 450, slug: "sangria-indie", categoria: "Para Beber", imagen: "/images/menu/tapa-1.svg" },
+  { nombre: "Cerveza Strummer", nombreReal: "Copa de Cerveza", descripcion: "Cerveza de grifo.", precio: 290, slug: "cerveza-strummer", categoria: "Para Beber", imagen: "/images/menu/bebida-cerveza.png" },
+  { nombre: "Tinto de Rock", nombreReal: "Tinto de Verano", descripcion: "Tinto de verano clásico.", precio: 280, slug: "tinto-de-rock", categoria: "Para Beber", imagen: "/images/menu/bebida-tinto.png" },
+  { nombre: "Vermú Rockero", nombreReal: "Vermut Casero", descripcion: "Vermut casero de la casa.", precio: 380, slug: "vermu-rockero", categoria: "Para Beber", imagen: "/images/menu/bebida-vermu.png" },
+  { nombre: "Mojito Punk", nombreReal: "Mojito Tradicional", descripcion: "Mojito clásico.", precio: 700, slug: "mojito-punk", categoria: "Para Beber", imagen: "/images/menu/bebida-mojito.png" },
+  { nombre: "Sangría Indie", nombreReal: "Sangría", descripcion: "Sangría de la casa.", precio: 450, slug: "sangria-indie", categoria: "Para Beber", imagen: "/images/menu/bebida-sangria.png" },
 ];
 
 export function MenuCategories() {
