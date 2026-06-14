@@ -62,6 +62,11 @@ const testimonios = [
 
 export default function SobreEricPage() {
   return (
+    <div
+      className="min-h-screen bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: "url('/images/fondos/background-eric.png')" }}
+    >
+    <div className="bg-negro/85 min-h-screen">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid md:grid-cols-3 gap-10 mb-16">
         <div className="md:col-span-1">
@@ -315,6 +320,8 @@ export default function SobreEricPage() {
           ))}
         </div>
       </section>
+    </div>
+    </div>
     </div>
   );
 }
