@@ -25,8 +25,8 @@ const platos: Record<string, { nombre: string; nombreReal: string; descripcion: 
   "encuentros": { nombre: "Encuentros", nombreReal: "Rosca de Salmón Ahumado", descripcion: "Rosca crujiente prensada al grill con queso crema, eneldo y cebolla crujiente.", precio: 1250, imagen: "/images/menu/tapa-15.png" },
   "rosca-vegana": { nombre: "Rosca Vegana", nombreReal: "Rosca Vegana (cara A)", descripcion: "Rosca crujiente prensada al grill con hummus, champiñones salteados y aceitunas negras.", precio: 1250, imagen: "/images/menu/tapa-14.png" },
   "los-evangelistas": { nombre: "Los Evangelistas", nombreReal: "Tabla de Jamón y Queso", descripcion: "Jamón gran reserva de castaña y queso manchego extra de leche cruda, acompañado de piquitos, pan y nueces.", precio: 1550, imagen: "/images/menu/tapa-17.png" },
-  "racion-morente": { nombre: "Ración Morente", nombreReal: "Ración de Jamón Gran Reserva de Castaña", descripcion: "Jamón gran reserva de castaña cortado a mano.", precio: 1550, imagen: "/images/menu/tapa-17.png" },
-  "racion-omega": { nombre: "Ración Omega", nombreReal: "Ración de Queso Manchego Extra", descripcion: "Queso manchego extra de leche cruda.", precio: 1250, imagen: "/images/menu/tapa-17.png" },
+  "racion-morente": { nombre: "Ración Morente", nombreReal: "Ración de Jamón Gran Reserva de Castaña", descripcion: "Jamón gran reserva de castaña cortado a mano.", precio: 1550, imagen: "/images/menu/tapa-18.png" },
+  "racion-omega": { nombre: "Ración Omega", nombreReal: "Ración de Queso Manchego Extra", descripcion: "Queso manchego extra de leche cruda.", precio: 1250, imagen: "/images/menu/tapa-19.png" },
 };
 
 export default async function MenuItemPage({
