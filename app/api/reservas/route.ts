@@ -1,24 +1,38 @@
 import { NextResponse } from "next/server";
-import { reservaSchema } from "@/lib/validators";
+import { db } from "@/lib/db/client";
+import { reservas } from "@/lib/db/schema";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const validated = reservaSchema.parse(body);
+    const { nombre, email, telefono, fecha, hora, comensales, observaciones } =
+      await request.json();
 
-    return NextResponse.json({
-      success: true,
-      reserva: { id: 1, ...validated },
-    });
-  } catch (error) {
-    if (error instanceof Error && error.name === "ZodError") {
+    if (!nombre || !email || !fecha || !hora) {
       return NextResponse.json(
-        { success: false, error: "Datos inválidos", details: error },
+        { success: false, error: "Nombre, email, fecha y hora son obligatorios" },
         { status: 400 }
       );
     }
+
+    const [reserva] = await db
+      .insert(reservas)
+      .values({
+        nombre,
+        email,
+        telefono: telefono || null,
+        fecha,
+        hora,
+        comensales: comensales || 2,
+        observaciones: observaciones || null,
+        estado: "pendiente",
+      })
+      .returning();
+
+    return NextResponse.json({ success: true, reserva });
+  } catch (err) {
+    console.error("[api/reservas] Error:", err);
     return NextResponse.json(
-      { success: false, error: "Error interno del servidor" },
+      { success: false, error: "Error al crear la reserva" },
       { status: 500 }
     );
   }

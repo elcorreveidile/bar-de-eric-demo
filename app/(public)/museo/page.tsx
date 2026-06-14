@@ -1,11 +1,18 @@
 import Link from "next/link";
+import { db } from "@/lib/db/client";
+import { galeriaFotos } from "@/lib/db/schema";
+import { asc } from "drizzle-orm";
 import { GaleriaFotos } from "@/components/museo/GaleriaFotos";
 
 export const metadata = {
   title: "Museo del Rock",
 };
 
-export default function MuseoPage() {
+export const dynamic = "force-dynamic";
+
+export default async function MuseoPage() {
+  const fotos = await db.select().from(galeriaFotos).orderBy(asc(galeriaFotos.orden));
+
   return (
     <div
       className="min-h-screen bg-fixed bg-cover bg-center"
@@ -25,7 +32,7 @@ export default function MuseoPage() {
         </p>
       </div>
 
-      <GaleriaFotos />
+      <GaleriaFotos fotos={fotos} />
 
       <div className="mt-16 text-center">
         <Link
