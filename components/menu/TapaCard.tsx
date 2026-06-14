@@ -2,8 +2,7 @@ import Link from "next/link";
 
 interface TapaCardProps {
   nombre: string;
-  banda: string;
-  anio: number;
+  nombreReal?: string;
   descripcion: string;
   precio: number;
   slug: string;
@@ -12,8 +11,7 @@ interface TapaCardProps {
 
 export function TapaCard({
   nombre,
-  banda,
-  anio,
+  nombreReal,
   descripcion,
   precio,
   slug,
@@ -42,9 +40,11 @@ export function TapaCard({
         <h3 className="font-display text-lg font-semibold text-white group-hover:text-dorado transition-colors">
           {nombre}
         </h3>
-        <p className="text-gris-light text-sm mt-1">
-          ({banda}, {anio})
-        </p>
+        {nombreReal && (
+          <p className="text-ambar/80 text-sm mt-0.5 italic">
+            {nombreReal}
+          </p>
+        )}
         <p className="text-gris-light text-sm mt-3 line-clamp-2 flex-1">
           {descripcion}
         </p>
