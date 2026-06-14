@@ -8,6 +8,15 @@ import { UbicacionHorarios } from "@/components/home/UbicacionHorarios";
 export default function Home() {
   return (
     <>
+      <div
+        className="fixed inset-0 -z-10 hero-bg"
+        style={{
+          backgroundImage: "url('/images/bar-real/neon-fachada.jpg')",
+          backgroundSize: "cover",
+          transform: "scaleX(-1)",
+        }}
+      />
+      <div className="fixed inset-0 -z-10 bg-negro/60" />
       <HeroSection />
       <MuseoDinamico />
       <MenuPreview />
