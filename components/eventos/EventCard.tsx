@@ -16,7 +16,7 @@ function bannerPorTipo(tipo: string): string {
   if (t.includes("guia") || t.includes("guía") || t.includes("rocker"))
     return "/images/eventos/guia-rockera.svg";
   if (t.includes("taller")) return "/images/eventos/taller.svg";
-  return "/images/eventos/concierto.svg";
+  return "/images/eventos/concierto.png";
 }
 
 export function EventCard({

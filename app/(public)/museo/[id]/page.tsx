@@ -11,7 +11,14 @@ export default async function FotoDetallePage({
 }) {
   const { id } = await params;
   const fotoNum = Number(id);
-  const fotoId = Number.isInteger(fotoNum) && fotoNum >= 1 && fotoNum <= 20 ? fotoNum : 1;
+  const fotoId = Number.isInteger(fotoNum) && fotoNum >= 1 && fotoNum <= 12 ? fotoNum : 1;
+  const fotosConImagen: Record<number, string> = {
+    1: "/images/museo/foto-1.png",
+    2: "/images/museo/foto-2.png",
+    3: "/images/museo/foto-3.png",
+    4: "/images/museo/foto-4.png",
+  };
+  const imagenUrl = fotosConImagen[fotoId] || `/images/museo/foto-${fotoId}.svg`;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -23,11 +30,10 @@ export default async function FotoDetallePage({
       </Link>
 
       <div className="grid md:grid-cols-2 gap-8 mt-6">
-        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
         <div
           className="aspect-[4/3] bg-negro-light rounded-lg flex items-center justify-center border border-gris/30"
           style={{
-            backgroundImage: `url('/images/museo/foto-${fotoId}.svg')`,
+            backgroundImage: `url('${imagenUrl}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
