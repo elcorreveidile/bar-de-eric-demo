@@ -7,6 +7,11 @@ export const metadata: Metadata = {
 
 export default function ReservasPage() {
   return (
+    <div
+      className="min-h-screen bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: "url('/images/fondos/background-reservas.png')" }}
+    >
+    <div className="bg-negro/85 min-h-screen">
     <section className="max-w-3xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
       <h1 className="font-display text-4xl sm:text-5xl font-bold text-dorado mb-4">
         Reservar Mesa
@@ -18,5 +23,7 @@ export default function ReservasPage() {
       </p>
       <ReservaForm />
     </section>
+    </div>
+    </div>
   );
 }
