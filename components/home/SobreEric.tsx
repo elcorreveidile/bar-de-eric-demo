@@ -52,7 +52,7 @@ export function SobreEric() {
           <div
             className="relative w-full max-w-md aspect-square bg-negro rounded-xl border border-dorado/10 overflow-hidden"
             style={{
-              backgroundImage: "url('/images/sobre-eric/eric-retrato.png')",
+              backgroundImage: "url('/images/sobre-eric/eric-retrato.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
