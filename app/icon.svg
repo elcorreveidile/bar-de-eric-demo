@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="El Bar de Eric">
   <rect width="512" height="512" rx="64" fill="#1a1a1a"/>
-  <rect x="16" y="16" width="480" height="480" rx="52" fill="none" stroke="#FFD700" stroke-opacity="0.4" stroke-width="4"/>
+  <rect x="16" y="16" width="480" height="480" rx="52" fill="none" stroke="#E8313F" stroke-opacity="0.4" stroke-width="4"/>
   <!-- Drum kit silhouette inspired by Eric -->
-  <g transform="translate(256 230)" fill="none" stroke="#FFD700" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(256 230)" fill="none" stroke="#E8313F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
     <!-- Bass drum -->
     <ellipse cx="0" cy="40" rx="72" ry="65"/>
     <!-- Hi-hat left -->
@@ -19,10 +19,10 @@
     <line x1="-40" y1="-70" x2="20" y2="-15" stroke-width="7"/>
     <line x1="40" y1="-70" x2="-20" y2="-15" stroke-width="7"/>
     <!-- Stick tips -->
-    <circle cx="-40" cy="-70" r="5" fill="#FFD700"/>
-    <circle cx="40" cy="-70" r="5" fill="#FFD700"/>
+    <circle cx="-40" cy="-70" r="5" fill="#E8313F"/>
+    <circle cx="40" cy="-70" r="5" fill="#E8313F"/>
   </g>
   <!-- Text -->
-  <text x="256" y="410" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="700" font-size="48" fill="#FFD700" letter-spacing="2">ERIC</text>
+  <text x="256" y="410" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-weight="700" font-size="48" fill="#E8313F" letter-spacing="2">ERIC</text>
   <text x="256" y="455" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" fill="#9CA3AF" letter-spacing="4">BAR MUSEO</text>
 </svg>

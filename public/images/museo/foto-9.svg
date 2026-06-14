@@ -15,10 +15,10 @@
   </defs>
   <rect width="1000" height="1000" fill="url(#vig-mu9)"/>
   <rect width="1000" height="1000" filter="url(#grain-mu9)" opacity="0.5"/>
-  <rect x="60" y="60" width="880" height="880" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="4"/>
+  <rect x="60" y="60" width="880" height="880" fill="none" stroke="#E8313F" stroke-opacity="0.25" stroke-width="4"/>
   <g transform="translate(109.99999999999994, 69.99999999999994) scale(7.800000000000001)" opacity="0.85">
-    <g fill="none" stroke="#FFD700" stroke-width="2">
-      <circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="9"/><circle cx="50" cy="50" r="2.5" fill="#FFD700"/>
+    <g fill="none" stroke="#E8313F" stroke-width="2">
+      <circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="9"/><circle cx="50" cy="50" r="2.5" fill="#E8313F"/>
     </g></g>
   <text x="500" y="820" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="50" fill="#ededed">Mementos</text>
   

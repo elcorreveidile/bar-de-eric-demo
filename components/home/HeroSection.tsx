@@ -16,7 +16,7 @@ export function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.05) 0%, transparent 50%), linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(17,17,17,0.65) 100%)",
+            "radial-gradient(ellipse at 20% 50%, rgba(232,49,63,0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(232,49,63,0.05) 0%, transparent 50%), linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(17,17,17,0.65) 100%)",
         }}
       />
 
@@ -25,7 +25,7 @@ export function HeroSection() {
           className="w-full h-full"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,215,0,0.1) 35px, rgba(255,215,0,0.1) 36px)",
+              "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(232,49,63,0.1) 35px, rgba(232,49,63,0.1) 36px)",
           }}
         />
       </div>
