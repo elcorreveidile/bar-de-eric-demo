@@ -8,7 +8,7 @@ export function HeroSection() {
         style={{
           backgroundImage: "url('/images/bar-real/neon-fachada.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center 30%",
           transform: "scaleX(-1)",
         }}
       />
@@ -17,7 +17,7 @@ export function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.08) 0%, transparent 50%), linear-gradient(180deg, rgba(26,26,26,0.85) 0%, rgba(17,17,17,0.9) 100%)",
+            "radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.1) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.05) 0%, transparent 50%), linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(17,17,17,0.65) 100%)",
         }}
       />
 
