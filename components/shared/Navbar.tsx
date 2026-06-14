@@ -18,9 +18,16 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-negro/90 backdrop-blur-md border-b border-dorado/20">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <Link href="/" className="font-display text-2xl font-bold text-dorado tracking-wide hover:text-dorado-dark transition-colors">
-          El Bar de Eric
+        {/* Logo — PLACEHOLDER: reemplazar por logo real en preproducción */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <span
+            className="h-9 w-9 rounded-md bg-center bg-contain bg-no-repeat shrink-0"
+            style={{ backgroundImage: "url('/images/logo/logo-square.svg')" }}
+            aria-hidden="true"
+          />
+          <span className="font-display text-2xl font-bold text-dorado tracking-wide group-hover:text-dorado-dark transition-colors">
+            El Bar de Eric
+          </span>
         </Link>
 
         {/* Desktop links */}

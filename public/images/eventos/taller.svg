@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="taller">
+  <!-- PLACEHOLDER: reemplazar por imagen real de Eric / del bar en preproducción -->
+  
+  <defs>
+    <radialGradient id="vig-ev-taller" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </radialGradient>
+    <filter id="grain-ev-taller">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#vig-ev-taller)"/>
+  <rect width="1200" height="630" filter="url(#grain-ev-taller)" opacity="0.5"/>
+  <rect x="72" y="37.8" width="1056" height="554.4" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="4.8"/>
+  <g transform="translate(354.3, 44.10000000000002) scale(4.914)" opacity="0.85">
+    <g fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round">
+      <rect x="44" y="28" width="12" height="24" rx="6"/>
+      <path d="M38 46 a12 12 0 0 0 24 0"/>
+      <line x1="50" y1="58" x2="50" y2="70"/><line x1="42" y1="70" x2="58" y2="70"/>
+    </g></g>
+  <text x="600" y="516.6" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="60" fill="#ededed">taller</text>
+  
+</svg>

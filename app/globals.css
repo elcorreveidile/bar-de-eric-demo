@@ -13,7 +13,10 @@
 }
 
 body {
-  background: var(--color-negro);
+  /* PLACEHOLDER: textura de fondo temporal — sustituir/ajustar en preproducción */
+  background-color: var(--color-negro);
+  background-image: url("/images/fondos/textura-global.svg");
+  background-repeat: repeat;
   color: #ededed;
   font-family: var(--font-body);
 }

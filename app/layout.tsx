@@ -33,6 +33,15 @@ export const metadata: Metadata = {
     "los planetas",
     "lagartija nick",
   ],
+  // PLACEHOLDER: imagen Open Graph temporal — sustituir por imagen real en preproducción
+  openGraph: {
+    title: "El Bar de Eric — Donde la música se hace tapa",
+    description:
+      "Bar museo del rock en Granada. Tapas con nombres musicales, 170+ fotos históricas y eventos en vivo.",
+    locale: "es_ES",
+    type: "website",
+    images: [{ url: "/images/og/og-image.svg", width: 1200, height: 630, alt: "El Bar de Eric" }],
+  },
 };
 
 export default function RootLayout({

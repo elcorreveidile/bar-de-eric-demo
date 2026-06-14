@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <!-- PLACEHOLDER: reemplazar por imagen real de Eric / del bar en preproducción -->
+  <defs><radialGradient id="g-dash" cx="50%" cy="50%" r="75%"><stop offset="0%" stop-color="#2a2a2a"/><stop offset="100%" stop-color="#1a1a1a"/></radialGradient>
+  <filter id="nb-dash"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter></defs>
+  <rect width="600" height="600" fill="url(#g-dash)"/>
+  <rect width="600" height="600" filter="url(#nb-dash)"/>
+  <rect x="0" y="594" width="600" height="6" fill="#9CA3AF" opacity="0.4"/>
+</svg>
