@@ -1,27 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Estado = "pendiente" | "confirmada" | "cancelada";
 
 interface Reserva {
-  id: string;
+  id: number;
   nombre: string;
   email: string;
   fecha: string;
   hora: string;
   comensales: number;
-  mesa: number;
-  estado: Estado;
+  mesaId: number | null;
+  estado: string | null;
 }
-
-const reservas: Reserva[] = [
-  { id: "1", nombre: "Carlos Ruiz", email: "carlos@email.com", fecha: "2026-06-14", hora: "20:30", comensales: 4, mesa: 3, estado: "pendiente" },
-  { id: "2", nombre: "Ana García", email: "ana@email.com", fecha: "2026-06-14", hora: "21:00", comensales: 2, mesa: 1, estado: "confirmada" },
-  { id: "3", nombre: "Pedro López", email: "pedro@email.com", fecha: "2026-06-14", hora: "21:30", comensales: 6, mesa: 4, estado: "pendiente" },
-  { id: "4", nombre: "María Fernández", email: "maria@email.com", fecha: "2026-06-15", hora: "20:00", comensales: 3, mesa: 2, estado: "cancelada" },
-  { id: "5", nombre: "Javier Moreno", email: "javier@email.com", fecha: "2026-06-15", hora: "21:00", comensales: 2, mesa: 5, estado: "confirmada" },
-];
 
 const estadoBadge: Record<Estado, string> = {
   pendiente: "bg-yellow-900/50 text-yellow-400",
@@ -37,8 +29,28 @@ const tabs: { label: string; value: Estado | "todas" }[] = [
 ];
 
 export function ReservasTable() {
+  const [reservas, setReservas] = useState<Reserva[]>([]);
+  const [loading, setLoading] = useState(true);
   const [filtroEstado, setFiltroEstado] = useState<Estado | "todas">("todas");
   const [filtroFecha, setFiltroFecha] = useState("");
+
+  useEffect(() => {
+    fetch("/api/admin/reservas")
+      .then((r) => r.json())
+      .then(setReservas)
+      .finally(() => setLoading(false));
+  }, []);
+
+  async function updateEstado(id: number, estado: Estado) {
+    await fetch("/api/admin/reservas", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: String(id), estado }),
+    });
+    setReservas((prev) =>
+      prev.map((r) => (r.id === id ? { ...r, estado } : r))
+    );
+  }
 
   const filtered = reservas.filter((r) => {
     if (filtroEstado !== "todas" && r.estado !== filtroEstado) return false;
@@ -46,9 +58,16 @@ export function ReservasTable() {
     return true;
   });
 
+  if (loading) {
+    return (
+      <div className="flex justify-center py-12">
+        <div className="w-8 h-8 border-2 border-dorado/30 border-t-dorado rounded-full animate-spin" />
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-4">
-      {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         <div className="flex gap-1">
           {tabs.map((tab) => (
@@ -73,7 +92,6 @@ export function ReservasTable() {
         />
       </div>
 
-      {/* Table */}
       <div className="bg-negro-light rounded-lg border border-dorado/20 overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
@@ -96,10 +114,12 @@ export function ReservasTable() {
                 <td className="px-4 py-3 text-gris-light">{r.fecha}</td>
                 <td className="px-4 py-3 text-gris-light">{r.hora}</td>
                 <td className="px-4 py-3 text-white">{r.comensales}</td>
-                <td className="px-4 py-3 text-white">{r.mesa}</td>
+                <td className="px-4 py-3 text-white">{r.mesaId ?? "-"}</td>
                 <td className="px-4 py-3">
                   <span
-                    className={`inline-block px-2 py-0.5 rounded text-xs ${estadoBadge[r.estado]}`}
+                    className={`inline-block px-2 py-0.5 rounded text-xs ${
+                      estadoBadge[(r.estado as Estado) ?? "pendiente"] ?? estadoBadge.pendiente
+                    }`}
                   >
                     {r.estado}
                   </span>
@@ -107,12 +127,18 @@ export function ReservasTable() {
                 <td className="px-4 py-3">
                   <div className="flex gap-2">
                     {r.estado === "pendiente" && (
-                      <button className="text-green-400 hover:text-green-300 text-xs underline">
+                      <button
+                        onClick={() => updateEstado(r.id, "confirmada")}
+                        className="text-green-400 hover:text-green-300 text-xs underline"
+                      >
                         Confirmar
                       </button>
                     )}
                     {r.estado !== "cancelada" && (
-                      <button className="text-red-400 hover:text-red-300 text-xs underline">
+                      <button
+                        onClick={() => updateEstado(r.id, "cancelada")}
+                        className="text-red-400 hover:text-red-300 text-xs underline"
+                      >
                         Cancelar
                       </button>
                     )}

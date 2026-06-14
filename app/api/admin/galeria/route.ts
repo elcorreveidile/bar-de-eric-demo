@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-
-const photos = [
-  { id: "1", titulo: "Nirvana en Concierto 1992", categoria: "Conciertos", banda: "Nirvana", url_foto: "/placeholder.jpg", destacada: true },
-  { id: "2", titulo: "Eric con Los Planetas", categoria: "Personajes", banda: "Los Planetas", url_foto: "/placeholder.jpg", destacada: false },
-  { id: "3", titulo: "Lagartija Nick - Estudio", categoria: "Estudio", banda: "Lagartija Nick", url_foto: "/placeholder.jpg", destacada: true },
-];
+import { db } from "@/lib/db/client";
+import { galeriaFotos } from "@/lib/db/schema";
+import { eq, asc } from "drizzle-orm";
 
 const createPhotoSchema = z.object({
   titulo: z.string().min(1),
@@ -14,11 +11,15 @@ const createPhotoSchema = z.object({
   banda: z.string().optional(),
   anio: z.number().nullable().optional(),
   artista: z.string().optional(),
-  categoria: z.enum(["Conciertos", "Estudio", "Personajes", "Mementos"]),
+  categoria: z.enum(["conciertos", "estudio", "personajes", "mementos"]),
   destacada: z.boolean().optional(),
 });
 
 export async function GET() {
+  const photos = await db
+    .select()
+    .from(galeriaFotos)
+    .orderBy(asc(galeriaFotos.orden));
   return NextResponse.json(photos);
 }
 
@@ -33,6 +34,28 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const newPhoto = { id: String(Date.now()), ...result.data };
+  const [newPhoto] = await db
+    .insert(galeriaFotos)
+    .values({
+      titulo: result.data.titulo,
+      descripcion: result.data.descripcion,
+      urlFoto: result.data.url_foto,
+      banda: result.data.banda,
+      anio: result.data.anio ?? undefined,
+      artista: result.data.artista,
+      categoria: result.data.categoria,
+      destacada: result.data.destacada ?? false,
+    })
+    .returning();
+
   return NextResponse.json(newPhoto, { status: 201 });
+}
+
+export async function DELETE(request: NextRequest) {
+  const { id } = await request.json();
+  if (!id) {
+    return NextResponse.json({ error: "ID requerido" }, { status: 400 });
+  }
+  await db.delete(galeriaFotos).where(eq(galeriaFotos.id, Number(id)));
+  return NextResponse.json({ ok: true });
 }
