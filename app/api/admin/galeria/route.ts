@@ -51,6 +51,33 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(newPhoto, { status: 201 });
 }
 
+export async function PATCH(request: NextRequest) {
+  const body = await request.json();
+  const { id, ...fields } = body;
+
+  if (!id) {
+    return NextResponse.json({ error: "ID requerido" }, { status: 400 });
+  }
+
+  const updateData: Record<string, unknown> = {};
+  if (fields.titulo !== undefined) updateData.titulo = fields.titulo;
+  if (fields.descripcion !== undefined) updateData.descripcion = fields.descripcion;
+  if (fields.url_foto !== undefined) updateData.urlFoto = fields.url_foto;
+  if (fields.banda !== undefined) updateData.banda = fields.banda;
+  if (fields.anio !== undefined) updateData.anio = fields.anio;
+  if (fields.artista !== undefined) updateData.artista = fields.artista;
+  if (fields.categoria !== undefined) updateData.categoria = fields.categoria;
+  if (fields.destacada !== undefined) updateData.destacada = fields.destacada;
+
+  const [updated] = await db
+    .update(galeriaFotos)
+    .set(updateData)
+    .where(eq(galeriaFotos.id, Number(id)))
+    .returning();
+
+  return NextResponse.json(updated);
+}
+
 export async function DELETE(request: NextRequest) {
   const { id } = await request.json();
   if (!id) {
