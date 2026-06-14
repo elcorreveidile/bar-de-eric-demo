@@ -8,6 +8,7 @@ const navLinks = [
   { href: "/menu", label: "Menú" },
   { href: "/programacion", label: "Programación" },
   { href: "/guia-rockera", label: "Guía Rockera" },
+  { href: "/tienda", label: "Tienda" },
   { href: "/reservas", label: "Reservas" },
   { href: "/sobre-eric", label: "Sobre Eric" },
 ];
