@@ -6,6 +6,11 @@ export const metadata = {
 
 export default function MenuPage() {
   return (
+    <div
+      className="min-h-screen bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: "url('/images/fondos/background-menu.png')" }}
+    >
+    <div className="bg-negro/85 min-h-screen">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-12">
         <h1 className="font-display text-4xl md:text-5xl font-bold text-dorado mb-4">
@@ -20,6 +25,8 @@ export default function MenuPage() {
       </div>
 
       <MenuCategories />
+    </div>
+    </div>
     </div>
   );
 }
