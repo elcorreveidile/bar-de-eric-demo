@@ -17,7 +17,7 @@ export async function sendReservaConfirmation(
     subject: "Confirmación de reserva - El Bar de Eric",
     html: `
       <div style="font-family:sans-serif;background:#1a1a1a;color:#ededed;padding:32px;">
-        <h1 style="color:#FFD700;">¡Reserva confirmada!</h1>
+        <h1 style="color:#E8313F;">¡Reserva confirmada!</h1>
         <p>Hola ${reserva.nombre},</p>
         <p>Tu reserva ha sido confirmada:</p>
         <ul>
@@ -43,9 +43,9 @@ export async function sendMagicLink(
     subject: "Acceso a El Bar de Eric",
     html: `
       <div style="font-family:sans-serif;background:#1a1a1a;color:#ededed;padding:32px;">
-        <h1 style="color:#FFD700;">Enlace de acceso</h1>
+        <h1 style="color:#E8313F;">Enlace de acceso</h1>
         <p>Haz clic en el siguiente enlace para acceder al panel de administración:</p>
-        <a href="${url}" style="display:inline-block;background:#8B0000;color:#FFD700;padding:12px 24px;text-decoration:none;border-radius:6px;margin:16px 0;">
+        <a href="${url}" style="display:inline-block;background:#8B0000;color:#E8313F;padding:12px 24px;text-decoration:none;border-radius:6px;margin:16px 0;">
           Acceder
         </a>
         <p style="color:#9CA3AF;font-size:14px;">Este enlace expira en 15 minutos.</p>
@@ -65,7 +65,7 @@ export async function sendPedidoConfirmation(
     subject: `Pedido ${pedido.numeroReferencia} - El Bar de Eric`,
     html: `
       <div style="font-family:sans-serif;background:#1a1a1a;color:#ededed;padding:32px;">
-        <h1 style="color:#FFD700;">Pedido confirmado</h1>
+        <h1 style="color:#E8313F;">Pedido confirmado</h1>
         <p>Tu pedido <strong>${pedido.numeroReferencia}</strong> ha sido recibido.</p>
         <p>Te avisaremos cuando esté listo para recoger.</p>
         <p>Gracias por elegir El Bar de Eric.</p>

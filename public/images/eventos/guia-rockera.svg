@@ -15,9 +15,9 @@
   </defs>
   <rect width="1200" height="630" fill="url(#vig-ev-guia-rockera)"/>
   <rect width="1200" height="630" filter="url(#grain-ev-guia-rockera)" opacity="0.5"/>
-  <rect x="72" y="37.8" width="1056" height="554.4" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="4.8"/>
+  <rect x="72" y="37.8" width="1056" height="554.4" fill="none" stroke="#E8313F" stroke-opacity="0.25" stroke-width="4.8"/>
   <g transform="translate(354.3, 44.10000000000002) scale(4.914)" opacity="0.85">
-    <g fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round">
+    <g fill="none" stroke="#E8313F" stroke-width="2" stroke-linecap="round">
       <circle cx="44" cy="60" r="14"/><circle cx="44" cy="60" r="5"/>
       <line x1="55" y1="49" x2="72" y2="30"/><rect x="68" y="24" width="9" height="9" rx="2"/>
     </g></g>

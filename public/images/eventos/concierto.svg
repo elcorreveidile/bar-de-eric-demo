@@ -15,9 +15,9 @@
   </defs>
   <rect width="1200" height="630" fill="url(#vig-ev-concierto)"/>
   <rect width="1200" height="630" filter="url(#grain-ev-concierto)" opacity="0.5"/>
-  <rect x="72" y="37.8" width="1056" height="554.4" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="4.8"/>
+  <rect x="72" y="37.8" width="1056" height="554.4" fill="none" stroke="#E8313F" stroke-opacity="0.25" stroke-width="4.8"/>
   <g transform="translate(354.3, 44.10000000000002) scale(4.914)" opacity="0.85">
-    <g fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round">
+    <g fill="none" stroke="#E8313F" stroke-width="2" stroke-linecap="round">
       <ellipse cx="50" cy="62" rx="22" ry="7"/>
       <line x1="34" y1="62" x2="30" y2="80"/><line x1="66" y1="62" x2="70" y2="80"/>
       <circle cx="34" cy="46" r="9"/><circle cx="66" cy="46" r="9"/>

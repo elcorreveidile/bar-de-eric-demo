@@ -15,9 +15,9 @@
   </defs>
   <rect width="800" height="800" fill="url(#vig-ta14)"/>
   <rect width="800" height="800" filter="url(#grain-ta14)" opacity="0.5"/>
-  <rect x="48" y="48" width="704" height="704" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="3.2"/>
+  <rect x="48" y="48" width="704" height="704" fill="none" stroke="#E8313F" stroke-opacity="0.25" stroke-width="3.2"/>
   <g transform="translate(88, 56) scale(6.24)" opacity="0.85">
-    <g fill="#FFD700">
+    <g fill="#E8313F">
       <path d="M58 30 v26 a8 7 0 1 1 -5 -6 V40 l-14 4 v18 a8 7 0 1 1 -5 -6 V36 z"/>
     </g></g>
   <text x="400" y="656" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="40" fill="#ededed">Satisfaction</text>
