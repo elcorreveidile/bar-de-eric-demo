@@ -23,6 +23,30 @@ Aplicación web del **Bar de Eric** — bar museo del rock, tapas musicales y ev
 - **Pedidos para llevar** — Carrito y checkout con número de referencia
 - **Dashboard Admin** — CRUD de menú, galería, eventos, mesas, reservas y pedidos (protegido)
 
+## Imágenes
+
+⚠️ **Todas las imágenes son _placeholders_ temporales** (SVG generados con la identidad visual de la marca) que se reemplazarán por las **fotos reales de Eric / del bar** en preproducción. Ver:
+
+- `public/images/README.md` — aviso y guía de reemplazo
+- `docs/IMAGENES_PROMPTS.md` — prompts de IA + inventario + fuentes reales
+- `scripts/generate-placeholders.mjs` — generador (`node scripts/generate-placeholders.mjs`)
+
+## Estado del proyecto
+
+✅ Build de producción correcto (33 rutas) · ✅ Lint limpio · ✅ Migración Drizzle generada · ✅ Deploy de preview en Vercel.
+
+> Las rutas API devuelven datos _mock_ hasta conectar un `DATABASE_URL` real de Neon. El Magic Link de Auth.js queda como _scaffold_ pendiente de credenciales. Las imágenes son placeholders.
+
+### Checklist de paso a producción
+
+- [ ] Configurar variables de entorno reales en Vercel (`DATABASE_URL`, `AUTH_SECRET`, `RESEND_API_KEY`, `ADMIN_EMAIL`, `CRON_SECRET`).
+- [ ] `npm run db:push` + `npm run db:seed` sobre la base de datos Neon de producción.
+- [ ] Sustituir las rutas API _mock_ por queries Drizzle reales (`lib/db/queries`).
+- [ ] Completar el flujo de Auth.js Magic Link (envío real vía Resend + verificación en DB).
+- [ ] Reemplazar las imágenes placeholder por las fotos reales de Eric (con su permiso).
+- [ ] Verificar dominios: `bar-de-eric-demo.vercel.app` → producción `elbardeeric.por2duros.com` (tras aprobación de Eric).
+- [ ] Revisión final de SEO/Lighthouse y accesibilidad.
+
 ## Puesta en marcha
 
 ```bash
