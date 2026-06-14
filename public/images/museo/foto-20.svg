@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-label="Mementos">
+  <!-- PLACEHOLDER: reemplazar por imagen real de Eric / del bar en preproducción -->
+  
+  <defs>
+    <radialGradient id="vig-mu20" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </radialGradient>
+    <filter id="grain-mu20">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#vig-mu20)"/>
+  <rect width="1000" height="1000" filter="url(#grain-mu20)" opacity="0.5"/>
+  <rect x="60" y="60" width="880" height="880" fill="none" stroke="#8B0000" stroke-opacity="0.25" stroke-width="4"/>
+  <g transform="translate(109.99999999999994, 69.99999999999994) scale(7.800000000000001)" opacity="0.85">
+    <g fill="none" stroke="#8B0000" stroke-width="2">
+      <circle cx="50" cy="50" r="22"/><circle cx="50" cy="50" r="9"/><circle cx="50" cy="50" r="2.5" fill="#8B0000"/>
+    </g></g>
+  <text x="500" y="820" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="50" fill="#ededed">Mementos</text>
+  
+</svg>

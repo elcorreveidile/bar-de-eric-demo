@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="guia rockera">
+  <!-- PLACEHOLDER: reemplazar por imagen real de Eric / del bar en preproducción -->
+  
+  <defs>
+    <radialGradient id="vig-ev-guia-rockera" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </radialGradient>
+    <filter id="grain-ev-guia-rockera">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#vig-ev-guia-rockera)"/>
+  <rect width="1200" height="630" filter="url(#grain-ev-guia-rockera)" opacity="0.5"/>
+  <rect x="72" y="37.8" width="1056" height="554.4" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="4.8"/>
+  <g transform="translate(354.3, 44.10000000000002) scale(4.914)" opacity="0.85">
+    <g fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round">
+      <circle cx="44" cy="60" r="14"/><circle cx="44" cy="60" r="5"/>
+      <line x1="55" y1="49" x2="72" y2="30"/><rect x="68" y="24" width="9" height="9" rx="2"/>
+    </g></g>
+  <text x="600" y="516.6" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="60" fill="#ededed">guia rockera</text>
+  
+</svg>

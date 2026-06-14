@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-label="Conciertos">
+  <!-- PLACEHOLDER: reemplazar por imagen real de Eric / del bar en preproducción -->
+  
+  <defs>
+    <radialGradient id="vig-mu2" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </radialGradient>
+    <filter id="grain-mu2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#vig-mu2)"/>
+  <rect width="1000" height="1000" filter="url(#grain-mu2)" opacity="0.5"/>
+  <rect x="60" y="60" width="880" height="880" fill="none" stroke="#FFD700" stroke-opacity="0.25" stroke-width="4"/>
+  <g transform="translate(109.99999999999994, 69.99999999999994) scale(7.800000000000001)" opacity="0.85">
+    <g fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round">
+      <ellipse cx="50" cy="62" rx="22" ry="7"/>
+      <line x1="34" y1="62" x2="30" y2="80"/><line x1="66" y1="62" x2="70" y2="80"/>
+      <circle cx="34" cy="46" r="9"/><circle cx="66" cy="46" r="9"/>
+      <line x1="40" y1="40" x2="58" y2="34"/><line x1="60" y1="40" x2="42" y2="34"/>
+    </g></g>
+  <text x="500" y="820" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="50" fill="#ededed">Conciertos</text>
+  
+</svg>
