@@ -7,7 +7,7 @@ const eventos = [
     type: "Música en vivo",
     description:
       "Jam session abierta con músicos locales. Selección especial de bourbons americanos.",
-    image: "/images/eventos/concierto.svg",
+    image: "/images/bar-real/interior-rincon-guitarras.jpg",
   },
   {
     date: { day: "28", month: "JUN" },
@@ -15,7 +15,7 @@ const eventos = [
     type: "Sesión DJ",
     description:
       "DJ set de vinilos clásicos de rock de los 70. Vermú artesanal de grifo.",
-    image: "/images/eventos/guia-rockera.svg",
+    image: "/images/bar-real/rincon-memorabilia.jpg",
   },
   {
     date: { day: "05", month: "JUL" },
@@ -23,7 +23,7 @@ const eventos = [
     type: "Concierto especial",
     description:
       "Homenaje al maestro granadino con artistas invitados de la escena local.",
-    image: "/images/eventos/exposicion.svg",
+    image: "/images/bar-real/pared-fotos-musicos.jpg",
   },
 ];
 
@@ -43,7 +43,6 @@ export function EventosDestacados() {
             key={evento.title}
             className="bg-negro-light rounded-xl overflow-hidden border border-dorado/10 hover:border-dorado/30 transition-colors"
           >
-            {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
             <div
               className="relative aspect-[16/9] bg-negro-light bg-blend-overlay"
               style={{

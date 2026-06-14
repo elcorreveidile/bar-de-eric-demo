@@ -101,40 +101,14 @@ export function UbicacionHorarios() {
         </div>
 
         <div className="flex items-center justify-center">
-          {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
           <div
-            className="relative w-full aspect-square bg-negro-light bg-blend-overlay rounded-xl border border-dorado/10 flex items-center justify-center overflow-hidden"
+            className="relative w-full aspect-square bg-negro-light rounded-xl border border-dorado/10 overflow-hidden"
             style={{
-              backgroundImage: "url('/images/ubicacion/fachada.svg')",
+              backgroundImage: "url('/images/bar-real/barra.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          >
-            <div className="relative z-10 text-center px-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-dorado/30 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <p className="mt-4 text-gris-light text-sm">
-                Mapa — Calle Escuelas 8, Granada
-              </p>
-            </div>
-          </div>
+          />
         </div>
       </div>
     </section>

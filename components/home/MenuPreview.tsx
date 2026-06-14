@@ -6,28 +6,28 @@ const tapas = [
     band: "Lagartija Nick",
     description: "Croquetas de jamón ibérico",
     price: "6€",
-    image: "/images/menu/tapa-1.svg",
+    image: "/images/bar-real/tapa-salmorejo.jpg",
   },
   {
     name: "Omega",
     band: "Lagartija Nick + Morente",
     description: "Tabla de quesos y jamón",
     price: "12€",
-    image: "/images/menu/tapa-2.svg",
+    image: "/images/bar-real/tapa-gourmet.jpg",
   },
   {
     name: "Qué Puedo Hacer",
     band: "Los Planetas",
     description: "Camarones al ajillo",
     price: "7€",
-    image: "/images/menu/tapa-3.svg",
+    image: "/images/bar-real/tapa-salmorejo.jpg",
   },
   {
     name: "Keith Moon",
     band: "The Who",
     description: "Surtido de carnes a la brasa",
     price: "10€",
-    image: "/images/menu/tapa-5.svg",
+    image: "/images/bar-real/tapa-gourmet.jpg",
   },
 ];
 
@@ -51,7 +51,6 @@ export function MenuPreview() {
               key={tapa.name}
               className="bg-negro rounded-xl overflow-hidden border border-dorado/10 hover:border-dorado/30 transition-colors"
             >
-              {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
               <div
                 className="relative aspect-[16/9] bg-negro-light bg-blend-overlay"
                 style={{
