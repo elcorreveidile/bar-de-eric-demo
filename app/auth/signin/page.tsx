@@ -20,10 +20,19 @@ export default function SignInPage() {
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) throw new Error("Error al enviar");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (data.error === "db_error") {
+          throw new Error("Error de base de datos. Contacta al administrador.");
+        } else if (data.error === "email_error") {
+          throw new Error("Error al enviar email. Verifica la configuración de Resend.");
+        } else {
+          throw new Error(data.detail || "Error al enviar");
+        }
+      }
       setSent(true);
-    } catch {
-      setError("No se pudo enviar el enlace. Inténtalo de nuevo.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "No se pudo enviar el enlace. Inténtalo de nuevo.");
     } finally {
       setLoading(false);
     }
