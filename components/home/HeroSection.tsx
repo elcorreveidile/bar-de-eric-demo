@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 bg-negro-light bg-blend-overlay"
         style={{
           backgroundImage: "url('/images/bar-real/neon-fachada.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center 75%",
+          backgroundPosition: "center 85%",
           transform: "scaleX(-1)",
         }}
       />
