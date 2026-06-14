@@ -59,44 +59,34 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile slide-out menu */}
-      <div
-        className={`md:hidden fixed inset-0 top-16 z-40 transform transition-transform duration-300 ease-in-out ${
-          mobileOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        {/* Overlay */}
-        <div
-          className="absolute inset-0 bg-black/80"
-          onClick={() => setMobileOpen(false)}
-        />
-
-        {/* Panel */}
-        <div className="absolute right-0 top-0 h-full w-72 bg-[#2a0a0d] border-l-2 border-dorado p-6">
-          <ul className="flex flex-col">
-            {navLinks.map((link) => (
-              <li key={link.href} className="border-b border-dorado/15 last:border-b-0">
-                <Link
-                  href={link.href}
-                  className="block py-4 text-lg text-white font-medium hover:text-ambar transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 pt-6 border-t border-dorado/20">
-            <Link
-              href="/reservas"
-              className="block w-full text-center py-3 rounded-lg bg-dorado text-white font-semibold hover:bg-dorado-dark transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              Reservar mesa
-            </Link>
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-0 top-16 z-40 bg-[#1a0a0d] overflow-y-auto">
+          <div className="px-6 py-8">
+            <ul className="flex flex-col">
+              {navLinks.map((link) => (
+                <li key={link.href} className="border-b border-dorado/20 last:border-b-0">
+                  <Link
+                    href={link.href}
+                    className="block py-4 text-xl text-white font-medium hover:text-ambar transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 pt-6 border-t border-dorado/30">
+              <Link
+                href="/reservas"
+                className="block w-full text-center py-3 rounded-lg bg-dorado text-white font-semibold text-lg hover:bg-dorado-dark transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                Reservar mesa
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
