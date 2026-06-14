@@ -13,6 +13,7 @@ export interface Ruta {
   duracion: string;
   distancia: string;
   color: string;
+  fondo: string;
   paradas: Parada[];
 }
 
@@ -26,6 +27,7 @@ export const rutas: Ruta[] = [
     duracion: "2 horas",
     distancia: "3,5 km",
     color: "#E8313F",
+    fondo: "/images/fondos/background-ruta-joe.png",
     paradas: [
       {
         nombre: "El Bar de Eric",
@@ -94,6 +96,7 @@ export const rutas: Ruta[] = [
     duracion: "2,5 horas",
     distancia: "4 km",
     color: "#D4A017",
+    fondo: "/images/fondos/background-ruta-morente.png",
     paradas: [
       {
         nombre: "El Bar de Eric",
@@ -176,6 +179,7 @@ export const rutas: Ruta[] = [
     duracion: "3 horas",
     distancia: "5 km",
     color: "#8B5CF6",
+    fondo: "/images/fondos/background-ruta-indie.png",
     paradas: [
       {
         nombre: "El Bar de Eric",
