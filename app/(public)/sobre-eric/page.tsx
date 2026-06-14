@@ -40,7 +40,7 @@ export default function SobreEricPage() {
             <div
               className="relative aspect-[3/4] bg-negro-light rounded-xl overflow-hidden border border-gris/20"
               style={{
-                backgroundImage: "url('/images/sobre-eric/eric-retrato.png')",
+                backgroundImage: "url('/images/sobre-eric/eric-retrato.jpg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
