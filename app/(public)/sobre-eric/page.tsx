@@ -197,12 +197,70 @@ export default function SobreEricPage() {
             La importancia de llamarse Ernesto y la gilipollez de llamarse Eric
           </h3>
           <p className="text-ambar/70 text-xs mt-1">Dir. César Martínez Herrada &middot; Movistar+, 2023 &middot; 1h 35min</p>
-          <p className="text-gris-light text-sm mt-2 leading-relaxed">
+          <p className="text-gris-light text-sm mt-2 leading-relaxed mb-6">
             Documental que mezcla emoción y humor negro al ritmo de la
             batería. Cuarenta años tocando con la misma fuerza con la que la
             vida le ha golpeado. Premio del público en el Festival Dock of
             the Bay de San Sebastián de cine documental musical.
           </p>
+
+          {/* TV Vintage con vídeo incrustado */}
+          <div className="flex justify-center">
+            <div className="relative inline-block">
+              {/* Antenas */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex items-end gap-0">
+                <div className="w-[2px] h-10 bg-gradient-to-t from-zinc-500 to-zinc-700 rotate-[-25deg] origin-bottom rounded-full" />
+                <div className="w-[2px] h-10 bg-gradient-to-t from-zinc-500 to-zinc-700 rotate-[25deg] origin-bottom rounded-full" />
+                <div className="absolute -top-0.5 left-1/2 -translate-x-[14px] w-2 h-2 rounded-full bg-zinc-500" />
+                <div className="absolute -top-0.5 left-1/2 translate-x-[10px] w-2 h-2 rounded-full bg-zinc-500" />
+              </div>
+
+              {/* Carcasa de la TV */}
+              <div className="bg-gradient-to-b from-amber-900 via-amber-950 to-stone-900 rounded-2xl p-5 pt-6 pb-8 shadow-2xl border border-amber-800/50 mt-6">
+                {/* Marco interior oscuro */}
+                <div className="bg-black rounded-xl p-2 shadow-inner border border-stone-800">
+                  {/* Pantalla con el vídeo */}
+                  <div className="relative rounded-lg overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
+                    <iframe
+                      className="w-full aspect-video rounded-lg"
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/zW8-nqHYlOY?si=W6w02c1nf5B9l4lz"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                    {/* Reflejo de cristal */}
+                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-lg" />
+                  </div>
+                </div>
+
+                {/* Panel inferior con botones y altavoz */}
+                <div className="flex items-center justify-between mt-4 px-2">
+                  {/* Rejilla del altavoz */}
+                  <div className="flex gap-[3px]">
+                    {Array.from({ length: 8 }, (_, i) => (
+                      <div key={i} className="w-[2px] h-6 bg-stone-700 rounded-full" />
+                    ))}
+                  </div>
+                  {/* Botones / diales */}
+                  <div className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-b from-stone-600 to-stone-800 border border-stone-500 shadow-inner" />
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-b from-stone-600 to-stone-800 border border-stone-500 shadow-inner" />
+                    <div className="w-3 h-3 rounded-full bg-red-900/60 border border-red-800/50 shadow-[0_0_4px_rgba(220,38,38,0.3)]" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Patitas de la TV */}
+              <div className="flex justify-center gap-32 -mt-1">
+                <div className="w-3 h-4 bg-gradient-to-b from-amber-950 to-stone-800 rounded-b-sm" />
+                <div className="w-3 h-4 bg-gradient-to-b from-amber-950 to-stone-800 rounded-b-sm" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
