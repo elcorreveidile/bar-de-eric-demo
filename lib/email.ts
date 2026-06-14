@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const FROM = "El Bar de Eric <noreply@elbardeeric.com>";
+const FROM = "El Bar de Eric <noreply@espanias.com>";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -49,6 +49,30 @@ export async function sendMagicLink(
           Acceder
         </a>
         <p style="color:#9CA3AF;font-size:14px;">Este enlace expira en 15 minutos.</p>
+      </div>
+    `,
+  });
+}
+
+export async function sendCheckoutLink(
+  to: string,
+  token: string
+): Promise<void> {
+  const resend = getResend();
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXTAUTH_URL || "http://localhost:3000";
+  const url = `${baseUrl}/tienda/checkout?token=${token}`;
+  await resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Verifica tu email - La Tienda de Eric",
+    html: `
+      <div style="font-family:sans-serif;background:#1a1a1a;color:#ededed;padding:32px;">
+        <h1 style="color:#D4A017;">La Tienda de Eric</h1>
+        <p>Haz clic en el siguiente enlace para continuar con tu compra:</p>
+        <a href="${url}" style="display:inline-block;background:#E8313F;color:#ffffff;padding:12px 24px;text-decoration:none;border-radius:6px;margin:16px 0;font-weight:bold;">
+          Continuar compra
+        </a>
+        <p style="color:#9CA3AF;font-size:14px;">Este enlace expira en 30 minutos.</p>
       </div>
     `,
   });
