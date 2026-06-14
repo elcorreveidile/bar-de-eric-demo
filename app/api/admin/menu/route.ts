@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const menuItems = [
   { id: "1", nombre: "Bowie's Bravas", slug: "bowies-bravas", categoryId: "tapas-clasicas", descripcion: "Patatas bravas con salsa especial", precio: 4.5, disponible: true },

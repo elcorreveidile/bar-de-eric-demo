@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const pedidos = [
   { id: "1", referencia: "P-0042", cliente: "Mesa 3", telefono: "-", total: 18.5, estado: "pendiente", hora: "14:30" },

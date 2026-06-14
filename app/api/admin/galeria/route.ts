@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const photos = [
   { id: "1", titulo: "Nirvana en Concierto 1992", categoria: "Conciertos", banda: "Nirvana", url_foto: "/placeholder.jpg", destacada: true },

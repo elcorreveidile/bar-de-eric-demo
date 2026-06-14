@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod/v4";
+import { z } from "zod";
 
 const eventos = [
   { id: "1", titulo: "Noche de Blues", slug: "noche-de-blues", tipo: "Concierto", fecha: "2026-06-20", hora: "21:00", estado: "confirmado" },
