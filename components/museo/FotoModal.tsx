@@ -45,8 +45,16 @@ export function FotoModal({ isOpen, onClose, foto }: FotoModalProps) {
           </svg>
         </button>
 
-        <div className="aspect-video bg-gris/20 flex items-center justify-center">
-          <span className="text-gris-light">Foto</span>
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div
+          className="aspect-video bg-gris/20 flex items-center justify-center"
+          style={{
+            backgroundImage: `url('${foto?.url_foto || "/images/museo/foto-1.svg"}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <span className="sr-only">{foto?.titulo || "Foto"}</span>
         </div>
 
         <div className="p-6">

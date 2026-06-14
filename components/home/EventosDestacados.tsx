@@ -7,6 +7,7 @@ const eventos = [
     type: "Música en vivo",
     description:
       "Jam session abierta con músicos locales. Selección especial de bourbons americanos.",
+    image: "/images/eventos/concierto.svg",
   },
   {
     date: { day: "28", month: "JUN" },
@@ -14,6 +15,7 @@ const eventos = [
     type: "Sesión DJ",
     description:
       "DJ set de vinilos clásicos de rock de los 70. Vermú artesanal de grifo.",
+    image: "/images/eventos/guia-rockera.svg",
   },
   {
     date: { day: "05", month: "JUL" },
@@ -21,6 +23,7 @@ const eventos = [
     type: "Concierto especial",
     description:
       "Homenaje al maestro granadino con artistas invitados de la escena local.",
+    image: "/images/eventos/exposicion.svg",
   },
 ];
 
@@ -40,6 +43,17 @@ export function EventosDestacados() {
             key={evento.title}
             className="bg-negro-light rounded-xl overflow-hidden border border-dorado/10 hover:border-dorado/30 transition-colors"
           >
+            {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
+            <div
+              className="relative aspect-[16/9] bg-negro-light bg-blend-overlay"
+              style={{
+                backgroundImage: `url('${evento.image}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-negro-light via-negro/20 to-transparent" />
+            </div>
             <div className="flex items-center gap-4 p-6">
               <div className="shrink-0 w-16 h-16 bg-rojo rounded-lg flex flex-col items-center justify-center">
                 <span className="text-2xl font-bold text-white leading-none">

@@ -10,6 +10,8 @@ export default async function FotoDetallePage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const fotoNum = Number(id);
+  const fotoId = Number.isInteger(fotoNum) && fotoNum >= 1 && fotoNum <= 20 ? fotoNum : 1;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -21,8 +23,16 @@ export default async function FotoDetallePage({
       </Link>
 
       <div className="grid md:grid-cols-2 gap-8 mt-6">
-        <div className="aspect-[4/3] bg-negro-light rounded-lg flex items-center justify-center border border-gris/30">
-          <span className="text-gris-light text-sm">Foto #{id}</span>
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div
+          className="aspect-[4/3] bg-negro-light rounded-lg flex items-center justify-center border border-gris/30"
+          style={{
+            backgroundImage: `url('/images/museo/foto-${fotoId}.svg')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <span className="sr-only">Foto #{id}</span>
         </div>
 
         <div className="space-y-6">

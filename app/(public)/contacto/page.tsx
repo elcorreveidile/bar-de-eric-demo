@@ -57,8 +57,17 @@ export default function ContactoPage() {
           </div>
 
           <div className="bg-negro-light rounded-xl border border-gris/20 overflow-hidden">
-            <div className="aspect-video flex items-center justify-center bg-gris/10">
-              <div className="text-center">
+            {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+            <div
+              className="relative aspect-video flex items-center justify-center bg-negro"
+              style={{
+                backgroundImage: "url('/images/ubicacion/fachada.svg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-negro/55" />
+              <div className="relative text-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-10 w-10 text-gris-light mx-auto mb-2"

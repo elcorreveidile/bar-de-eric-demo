@@ -23,11 +23,17 @@ export function MuseoDinamico() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {photos.map((photo) => (
+        {photos.map((photo, index) => (
           <div
             key={`${photo.band}-${photo.year}`}
-            className="group relative bg-negro-light rounded-xl overflow-hidden aspect-[4/3] flex items-end"
+            className="group relative bg-negro-light bg-blend-overlay rounded-xl overflow-hidden aspect-[4/3] flex items-end"
+            style={{
+              backgroundImage: `url('/images/museo/foto-${index + 1}.svg')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
+            {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
             <div className="absolute inset-0 bg-gradient-to-t from-negro via-negro/40 to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">
               <svg

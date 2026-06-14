@@ -10,6 +10,15 @@ interface EventCardProps {
   slug: string;
 }
 
+function bannerPorTipo(tipo: string): string {
+  const t = tipo.toLowerCase();
+  if (t.includes("expo")) return "/images/eventos/exposicion.svg";
+  if (t.includes("guia") || t.includes("guía") || t.includes("rocker"))
+    return "/images/eventos/guia-rockera.svg";
+  if (t.includes("taller")) return "/images/eventos/taller.svg";
+  return "/images/eventos/concierto.svg";
+}
+
 export function EventCard({
   titulo,
   tipo,
@@ -23,12 +32,26 @@ export function EventCard({
   const dia = date.getDate();
   const mes = date.toLocaleDateString("es-ES", { month: "short" }).toUpperCase();
 
+  const banner = bannerPorTipo(tipo);
+
   return (
     <Link href={`/programacion/${slug}`} className="group block">
-      <div className="bg-negro-light rounded-lg overflow-hidden border border-gris/20 hover:border-dorado/50 transition-colors h-full flex">
-        <div className="flex flex-col items-center justify-center bg-rojo px-4 py-3 min-w-[70px]">
-          <span className="text-2xl font-bold text-white">{dia}</span>
-          <span className="text-xs text-white/80 uppercase">{mes}</span>
+      <div className="bg-negro-light rounded-lg overflow-hidden border border-gris/20 hover:border-dorado/50 transition-colors h-full flex flex-col">
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div
+          className="relative aspect-[16/9] bg-negro"
+          style={{
+            backgroundImage: `url('${banner}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Degradado para legibilidad del badge de fecha sobre la imagen */}
+          <div className="absolute inset-0 bg-gradient-to-t from-negro-light via-negro/30 to-transparent" />
+          <div className="absolute top-3 left-3 flex flex-col items-center justify-center bg-rojo rounded-md px-3 py-1.5 min-w-[56px] shadow-lg">
+            <span className="text-xl font-bold text-white leading-none">{dia}</span>
+            <span className="text-[10px] text-white/80 uppercase">{mes}</span>
+          </div>
         </div>
 
         <div className="p-4 flex-1 flex flex-col">

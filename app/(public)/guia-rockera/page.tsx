@@ -49,8 +49,18 @@ export default function GuiaRockeraPage() {
             key={ruta.slug}
             className="bg-negro-light rounded-xl p-6 border border-gris/20 hover:border-dorado/40 transition-colors flex flex-col"
           >
-            <div className="aspect-video bg-gris/20 rounded-lg mb-4 flex items-center justify-center">
-              <span className="text-gris-light text-sm">Mapa de la ruta</span>
+            {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+            <div
+              className="relative aspect-video rounded-lg mb-4 overflow-hidden bg-negro"
+              style={{
+                backgroundImage: "url('/images/eventos/guia-rockera.svg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-negro-light/70 to-transparent flex items-end p-2">
+                <span className="text-white/90 text-xs">Mapa de la ruta</span>
+              </div>
             </div>
 
             <h2 className="font-display text-xl font-bold text-dorado mb-2">
@@ -110,8 +120,17 @@ export default function GuiaRockeraPage() {
       </div>
 
       <div className="bg-negro-light rounded-xl border border-gris/20 overflow-hidden">
-        <div className="aspect-[21/9] flex items-center justify-center bg-gris/10">
-          <div className="text-center">
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div
+          className="relative aspect-[21/9] flex items-center justify-center bg-negro"
+          style={{
+            backgroundImage: "url('/images/eventos/guia-rockera.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-negro/60" />
+          <div className="relative text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-12 w-12 text-gris-light mx-auto mb-3"

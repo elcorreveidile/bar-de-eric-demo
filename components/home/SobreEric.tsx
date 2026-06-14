@@ -49,8 +49,16 @@ export function SobreEric() {
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="w-full max-w-md aspect-[3/4] bg-negro rounded-xl border border-dorado/10 flex items-center justify-center">
-            <div className="text-center px-6">
+          {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
+          <div
+            className="relative w-full max-w-md aspect-[3/4] bg-negro bg-blend-overlay rounded-xl border border-dorado/10 flex items-center justify-center overflow-hidden"
+            style={{
+              backgroundImage: "url('/images/equipo/eric.svg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="relative z-10 text-center px-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-16 w-16 text-dorado/30 mx-auto"

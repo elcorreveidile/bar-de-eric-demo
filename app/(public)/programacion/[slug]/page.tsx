@@ -11,6 +11,16 @@ export default async function EventoDetallePage({
 }) {
   const { slug } = await params;
 
+  // Mapea el slug a un banner por tipo de evento (heuristica simple).
+  function bannerPorSlug(s: string): string {
+    if (s.includes("expo")) return "/images/eventos/exposicion.svg";
+    if (s.includes("ruta") || s.includes("guia"))
+      return "/images/eventos/guia-rockera.svg";
+    if (s.includes("taller")) return "/images/eventos/taller.svg";
+    return "/images/eventos/concierto.svg";
+  }
+  const banner = bannerPorSlug(slug);
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <Link
@@ -21,6 +31,18 @@ export default async function EventoDetallePage({
       </Link>
 
       <div className="mt-6 space-y-8">
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div
+          className="relative rounded-xl overflow-hidden border border-gris/20 aspect-[21/9] bg-negro"
+          style={{
+            backgroundImage: `url('${banner}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-negro via-negro/30 to-transparent" />
+        </div>
+
         <div className="bg-negro-light rounded-xl p-8 border border-gris/20">
           <div className="flex flex-wrap items-start gap-6">
             <div className="flex flex-col items-center justify-center bg-rojo rounded-lg px-5 py-4 min-w-[80px]">

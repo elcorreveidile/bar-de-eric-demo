@@ -3,11 +3,21 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
+      <div
+        className="absolute inset-0 bg-negro-light bg-blend-overlay"
+        style={{
+          backgroundImage: "url('/images/fondos/hero-collage.svg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.08) 0%, transparent 50%), linear-gradient(180deg, #1a1a1a 0%, #111111 100%)",
+            "radial-gradient(ellipse at 20% 50%, rgba(139,0,0,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,215,0,0.08) 0%, transparent 50%), linear-gradient(180deg, rgba(26,26,26,0.85) 0%, rgba(17,17,17,0.9) 100%)",
         }}
       />
 

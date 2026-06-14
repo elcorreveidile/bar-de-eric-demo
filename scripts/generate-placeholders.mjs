@@ -184,7 +184,7 @@ function fondoHeroCollage() {
   <rect width="1920" height="1080" fill="${NEGRO}" opacity="0.55"/>
 </svg>`;
 }
-function fondoSimple({ name, w, h, base, accent, label }) {
+function fondoSimple({ name, w, h, base, accent }) {
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
   ${PLACEHOLDER_TAG}

@@ -11,6 +11,24 @@ export default async function MenuItemPage({
 }) {
   const { slug } = await params;
 
+  // Mapea el slug a una de las 15 tapas; por defecto tapa-1.
+  const slugTapa: Record<string, number> = {
+    inercia: 1,
+    "la-omega": 2,
+    "encuentros-con-entidades": 4,
+    "patatas-punk": 4,
+    "ensaladilla-indie": 9,
+    "tabla-evangelista": 10,
+    "racion-kgb": 11,
+    "cerveza-strummer": 8,
+    "jamon-al-morente": 13,
+    "tinto-de-rock": 14,
+    "london-calling": 15,
+    "el-vacio": 6,
+  };
+  const tapaNum = slugTapa[slug] ?? 1;
+  const imagenTapa = `/images/menu/tapa-${tapaNum}.svg`;
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <Link
@@ -21,8 +39,16 @@ export default async function MenuItemPage({
       </Link>
 
       <div className="grid md:grid-cols-2 gap-10 mt-6">
-        <div className="aspect-square bg-negro-light rounded-lg flex items-center justify-center border border-gris/30">
-          <span className="text-gris-light text-sm">Foto del plato</span>
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div
+          className="aspect-square bg-negro-light rounded-lg flex items-center justify-center border border-gris/30"
+          style={{
+            backgroundImage: `url('${imagenTapa}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <span className="sr-only">Foto del plato</span>
         </div>
 
         <div className="space-y-6">

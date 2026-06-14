@@ -70,8 +70,16 @@ export function GaleriaFotos() {
             className="group block"
           >
             <div className="bg-negro-light rounded-lg overflow-hidden border border-gris/20 hover:border-dorado/50 transition-colors">
-              <div className="aspect-square bg-gris/20 flex items-center justify-center">
-                <span className="text-gris-light text-xs">Foto</span>
+              {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+              <div
+                className="aspect-square bg-gris/20 flex items-center justify-center"
+                style={{
+                  backgroundImage: `url('/images/museo/foto-${foto.id}.svg')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <span className="sr-only">{foto.titulo}</span>
               </div>
               <div className="p-3">
                 <h3 className="font-display text-sm font-semibold text-white group-hover:text-dorado transition-colors truncate">

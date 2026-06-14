@@ -20,6 +20,43 @@ const items = [
   { nombre: "Tabla Evangelista", banda: "Los Evangelistas", anio: 2007, descripcion: "Seleccion de tostas variadas con ingredientes de temporada.", precio: 1200, slug: "tabla-evangelista", categoria: "Raciones" },
 ];
 
+// Orden exacto de tapas para /images/menu/tapa-N.svg
+const tapasOrden = [
+  "Inercia",
+  "Omega",
+  "Que Puedo Hacer",
+  "Pop",
+  "Keith Moon",
+  "Un Buen Dia",
+  "Lagartija",
+  "Joe Strummer",
+  "091",
+  "Los Evangelistas",
+  "Lux Interior",
+  "Sonic Youth",
+  "Patti Smith",
+  "Satisfaction",
+  "London Calling",
+];
+
+function normaliza(texto: string) {
+  return texto
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
+}
+
+// Devuelve /images/menu/tapa-N.svg buscando coincidencia por nombre/banda.
+// Si no encuentra, cicla por indice sobre tapa-1..15.
+function imagenTapa(nombre: string, banda: string, indice: number): string {
+  const candidato = `${normaliza(nombre)} ${normaliza(banda)}`;
+  const encontrado = tapasOrden.findIndex((t) =>
+    candidato.includes(normaliza(t))
+  );
+  const num = encontrado >= 0 ? encontrado + 1 : (indice % 15) + 1;
+  return `/images/menu/tapa-${num}.svg`;
+}
+
 export function MenuCategories() {
   const [categoriaActiva, setCategoriaActiva] = useState("Tapas Clasicas");
 
@@ -46,7 +83,7 @@ export function MenuCategories() {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {itemsFiltrados.map((item) => (
+        {itemsFiltrados.map((item, indice) => (
           <TapaCard
             key={item.slug}
             nombre={item.nombre}
@@ -55,6 +92,7 @@ export function MenuCategories() {
             descripcion={item.descripcion}
             precio={item.precio}
             slug={item.slug}
+            imagen={imagenTapa(item.nombre, item.banda, indice)}
           />
         ))}
       </div>

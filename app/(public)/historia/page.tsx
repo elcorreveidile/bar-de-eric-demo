@@ -92,6 +92,23 @@ export default function HistoriaPage() {
           tiene una historia, unas tapas con nombre de cancion y un espacio
           donde la musica siempre suena.
         </p>
+
+        {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map((n) => (
+            <div
+              key={n}
+              className="relative aspect-square rounded-lg overflow-hidden border border-gris/20 bg-negro"
+              style={{
+                backgroundImage: `url('/images/museo/foto-${n}.svg')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-negro/50 to-transparent" />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="relative">

@@ -35,8 +35,21 @@ export default function SobreEricPage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid md:grid-cols-3 gap-10 mb-16">
         <div className="md:col-span-1">
-          <div className="aspect-[3/4] bg-negro-light rounded-xl flex items-center justify-center border border-gris/20 sticky top-24">
-            <span className="text-gris-light text-sm">Foto de Eric</span>
+          {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
+          <div className="sticky top-24">
+            <div
+              className="relative aspect-[3/4] bg-negro-light rounded-xl overflow-hidden border border-gris/20"
+              style={{
+                backgroundImage: "url('/images/equipo/eric.svg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-negro/60 to-transparent" />
+            </div>
+            <p className="text-gris-light text-xs mt-2 text-center italic">
+              Imagen de marcador: sustituir por una foto real de Eric.
+            </p>
           </div>
         </div>
 

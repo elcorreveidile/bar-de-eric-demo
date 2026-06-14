@@ -101,8 +101,16 @@ export function UbicacionHorarios() {
         </div>
 
         <div className="flex items-center justify-center">
-          <div className="w-full aspect-square bg-negro-light rounded-xl border border-dorado/10 flex items-center justify-center">
-            <div className="text-center px-6">
+          {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
+          <div
+            className="relative w-full aspect-square bg-negro-light bg-blend-overlay rounded-xl border border-dorado/10 flex items-center justify-center overflow-hidden"
+            style={{
+              backgroundImage: "url('/images/ubicacion/fachada.svg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="relative z-10 text-center px-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-16 w-16 text-dorado/30 mx-auto"

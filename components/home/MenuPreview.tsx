@@ -6,24 +6,28 @@ const tapas = [
     band: "Lagartija Nick",
     description: "Croquetas de jamón ibérico",
     price: "6€",
+    image: "/images/menu/tapa-1.svg",
   },
   {
     name: "Omega",
     band: "Lagartija Nick + Morente",
     description: "Tabla de quesos y jamón",
     price: "12€",
+    image: "/images/menu/tapa-2.svg",
   },
   {
     name: "Qué Puedo Hacer",
     band: "Los Planetas",
     description: "Camarones al ajillo",
     price: "7€",
+    image: "/images/menu/tapa-3.svg",
   },
   {
     name: "Keith Moon",
     band: "The Who",
     description: "Surtido de carnes a la brasa",
     price: "10€",
+    image: "/images/menu/tapa-5.svg",
   },
 ];
 
@@ -45,8 +49,20 @@ export function MenuPreview() {
           {tapas.map((tapa) => (
             <div
               key={tapa.name}
-              className="bg-negro rounded-xl p-6 border border-dorado/10 hover:border-dorado/30 transition-colors"
+              className="bg-negro rounded-xl overflow-hidden border border-dorado/10 hover:border-dorado/30 transition-colors"
             >
+              {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
+              <div
+                className="relative aspect-[16/9] bg-negro-light bg-blend-overlay"
+                style={{
+                  backgroundImage: `url('${tapa.image}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-negro via-negro/20 to-transparent" />
+              </div>
+              <div className="p-6">
               <div className="flex items-start justify-between">
                 <h3 className="font-display text-xl font-bold text-white">
                   {tapa.name}
@@ -57,6 +73,7 @@ export function MenuPreview() {
               </div>
               <p className="text-sm text-dorado-dark mt-1 italic">{tapa.band}</p>
               <p className="text-gris-light mt-3">{tapa.description}</p>
+              </div>
             </div>
           ))}
         </div>
