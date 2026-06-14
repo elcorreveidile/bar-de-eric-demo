@@ -4,11 +4,10 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       <div
-        className="absolute inset-0 bg-negro-light bg-blend-overlay"
+        className="absolute inset-0 bg-negro-light bg-blend-overlay hero-bg"
         style={{
           backgroundImage: "url('/images/bar-real/neon-fachada.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center 85%",
           transform: "scaleX(-1)",
         }}
       />
