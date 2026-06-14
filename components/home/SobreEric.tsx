@@ -49,33 +49,14 @@ export function SobreEric() {
         </div>
 
         <div className="flex items-center justify-center">
-          {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
           <div
-            className="relative w-full max-w-md aspect-[3/4] bg-negro bg-blend-overlay rounded-xl border border-dorado/10 flex items-center justify-center overflow-hidden"
+            className="relative w-full max-w-md aspect-square bg-negro rounded-xl border border-dorado/10 overflow-hidden"
             style={{
-              backgroundImage: "url('/images/equipo/eric.svg')",
+              backgroundImage: "url('/images/bar-real/logo-eric-bateria.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          >
-            <div className="relative z-10 text-center px-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16 text-dorado/30 mx-auto"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <p className="mt-4 text-gris-light text-sm">Foto de Eric Jiménez</p>
-            </div>
-          </div>
+          />
         </div>
       </div>
     </section>

@@ -3,11 +3,10 @@ import Link from "next/link";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* PLACEHOLDER: reemplazar por imagen real en preproducción */}
       <div
         className="absolute inset-0 bg-negro-light bg-blend-overlay"
         style={{
-          backgroundImage: "url('/images/fondos/hero-collage.svg')",
+          backgroundImage: "url('/images/bar-real/neon-fachada.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
