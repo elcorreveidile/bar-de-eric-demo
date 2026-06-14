@@ -260,19 +260,14 @@ export default function SobreEricPage() {
             <div className="flex flex-col items-center">
               <p className="text-gris-light text-xs mb-3 text-center italic">Eric explica cómo empieza cada tema</p>
               <div className="relative inline-block w-full max-w-md">
-                {/* Techo del coche */}
-                <div className="bg-gradient-to-b from-stone-700 via-stone-800 to-stone-900 rounded-t-[2rem] pt-3 px-3 border-t border-x border-stone-600/50">
-                  {/* Interior del techo — tapizado */}
-                  <div className="bg-gradient-to-b from-stone-600/30 to-transparent rounded-t-2xl h-3" />
-                </div>
-
-                {/* Parabrisas / ventana — el vídeo */}
-                <div className="bg-gradient-to-b from-stone-800 to-stone-900 px-3 pb-3 border-x border-stone-600/50">
-                  {/* Marco de la ventanilla */}
-                  <div className="bg-stone-950 rounded-lg p-1.5 border border-stone-600/30">
-                    <div className="relative rounded overflow-hidden">
+                {/* Carrocería blanca del 600 */}
+                <div className="bg-gradient-to-b from-stone-200 via-stone-100 to-stone-200 rounded-[2.5rem] rounded-b-2xl p-5 pt-6 pb-5 shadow-2xl border border-stone-300">
+                  {/* Goma negra del parabrisas — borde redondeado característico */}
+                  <div className="bg-stone-900 rounded-[1.2rem] p-[6px] shadow-inner">
+                    {/* Cristal del parabrisas con el vídeo */}
+                    <div className="relative rounded-[0.9rem] overflow-hidden">
                       <iframe
-                        className="w-full aspect-video rounded"
+                        className="w-full aspect-video rounded-[0.9rem]"
                         src="https://www.youtube.com/embed/HGT21rM9q7U?si=b3lffn8Ps-FHjrao"
                         title="Eric tocando la batería en el 600"
                         frameBorder="0"
@@ -280,32 +275,25 @@ export default function SobreEricPage() {
                         referrerPolicy="strict-origin-when-cross-origin"
                         allowFullScreen
                       />
-                      {/* Reflejo del cristal del parabrisas */}
-                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/3 to-white/8 rounded" />
+                      {/* Reflejo del cristal */}
+                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-[0.9rem]" />
                     </div>
                   </div>
-                </div>
 
-                {/* Salpicadero */}
-                <div className="bg-gradient-to-b from-stone-900 to-stone-950 px-4 py-3 border-x border-stone-600/50 rounded-b-xl border-b">
-                  <div className="flex items-center justify-between">
-                    {/* Volante simplificado */}
-                    <div className="w-10 h-10 rounded-full border-[3px] border-stone-600 flex items-center justify-center">
-                      <div className="w-3 h-3 rounded-full bg-stone-700 border border-stone-500" />
-                    </div>
-                    {/* Indicadores del salpicadero */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-6 h-6 rounded-full bg-stone-800 border border-stone-600 flex items-center justify-center">
-                        <div className="w-1 h-3 bg-stone-500 rounded-full rotate-[-30deg]" />
-                      </div>
-                      <div className="w-6 h-6 rounded-full bg-stone-800 border border-stone-600 flex items-center justify-center">
-                        <div className="w-1 h-3 bg-stone-500 rounded-full rotate-[15deg]" />
-                      </div>
-                    </div>
-                    {/* Llave de contacto */}
-                    <div className="flex items-center gap-1">
-                      <div className="w-3 h-5 rounded-sm bg-gradient-to-b from-amber-700 to-amber-900 border border-amber-600/50" />
-                      <div className="w-1.5 h-3 bg-stone-500 rounded-r-sm" />
+                  {/* Limpiaparabrisas */}
+                  <div className="relative h-4 mt-1">
+                    <div className="absolute left-[30%] bottom-0 w-[2px] h-8 bg-stone-400 origin-bottom rotate-[35deg] rounded-full" />
+                    <div className="absolute right-[30%] bottom-0 w-[2px] h-8 bg-stone-400 origin-bottom rotate-[-35deg] rounded-full" />
+                    {/* Pivotes de los limpiaparabrisas */}
+                    <div className="absolute left-[30%] -bottom-0.5 -translate-x-0.5 w-1.5 h-1.5 rounded-full bg-stone-500" />
+                    <div className="absolute right-[30%] -bottom-0.5 -translate-x-0.5 w-1.5 h-1.5 rounded-full bg-stone-500" />
+                  </div>
+
+                  {/* Capó — parte inferior de la carrocería */}
+                  <div className="flex items-center justify-center mt-1">
+                    {/* Emblema SEAT */}
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-b from-stone-300 to-stone-400 border-2 border-stone-400 flex items-center justify-center shadow-sm">
+                      <span className="text-[5px] font-bold text-stone-600 tracking-wider">600</span>
                     </div>
                   </div>
                 </div>
