@@ -47,6 +47,33 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(newEvento, { status: 201 });
 }
 
+export async function PATCH(request: NextRequest) {
+  const body = await request.json();
+  const { id, ...fields } = body;
+
+  if (!id) {
+    return NextResponse.json({ error: "ID requerido" }, { status: 400 });
+  }
+
+  const updateData: Record<string, unknown> = {};
+  if (fields.titulo !== undefined) updateData.titulo = fields.titulo;
+  if (fields.tipo !== undefined) updateData.tipo = fields.tipo;
+  if (fields.descripcion !== undefined) updateData.descripcion = fields.descripcion;
+  if (fields.fecha !== undefined) updateData.fecha = fields.fecha;
+  if (fields.hora !== undefined) updateData.hora = fields.hora;
+  if (fields.artistaBanda !== undefined) updateData.artistaBanda = fields.artistaBanda;
+  if (fields.imagen !== undefined) updateData.imagen = fields.imagen;
+  if (fields.estado !== undefined) updateData.estado = fields.estado;
+
+  const [updated] = await db
+    .update(eventosProgramacion)
+    .set(updateData)
+    .where(eq(eventosProgramacion.id, Number(id)))
+    .returning();
+
+  return NextResponse.json(updated);
+}
+
 export async function DELETE(request: NextRequest) {
   const { id } = await request.json();
   if (!id) {
