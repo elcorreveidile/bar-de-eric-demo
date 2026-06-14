@@ -72,7 +72,7 @@ export default function SignInPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-rojo text-dorado font-semibold rounded-lg hover:bg-rojo/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-rojo text-white font-semibold rounded-lg hover:bg-rojo/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Enviando..." : "Enviar enlace mágico"}
             </button>

@@ -109,7 +109,7 @@ export function ReservaForm() {
             setSuccess(null);
             setForm(initialForm);
           }}
-          className="mt-6 px-6 py-2 bg-rojo text-dorado rounded-lg hover:bg-rojo/80 transition-colors"
+          className="mt-6 px-6 py-2 bg-rojo text-white rounded-lg hover:bg-rojo/80 transition-colors"
         >
           Hacer otra reserva
         </button>
@@ -250,7 +250,7 @@ export function ReservaForm() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-3 bg-rojo text-dorado font-semibold rounded-lg hover:bg-rojo/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+        className="w-full py-3 bg-rojo text-white font-semibold rounded-lg hover:bg-rojo/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg"
       >
         {loading ? "Enviando reserva..." : "Reservar mesa"}
       </button>
