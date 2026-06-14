@@ -204,62 +204,114 @@ export default function SobreEricPage() {
             the Bay de San Sebastián de cine documental musical.
           </p>
 
-          {/* TV Vintage con vídeo incrustado */}
-          <div className="flex justify-center">
-            <div className="relative inline-block">
-              {/* Antenas */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex items-end gap-0">
-                <div className="w-[2px] h-10 bg-gradient-to-t from-zinc-500 to-zinc-700 rotate-[-25deg] origin-bottom rounded-full" />
-                <div className="w-[2px] h-10 bg-gradient-to-t from-zinc-500 to-zinc-700 rotate-[25deg] origin-bottom rounded-full" />
-                <div className="absolute -top-0.5 left-1/2 -translate-x-[14px] w-2 h-2 rounded-full bg-zinc-500" />
-                <div className="absolute -top-0.5 left-1/2 translate-x-[10px] w-2 h-2 rounded-full bg-zinc-500" />
-              </div>
+          {/* Grid con los dos vídeos */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
 
-              {/* Carcasa de la TV */}
-              <div className="bg-gradient-to-b from-amber-900 via-amber-950 to-stone-900 rounded-2xl p-5 pt-6 pb-8 shadow-2xl border border-amber-800/50 mt-6">
-                {/* Marco interior oscuro */}
-                <div className="bg-black rounded-xl p-2 shadow-inner border border-stone-800">
-                  {/* Pantalla con el vídeo */}
-                  <div className="relative rounded-lg overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
-                    <iframe
-                      className="w-full aspect-video rounded-lg"
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/zW8-nqHYlOY?si=W6w02c1nf5B9l4lz"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    />
-                    {/* Reflejo de cristal */}
-                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-lg" />
-                  </div>
+            {/* TV Vintage — Documental */}
+            <div className="flex flex-col items-center">
+              <p className="text-gris-light text-xs mb-3 text-center italic">Tráiler del documental</p>
+              <div className="relative inline-block">
+                {/* Antenas */}
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex items-end gap-0">
+                  <div className="w-[2px] h-10 bg-gradient-to-t from-zinc-500 to-zinc-700 rotate-[-25deg] origin-bottom rounded-full" />
+                  <div className="w-[2px] h-10 bg-gradient-to-t from-zinc-500 to-zinc-700 rotate-[25deg] origin-bottom rounded-full" />
+                  <div className="absolute -top-0.5 left-1/2 -translate-x-[14px] w-2 h-2 rounded-full bg-zinc-500" />
+                  <div className="absolute -top-0.5 left-1/2 translate-x-[10px] w-2 h-2 rounded-full bg-zinc-500" />
                 </div>
 
-                {/* Panel inferior con botones y altavoz */}
-                <div className="flex items-center justify-between mt-4 px-2">
-                  {/* Rejilla del altavoz */}
-                  <div className="flex gap-[3px]">
-                    {Array.from({ length: 8 }, (_, i) => (
-                      <div key={i} className="w-[2px] h-6 bg-stone-700 rounded-full" />
-                    ))}
+                {/* Carcasa de la TV */}
+                <div className="bg-gradient-to-b from-amber-900 via-amber-950 to-stone-900 rounded-2xl p-4 pt-5 pb-7 shadow-2xl border border-amber-800/50 mt-6">
+                  <div className="bg-black rounded-xl p-2 shadow-inner border border-stone-800">
+                    <div className="relative rounded-lg overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
+                      <iframe
+                        className="w-full aspect-video rounded-lg"
+                        src="https://www.youtube.com/embed/zW8-nqHYlOY?si=W6w02c1nf5B9l4lz"
+                        title="Documental - Tráiler"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-lg" />
+                    </div>
                   </div>
-                  {/* Botones / diales */}
-                  <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-b from-stone-600 to-stone-800 border border-stone-500 shadow-inner" />
-                    <div className="w-5 h-5 rounded-full bg-gradient-to-b from-stone-600 to-stone-800 border border-stone-500 shadow-inner" />
-                    <div className="w-3 h-3 rounded-full bg-red-900/60 border border-red-800/50 shadow-[0_0_4px_rgba(220,38,38,0.3)]" />
+                  <div className="flex items-center justify-between mt-3 px-2">
+                    <div className="flex gap-[3px]">
+                      {Array.from({ length: 8 }, (_, i) => (
+                        <div key={i} className="w-[2px] h-5 bg-stone-700 rounded-full" />
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-full bg-gradient-to-b from-stone-600 to-stone-800 border border-stone-500 shadow-inner" />
+                      <div className="w-4 h-4 rounded-full bg-gradient-to-b from-stone-600 to-stone-800 border border-stone-500 shadow-inner" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-900/60 border border-red-800/50 shadow-[0_0_4px_rgba(220,38,38,0.3)]" />
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Patitas de la TV */}
-              <div className="flex justify-center gap-32 -mt-1">
-                <div className="w-3 h-4 bg-gradient-to-b from-amber-950 to-stone-800 rounded-b-sm" />
-                <div className="w-3 h-4 bg-gradient-to-b from-amber-950 to-stone-800 rounded-b-sm" />
+                {/* Patitas */}
+                <div className="flex justify-center gap-24 -mt-1">
+                  <div className="w-2.5 h-3 bg-gradient-to-b from-amber-950 to-stone-800 rounded-b-sm" />
+                  <div className="w-2.5 h-3 bg-gradient-to-b from-amber-950 to-stone-800 rounded-b-sm" />
+                </div>
               </div>
             </div>
+
+            {/* SEAT 600 — Eric tocando la batería */}
+            <div className="flex flex-col items-center">
+              <p className="text-gris-light text-xs mb-3 text-center italic">Eric explica cómo empieza cada tema</p>
+              <div className="relative inline-block w-full max-w-md">
+                {/* Techo del coche */}
+                <div className="bg-gradient-to-b from-stone-700 via-stone-800 to-stone-900 rounded-t-[2rem] pt-3 px-3 border-t border-x border-stone-600/50">
+                  {/* Interior del techo — tapizado */}
+                  <div className="bg-gradient-to-b from-stone-600/30 to-transparent rounded-t-2xl h-3" />
+                </div>
+
+                {/* Parabrisas / ventana — el vídeo */}
+                <div className="bg-gradient-to-b from-stone-800 to-stone-900 px-3 pb-3 border-x border-stone-600/50">
+                  {/* Marco de la ventanilla */}
+                  <div className="bg-stone-950 rounded-lg p-1.5 border border-stone-600/30">
+                    <div className="relative rounded overflow-hidden">
+                      <iframe
+                        className="w-full aspect-video rounded"
+                        src="https://www.youtube.com/embed/HGT21rM9q7U?si=b3lffn8Ps-FHjrao"
+                        title="Eric tocando la batería en el 600"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                      {/* Reflejo del cristal del parabrisas */}
+                      <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-transparent via-white/3 to-white/8 rounded" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Salpicadero */}
+                <div className="bg-gradient-to-b from-stone-900 to-stone-950 px-4 py-3 border-x border-stone-600/50 rounded-b-xl border-b">
+                  <div className="flex items-center justify-between">
+                    {/* Volante simplificado */}
+                    <div className="w-10 h-10 rounded-full border-[3px] border-stone-600 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-stone-700 border border-stone-500" />
+                    </div>
+                    {/* Indicadores del salpicadero */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-stone-800 border border-stone-600 flex items-center justify-center">
+                        <div className="w-1 h-3 bg-stone-500 rounded-full rotate-[-30deg]" />
+                      </div>
+                      <div className="w-6 h-6 rounded-full bg-stone-800 border border-stone-600 flex items-center justify-center">
+                        <div className="w-1 h-3 bg-stone-500 rounded-full rotate-[15deg]" />
+                      </div>
+                    </div>
+                    {/* Llave de contacto */}
+                    <div className="flex items-center gap-1">
+                      <div className="w-3 h-5 rounded-sm bg-gradient-to-b from-amber-700 to-amber-900 border border-amber-600/50" />
+                      <div className="w-1.5 h-3 bg-stone-500 rounded-r-sm" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
