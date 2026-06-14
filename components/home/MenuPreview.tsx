@@ -3,31 +3,31 @@ import Link from "next/link";
 const tapas = [
   {
     name: "Inercia",
-    band: "Lagartija Nick",
-    description: "Croquetas de jamón ibérico",
-    price: "6€",
-    image: "/images/bar-real/tapa-salmorejo.jpg",
+    nombreReal: "Carpaccio de Calabacín",
+    description: "Finas láminas de calabacín con limón, parmesano rallado, rúcula, aceite, pimentón, soja y sésamo caramelizado.",
+    price: "8€",
+    image: "/images/menu/tapa-1.png",
   },
   {
     name: "Omega",
-    band: "Lagartija Nick + Morente",
-    description: "Tabla de quesos y jamón",
-    price: "12€",
-    image: "/images/bar-real/tapa-gourmet.jpg",
+    nombreReal: "Ensaladilla Tártara de Atún",
+    description: "Ensaladilla de patatas con salsa tártara, atún, huevo cocido, alcaparras, aceitunas negras y mostaza.",
+    price: "11€",
+    image: "/images/menu/tapa-2.png",
   },
   {
-    name: "Qué Puedo Hacer",
-    band: "Los Planetas",
-    description: "Camarones al ajillo",
-    price: "7€",
-    image: "/images/bar-real/tapa-salmorejo.jpg",
+    name: "Sonic Youth",
+    nombreReal: "Ravioli de Salmón",
+    description: "Rollito de pasta brick relleno de salmón ahumado, queso crema, reducción de yogur griego.",
+    price: "13,50€",
+    image: "/images/menu/tapa-4.png",
   },
   {
-    name: "Keith Moon",
-    band: "The Who",
-    description: "Surtido de carnes a la brasa",
-    price: "10€",
-    image: "/images/bar-real/tapa-gourmet.jpg",
+    name: "Satisfaction",
+    nombreReal: "Rollitos Crujientes de Lomo",
+    description: "Rollitos de pasta filo rellenos de lomo a la leña con vinagreta de miel y mostaza.",
+    price: "13,40€",
+    image: "/images/menu/tapa-6.png",
   },
 ];
 
@@ -70,7 +70,7 @@ export function MenuPreview() {
                   {tapa.price}
                 </span>
               </div>
-              <p className="text-sm text-ambar/70 mt-1 italic">{tapa.band}</p>
+              <p className="text-sm text-ambar/70 mt-1 italic">{tapa.nombreReal}</p>
               <p className="text-gris-light mt-3">{tapa.description}</p>
               </div>
             </div>
