@@ -66,14 +66,27 @@ export async function DELETE(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
-  const { id, disponible } = await request.json();
+  const body = await request.json();
+  const { id, ...fields } = body;
+
   if (!id) {
     return NextResponse.json({ error: "ID requerido" }, { status: 400 });
   }
+
+  const updateData: Record<string, unknown> = {};
+
+  if (fields.nombre !== undefined) updateData.nombre = fields.nombre;
+  if (fields.descripcion !== undefined) updateData.descripcion = fields.descripcion;
+  if (fields.precio !== undefined) updateData.precio = fields.precio;
+  if (fields.imagen !== undefined) updateData.imagen = fields.imagen;
+  if (fields.disponible !== undefined) updateData.disponible = fields.disponible;
+  if (fields.categoryId !== undefined) updateData.categoryId = fields.categoryId ? Number(fields.categoryId) : null;
+
   const [updated] = await db
     .update(menuItems)
-    .set({ disponible })
+    .set(updateData)
     .where(eq(menuItems.id, Number(id)))
     .returning();
+
   return NextResponse.json(updated);
 }
