@@ -100,7 +100,7 @@ export default function HistoriaPage() {
               key={n}
               className="relative aspect-square rounded-lg overflow-hidden border border-gris/20 bg-negro"
               style={{
-                backgroundImage: `url('/images/museo/foto-${n}.svg')`,
+                backgroundImage: `url('/images/museo/foto-${n}.png')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
