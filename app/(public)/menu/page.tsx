@@ -1,10 +1,43 @@
+import { db } from "@/lib/db/client";
+import { menuItems, menuCategories } from "@/lib/db/schema";
+import { eq, asc } from "drizzle-orm";
 import { MenuCategories } from "@/components/menu/MenuCategories";
 
 export const metadata = {
   title: "Menu",
 };
 
-export default function MenuPage() {
+export const dynamic = "force-dynamic";
+
+export default async function MenuPage() {
+  const cats = await db
+    .select()
+    .from(menuCategories)
+    .where(eq(menuCategories.activa, true))
+    .orderBy(asc(menuCategories.orden));
+
+  const items = await db
+    .select({
+      id: menuItems.id,
+      nombre: menuItems.nombre,
+      slug: menuItems.slug,
+      categoryId: menuItems.categoryId,
+      descripcion: menuItems.descripcion,
+      precio: menuItems.precio,
+      imagen: menuItems.imagen,
+      disponible: menuItems.disponible,
+      orden: menuItems.orden,
+    })
+    .from(menuItems)
+    .where(eq(menuItems.disponible, true))
+    .orderBy(asc(menuItems.orden));
+
+  const categoriaNames = cats.map((c) => c.nombre);
+  const itemsWithCat = items.map((item) => ({
+    ...item,
+    categoria: cats.find((c) => c.id === item.categoryId)?.nombre ?? "Sin categoría",
+  }));
+
   return (
     <div
       className="min-h-screen bg-fixed bg-cover bg-center"
@@ -24,7 +57,7 @@ export default function MenuPage() {
         </p>
       </div>
 
-      <MenuCategories />
+      <MenuCategories categorias={categoriaNames} items={itemsWithCat} />
     </div>
     </div>
     </div>

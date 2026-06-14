@@ -1,10 +1,20 @@
+import { db } from "@/lib/db/client";
+import { eventosProgramacion } from "@/lib/db/schema";
+import { asc } from "drizzle-orm";
 import { CalendarioEventos } from "@/components/eventos/CalendarioEventos";
 
 export const metadata = {
   title: "Programacion",
 };
 
-export default function ProgramacionPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ProgramacionPage() {
+  const eventos = await db
+    .select()
+    .from(eventosProgramacion)
+    .orderBy(asc(eventosProgramacion.fecha));
+
   return (
     <div
       className="min-h-screen bg-fixed bg-cover bg-center"
@@ -22,7 +32,7 @@ export default function ProgramacionPage() {
         </p>
       </div>
 
-      <CalendarioEventos />
+      <CalendarioEventos eventos={eventos} />
     </div>
     </div>
     </div>

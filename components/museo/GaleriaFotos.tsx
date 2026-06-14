@@ -3,24 +3,25 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const categorias = ["Todos", "Conciertos", "Estudio", "Personajes", "Mementos"];
+const categorias = ["Todos", "conciertos", "estudio", "personajes", "mementos"];
+const categoriasLabel: Record<string, string> = {
+  Todos: "Todos",
+  conciertos: "Conciertos",
+  estudio: "Estudio",
+  personajes: "Personajes",
+  mementos: "Mementos",
+};
 
-const fotos = [
-  { id: "1", titulo: "Joe Strummer en el Albaicin", banda: "The Clash", anio: 1991, categoria: "Personajes", imagen: "/images/museo/foto-1.png" },
-  { id: "2", titulo: "Lagartija Nick en directo", banda: "Lagartija Nick", anio: 1995, categoria: "Conciertos", imagen: "/images/museo/foto-2.png" },
-  { id: "3", titulo: "Grabacion de Omega", banda: "Lagartija Nick", anio: 1996, categoria: "Estudio", imagen: "/images/museo/foto-3.png" },
-  { id: "4", titulo: "Los Planetas en Planta Baja", banda: "Los Planetas", anio: 1998, categoria: "Conciertos", imagen: "/images/museo/foto-4.png" },
-  { id: "5", titulo: "Enrique Morente retrato", banda: "Enrique Morente", anio: 2005, categoria: "Personajes", imagen: "/images/museo/foto-5.png" },
-  { id: "6", titulo: "KGB primer concierto", banda: "KGB", anio: 1982, categoria: "Conciertos", imagen: "/images/museo/foto-6.png" },
-  { id: "7", titulo: "Guitarra firmada por J", banda: "Los Planetas", anio: 2010, categoria: "Mementos", imagen: "/images/museo/foto-7.png" },
-  { id: "8", titulo: "Eric en el estudio", banda: "Los Evangelistas", anio: 2007, categoria: "Estudio", imagen: "/images/museo/foto-8.png" },
-  { id: "9", titulo: "Cartel Omega Tour", banda: "Lagartija Nick", anio: 1997, categoria: "Mementos", imagen: "/images/museo/foto-9.png" },
-  { id: "10", titulo: "091 despedida", banda: "091", anio: 1996, categoria: "Conciertos", imagen: "/images/museo/foto-10.png" },
-  { id: "11", titulo: "Apertura Bar de Eric", banda: "Varios", anio: 2013, categoria: "Personajes", imagen: "/images/museo/foto-11.png" },
-  { id: "12", titulo: "Baquetas de Eric", banda: "Los Planetas", anio: 2015, categoria: "Mementos", imagen: "/images/museo/foto-12.png" },
-];
+interface Foto {
+  id: number;
+  titulo: string;
+  urlFoto: string;
+  banda: string | null;
+  anio: number | null;
+  categoria: string | null;
+}
 
-export function GaleriaFotos() {
+export function GaleriaFotos({ fotos }: { fotos: Foto[] }) {
   const [filtroCategoria, setFiltroCategoria] = useState("Todos");
   const [busqueda, setBusqueda] = useState("");
 
@@ -30,7 +31,7 @@ export function GaleriaFotos() {
     const coincideBusqueda =
       busqueda === "" ||
       foto.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
-      foto.banda.toLowerCase().includes(busqueda.toLowerCase());
+      (foto.banda ?? "").toLowerCase().includes(busqueda.toLowerCase());
     return coincideCategoria && coincideBusqueda;
   });
 
@@ -56,7 +57,7 @@ export function GaleriaFotos() {
                   : "bg-negro-light text-gris-light hover:text-dorado border border-gris/30"
               }`}
             >
-              {cat}
+              {categoriasLabel[cat] ?? cat}
             </button>
           ))}
         </div>
@@ -70,11 +71,10 @@ export function GaleriaFotos() {
             className="group block"
           >
             <div className="bg-negro-light rounded-lg overflow-hidden border border-gris/20 hover:border-dorado/50 transition-colors">
-              {/* PLACEHOLDER: reemplazar por imagen real en preproduccion */}
               <div
-                className="aspect-square bg-gris/20 flex items-center justify-center"
+                className="aspect-square bg-gris/20"
                 style={{
-                  backgroundImage: `url('${foto.imagen}')`,
+                  backgroundImage: `url('${foto.urlFoto}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -86,11 +86,13 @@ export function GaleriaFotos() {
                   {foto.titulo}
                 </h3>
                 <p className="text-gris-light text-xs mt-1">
-                  {foto.banda} &middot; {foto.anio}
+                  {foto.banda} {foto.anio ? `· ${foto.anio}` : ""}
                 </p>
-                <span className="inline-block mt-2 text-xs bg-rojo/20 text-rojo px-2 py-0.5 rounded-full border border-rojo/30">
-                  {foto.categoria}
-                </span>
+                {foto.categoria && (
+                  <span className="inline-block mt-2 text-xs bg-rojo/20 text-rojo px-2 py-0.5 rounded-full border border-rojo/30">
+                    {categoriasLabel[foto.categoria] ?? foto.categoria}
+                  </span>
+                )}
               </div>
             </div>
           </Link>
