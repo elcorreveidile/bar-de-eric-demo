@@ -102,7 +102,7 @@ export function CarritoContent() {
           </p>
           <Link
             href="/menu"
-            className="inline-block mt-6 px-6 py-2 bg-rojo text-dorado rounded-lg hover:bg-rojo/80 transition-colors"
+            className="inline-block mt-6 px-6 py-2 bg-rojo text-white rounded-lg hover:bg-rojo/80 transition-colors"
           >
             Ver menú
           </Link>
@@ -214,7 +214,7 @@ export function CarritoContent() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full py-3 bg-rojo text-dorado font-semibold rounded-lg hover:bg-rojo/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+            className="w-full py-3 bg-rojo text-white font-semibold rounded-lg hover:bg-rojo/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-lg"
           >
             {loading ? "Enviando pedido..." : "Confirmar pedido"}
           </button>
