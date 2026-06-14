@@ -27,19 +27,16 @@ function VerifyFallback() {
 function VerifyContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const error = searchParams.get("error");
   const [status, setStatus] = useState<"loading" | "success" | "error">(
-    token ? "loading" : "error"
+    error ? "error" : token ? "loading" : "error"
   );
 
   useEffect(() => {
-    if (!token) return;
+    if (!token || error) return;
 
-    const timer = setTimeout(() => {
-      setStatus("success");
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [token]);
+    window.location.href = `/api/auth/verify?token=${token}`;
+  }, [token, error]);
 
   return (
     <section className="min-h-[70vh] flex items-center justify-center px-4">
@@ -52,22 +49,6 @@ function VerifyContent() {
             </h1>
             <p className="text-gris-light">
               Comprobando tu enlace de acceso.
-            </p>
-          </>
-        )}
-
-        {status === "success" && (
-          <>
-            <div className="w-16 h-16 bg-green-900/30 border border-green-500/30 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h1 className="font-display text-2xl font-bold text-dorado mb-2">
-              Acceso verificado
-            </h1>
-            <p className="text-gris-light">
-              Redirigiendo al dashboard...
             </p>
           </>
         )}

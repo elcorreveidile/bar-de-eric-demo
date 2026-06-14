@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const FROM = "El Bar de Eric <noreply@elbardeeric.com>";
+const FROM = "El Bar de Eric <noreply@espanias.com>";
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
