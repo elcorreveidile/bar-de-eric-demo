@@ -7,7 +7,7 @@ const eventos = [
     type: "Música en vivo",
     description:
       "Jam session abierta con músicos locales. Selección especial de bourbons americanos.",
-    image: "/images/bar-real/interior-rincon-guitarras.jpg",
+    image: "/images/museo/foto-11.png",
   },
   {
     date: { day: "28", month: "JUN" },
