@@ -1,38 +1,45 @@
 # Prompts para Generar Imágenes — El Bar de Eric
 
-> ⚠️ **Todas las imágenes actuales de la web son placeholders temporales** (ver «Estado actual» abajo). Se reemplazarán por las fotos reales de Eric / del bar en preproducción, cuando tengamos su permiso.
+> ⚠️ **Todas las imágenes marcadas como 🔴 son placeholders temporales** (SVG generados). Se reemplazarán por las fotos reales de Eric / del bar o por imágenes generadas con IA en preproducción.
 
-Este documento contiene los prompts para generar todas las imágenes de la web de **El Bar de Eric** (bar museo del rock + tapas musicales + eventos, Granada) con herramientas de IA (Midjourney, DALL·E 3, Stable Diffusion…), además de un listado de **fuentes reales de fotos de Eric Jiménez y sus bandas** disponibles en Internet.
+Este documento contiene los prompts para generar todas las imágenes pendientes de la web de **El Bar de Eric** (bar museo del rock + tapas musicales + eventos, Granada) con herramientas de IA (Midjourney, DALL·E 3, Stable Diffusion…), además de un listado de **fuentes reales de fotos de Eric Jiménez y sus bandas**.
 
 ---
 
-## 🔴 Estado actual: PLACEHOLDERS (a reemplazar en preproducción)
+## Estado actual
 
-> **Toda la web usa imágenes _placeholder_ temporales.** Son ilustraciones **SVG** generadas automáticamente con la identidad visual del proyecto, ya colocadas en `public/images/` y cableadas en los componentes (como `background-image`). **Deben sustituirse por las fotos reales de Eric / del bar cuando tengamos su permiso, en preproducción** — esto aplica a TODA la web, no solo a una sección.
->
-> - **Generador:** `scripts/generate-placeholders.mjs` → `node scripts/generate-placeholders.mjs`
-> - **Aviso y guía de reemplazo:** `public/images/README.md`
-> - Cada SVG incluye el comentario interno `<!-- PLACEHOLDER: reemplazar por imagen real… -->` y cada componente que las usa lleva `{/* PLACEHOLDER: reemplazar por imagen real en preproducción */}`.
-> - Los **prompts** de este documento sirven para generar las **versiones definitivas** (con IA o como guion de la sesión de fotos real).
+### ✅ Fotos reales ya integradas (10 archivos en `public/images/bar-real/`)
 
-### 🗂️ Inventario de placeholders generados (58 archivos)
+| Archivo | Contenido | Usada en |
+| --- | --- | --- |
+| `neon-fachada.jpg` | Cartel neón "El Bar de Eric Museo" (desde dentro) | Hero (home) |
+| `pared-fotos-musicos.jpg` | Pared de fotos enmarcadas de músicos + pizarra de raciones | Museo (home), Eventos (home) |
+| `galeria-bandas.jpg` | Grid de fotos de bandas en marcos de madera | Museo (home) |
+| `cuadros-backstage.jpg` | Cuadros con backstage passes y entradas de conciertos (pared roja) | Museo (home) |
+| `rincon-memorabilia.jpg` | Rincón con papel de guitarras, fotos, cojines naranjas, estantería | Museo (home), Eventos (home) |
+| `interior-rincon-guitarras.jpg` | Otro rincón interior con taburetes metálicos y lámpara | Museo (home), Eventos (home) |
+| `barra.jpg` | Barra del bar con copas, azulejos y madera | Museo (home), Ubicación (home) |
+| `logo-eric-bateria.jpg` | Ilustración de Eric tocando la batería por Migueline | Sobre Eric (home) |
+| `tapa-salmorejo.jpg` | Salmorejo con brotes y jamón | Menú Preview (home) |
+| `tapa-gourmet.jpg` | Tapa gourmet con salsa | Menú Preview (home) |
 
-| Sección del documento | Placeholder(s) en `public/images/` | Cantidad | Estado |
+> **Nota:** Estas fotos solo están cableadas en los **componentes de la HOME**. Las páginas interiores (`/museo`, `/menu`, `/programacion`, `/sobre-eric`, `/contacto`, `/historia`, etc.) siguen usando los SVG placeholders.
+
+---
+
+### 🔴 Imágenes pendientes (48 archivos SVG placeholder)
+
+| Categoría | Archivos | Cantidad | Páginas que los usan |
 | --- | --- | :---: | --- |
-| 1. Logo | `logo/logo-horizontal.svg`, `logo/logo-square.svg`, `app/icon.svg` (favicon) | 3 | 🟡 placeholder |
-| 2. Hero | `fondos/hero-collage.svg` | 1 | 🟡 placeholder |
-| 3. Museo | `museo/foto-1.svg` … `museo/foto-20.svg` | 20 | 🟡 placeholder |
-| 4. Tapas | `menu/tapa-1.svg` … `menu/tapa-15.svg` (orden = catálogo) | 15 | 🟡 placeholder |
-| 5. Eventos | `eventos/{concierto,exposicion,guia-rockera,taller}.svg` | 4 | 🟡 placeholder |
-| 6. Sobre Eric | `equipo/eric.svg` | 1 | 🟡 placeholder |
-| 7. Ubicación | `ubicacion/fachada.svg` | 1 | 🟡 placeholder |
-| 8. Iconos UI | `iconos/{museo,menu,programacion,guia,reservas,pedidos}.svg` | 6 | 🟡 placeholder |
-| 9. Open Graph | `og/og-image.svg` | 1 | 🟡 placeholder |
-| 10. Fondos | `fondos/{textura-global,patron-vinilos,madera-menu,cartel-eventos,neon-reservas,dashboard-textura,divisor}.svg` | 7 | 🟡 placeholder |
-
-**Mapa tapa → nombre** (para reemplazo directo): 1 Inercia · 2 Omega · 3 Qué Puedo Hacer · 4 Pop · 5 Keith Moon · 6 Un Buen Día · 7 Lagartija · 8 Joe Strummer · 9 091 · 10 Los Evangelistas · 11 Lux Interior · 12 Sonic Youth · 13 Patti Smith · 14 Satisfaction · 15 London Calling.
-
-> **Para reemplazar:** sustituir el archivo manteniendo el **mismo nombre y ruta** (idealmente exportando la foto real a `.svg`/`.jpg`/`.webp` con ese nombre, o actualizando la referencia en el componente y en `lib/db/seed.ts`).
+| **Museo** | `museo/foto-1.svg` … `foto-20.svg` | 20 | `/museo`, `/museo/[id]`, `/historia` |
+| **Tapas** | `menu/tapa-1.svg` … `tapa-15.svg` | 15 | `/menu`, `/menu/[slug]` |
+| **Eventos** | `eventos/{concierto,exposicion,guia-rockera,taller}.svg` | 4 | `/programacion`, `/programacion/[slug]`, `/guia-rockera` |
+| **Sobre Eric** | `equipo/eric.svg` | 1 | `/sobre-eric` |
+| **Ubicación** | `ubicacion/fachada.svg` | 1 | `/contacto` |
+| **Logo** | `logo/logo-horizontal.svg`, `logo/logo-square.svg` | 2 | Navbar (todas las páginas) |
+| **Iconos** | `iconos/{museo,menu,programacion,guia,reservas,pedidos}.svg` | 6 | (No usados actualmente en componentes) |
+| **Open Graph** | `og/og-image.svg` | 1 | Meta tags (layout.tsx) |
+| **Fondos** | `fondos/textura-global.svg` + 6 más | 7 | `globals.css` (body) |
 
 ---
 
@@ -51,25 +58,33 @@ Este documento contiene los prompts para generar todas las imágenes de la web d
 - **Cuerpo (texto):** Inter
 
 ### Tono visual
-Estética de **museo del rock + Hard Rock Café casero**: paredes negras repletas de fotos en blanco y negro, carteles de conciertos, vinilos, neón dorado/rojo cálido, madera vieja, luz tenue de tasca granadina. Editorial y nostálgico, nunca corporativo ni stock genérico.
+Estética de **museo del rock + Hard Rock Café casero**: paredes con papel de guitarras (blanco y negro), fotos enmarcadas de músicos, backstage passes, vinilos, neón rojo/verde, madera, cojines naranjas, pizarras de tiza. Editorial y nostálgico, nunca corporativo ni stock genérico.
+
+> **Referencia real:** las 10 fotos del bar en `public/images/bar-real/` muestran exactamente el estilo real del local.
 
 ---
 
 ## 📸 Imágenes Necesarias
 
-### 1. Logo Principal
+---
+
+### 1. Logo Principal — 🔴 PENDIENTE
 **Propósito:** Cabecera (Navbar) + favicon
+**Archivos:** `logo/logo-horizontal.svg`, `logo/logo-square.svg`
 **Formato:** PNG transparente
 **Resolución:** 1200×400px (horizontal) + 512×512px (cuadrado/favicon)
-**Estilo:** Tipográfico, editorial rockero
+
+> **Nota:** Ya existe la ilustración real de Migueline (`bar-real/logo-eric-bateria.jpg`) con Eric tocando la batería y "El Bar de Eric" en el bombo. Se puede usar como base del logo o adaptarla.
 
 **Prompt:**
 ```
 Create a professional logo for a rock music bar-museum called "El Bar de Eric" in Granada, Spain.
 
+Reference: There is an existing hand-drawn illustration by artist Migueline showing a drummer (Eric) behind a drum kit with "El Bar de Eric" written on the bass drum, white chalk-style lines on black background.
+
 Design requirements:
 - Wordmark "El Bar de Eric" in an elegant high-contrast serif (Playfair Display style)
-- Small icon element: a stylized drumstick pair crossed, or a vinyl record, in vintage gold (#FFD700)
+- Small icon element: stylized drumstick pair crossed, or the Migueline drummer illustration simplified
 - Tagline below in clean sans-serif (Inter): "Donde la música se hace tapa"
 - Color palette: matte black (#1a1a1a) background, vintage gold (#FFD700), rock red (#8B0000) accent
 - Style: editorial, vintage rock poster meets minimalist, warm and timeless, NOT corporate
@@ -82,36 +97,19 @@ Technical:
 
 ---
 
-### 2. Hero Section — Home
-**Propósito:** Fondo de la sección principal de la home (`HeroSection`)
-**Resolución:** 1920×1080px (16:9)
-**Formato:** JPG/WebP
-
-**Prompt:**
-```
-Atmospheric hero image for a rock music bar-museum website in Granada, Spain.
-
-Scene:
-- Interior of a dimly lit, characterful tapas bar whose black walls are completely covered with framed black-and-white rock photographs, vintage concert posters, set lists, and music memorabilia
-- Warm low light, gold and red glow from neon and vintage lamps
-- Old wooden bar counter, a drum kit or vinyl records subtly visible
-- Cinematic, intimate, nostalgic mood — a "homemade Hard Rock Cafe" with the soul of a rock museum
-
-Color palette: deep matte black (#1a1a1a), vintage gold highlights (#FFD700), rock red accents (#8B0000), warm amber light
-Style: editorial photography, shallow depth of field, film grain, no people in foreground (space for overlaid text on the left third), NOT a generic stock bar
-Resolution: 1920x1080px, 16:9
-```
-
----
-
-### 3. Museo Digital — Fotos de Galería (12+ imágenes)
-**Propósito:** Galería del museo (`GaleriaFotos`) y seed de `galeria_fotos`
+### 2. Museo Digital — 20 fotos de galería — 🔴 PENDIENTE
+**Propósito:** Galería del museo (`/museo`, `/museo/[id]`) y `/historia`
+**Archivos:** `museo/foto-1.svg` … `museo/foto-20.svg`
 **Resolución:** 1000×1000px (cuadrado) y 1200×800px (apaisado)
 **Formato:** JPG/WebP, predominio blanco y negro
 
+> **Ideal:** usar las **170+ fotografías reales** que cuelgan en las paredes del bar (con permiso de Eric). Las fotos `bar-real/pared-fotos-musicos.jpg`, `galeria-bandas.jpg` y `cuadros-backstage.jpg` muestran exactamente qué tipo de imágenes son.
+
 **Prompt base:**
 ```
-Vintage black-and-white rock music photograph for a museum gallery wall.
+Vintage black-and-white rock music photograph for a museum gallery wall in a bar in Granada, Spain.
+
+Reference style: The bar has walls covered in framed photos in natural wood frames, arranged in grids. Photos are mostly black and white or vintage color, showing bands, concerts, portraits of musicians.
 
 Style requirements:
 - Authentic 35mm film aesthetic, grainy black and white (or sepia-toned)
@@ -120,249 +118,284 @@ Style requirements:
 - Slight aged/archival look (subtle scratches, warm tone)
 - Editorial museum-quality framing
 
-Technical: 1000x1000px or 1200x800px, JPG. Evocative, timeless, NOT modern digital glossy.
+Technical: 1000x1000px or 1200x800px, JPG.
 ```
 
-**Variantes por categoría (las 4 del filtro de la web):**
+**Variantes (una por cada foto-N.svg):**
 
-1. **Conciertos** — `Drummer mid-performance behind a vintage drum kit on a small smoky club stage, dramatic backlight, black and white film grain.`
-2. **Estudio** — `Recording studio scene, mixing console and microphones, a musician with headphones, warm low light, archival black and white.`
-3. **Personajes** — `Portrait of a Spanish rock musician in the 1990s, leather jacket, candid expression, high-contrast black and white studio portrait.`
-4. **Mementos** — `Still life of rock memorabilia on black velvet: a worn leather jacket, drumsticks, a concert ticket stub, a vinyl record. Warm gallery spotlight, gold accents.`
-
-> En la web la categoría usa los valores `conciertos`, `estudio`, `personajes`, `mementos` (campo `categoria` de la tabla `galeria_fotos`).
+| # | Categoría | Prompt específico |
+|---|-----------|-------------------|
+| 1 | conciertos | `Drummer mid-performance behind a vintage drum kit on a small smoky club stage, dramatic backlight, black and white film grain.` |
+| 2 | conciertos | `Rock band on stage, guitarist leaning into microphone, audience silhouettes in foreground, flash photography, 1990s Spanish indie.` |
+| 3 | estudio | `Recording studio scene, mixing console and microphones, a musician with headphones, warm low light, archival black and white.` |
+| 4 | estudio | `Close-up of hands adjusting knobs on an analog mixing desk, cable spaghetti, dim red light, 35mm film grain.` |
+| 5 | personajes | `Portrait of a Spanish rock musician in the 1990s, leather jacket, candid expression, high-contrast black and white studio portrait.` |
+| 6 | personajes | `Two musicians laughing backstage, casual clothes, cigarette smoke, candid snapshot, warm sepia tone.` |
+| 7 | conciertos | `Small club concert from the audience perspective, raised fists, stage fog, red and blue lights cutting through darkness.` |
+| 8 | mementos | `Still life of rock memorabilia on black velvet: a worn leather jacket, drumsticks, concert ticket stubs, a vinyl record. Warm gallery spotlight.` |
+| 9 | conciertos | `Bass player on stage in profile, dramatic rim light, out-of-focus crowd, black and white with high contrast.` |
+| 10 | personajes | `Group photo of an indie rock band posing against a graffiti wall in Granada, 1990s fashion, casual, black and white.` |
+| 11 | mementos | `Wall covered with framed backstage passes, tour laminates, and concert wristbands, red wall background, warm lighting.` |
+| 12 | estudio | `Vocalist in an isolation booth, vintage microphone, headphones, eyes closed singing, warm amber light, film grain.` |
+| 13 | conciertos | `Overhead shot of a drum kit during performance, drumsticks in motion blur, cymbal splash caught mid-air.` |
+| 14 | personajes | `Candid portrait of a musician sitting at a bar counter, leather jacket, whiskey glass, moody side lighting, black and white.` |
+| 15 | mementos | `Collection of vinyl record covers arranged in a fan on dark wood, classic rock and Spanish indie albums, warm directional light.` |
+| 16 | conciertos | `Festival stage from behind the performers, crowd extending to the horizon, sunset backlighting, epic wide shot.` |
+| 17 | estudio | `Musician tuning a guitar in a dimly lit rehearsal room, amplifiers and cables in background, intimate atmosphere.` |
+| 18 | personajes | `Young rock band loading equipment into a tour van, black and white, street photography, candid energy.` |
+| 19 | mementos | `Framed concert setlist handwritten on paper, alongside guitar picks and a drumstick, museum display style.` |
+| 20 | conciertos | `Silhouette of a singer at microphone, single spotlight, smoke machine haze, dramatic theatrical lighting.` |
 
 ---
 
-### 4. Menú — Tapas Musicales (15 imágenes)
-**Propósito:** Tarjetas de tapa (`TapaCard`) y seed de `menu_items`
+### 3. Tapas Musicales — 15 fotos de platos — 🔴 PENDIENTE
+**Propósito:** Tarjetas de tapa (`/menu`, `/menu/[slug]`)
+**Archivos:** `menu/tapa-1.svg` … `menu/tapa-15.svg`
 **Resolución:** 800×800px (cuadrado)
 **Formato:** JPG/WebP
 
+> **Referencia real:** Las fotos `bar-real/tapa-salmorejo.jpg` (salmorejo con brotes) y `bar-real/tapa-gourmet.jpg` (tapa con salsa) muestran el estilo de presentación real del bar: platos blancos cuadrados, presentación cuidada, sin pretensiones pero con nivel.
+
 **Prompt base:**
 ```
-Appetizing close-up food photography of a Spanish tapa, served on rustic ceramic, on a dark moody wooden table.
+Appetizing close-up food photography of a Spanish tapa, served on a white square ceramic plate, on a dark bar table.
+
+Reference style: Real photos from the bar show clean white square plates, elegant but unpretentious plating, natural restaurant lighting.
 
 Style requirements:
-- Warm directional light, dark background (#1a1a1a) with subtle gold rim light
+- Warm directional light, dark background with subtle warm ambient light
 - Editorial gastronomy style, shallow depth of field, steam/texture visible
-- Small, elegant, "gastrobar" plating — not fast food
-- Color palette accents in gold (#FFD700) and deep red (#8B0000) props (napkin, glass of wine)
+- Small, elegant, "gastrobar" plating — not fast food, not Michelin-star either
+- Realistic restaurant photography, NOT overly styled stock
 
-Technical: 800x800px square, JPG. Mouth-watering, premium, intimate rock-bar mood.
+Technical: 800x800px square, JPG.
 ```
 
 **Prompts específicos (nombre musical → plato):**
 
-1. **Inercia** (Lagartija Nick, 1992) — `Croquetas de jamón ibérico, golden crispy, served on slate with a sprig of parsley.`
-2. **Omega** (Lagartija Nick + Enrique Morente, 1996) — `Artisan cheese and Iberian ham board with grapes and breadsticks, candlelit.`
-3. **Qué Puedo Hacer** (Los Planetas, 2000) — `Sizzling garlic prawns (camarones al ajillo) in a clay cazuela with chili and parsley.`
-4. **Pop** (Los Planetas, 1994) — `Mushroom and truffle croquettes, creamy interior shown, dusted with herbs.`
-5. **Keith Moon** (The Who) — `Mixed grilled meats platter (surtido de carnes a la brasa), smoky, charred edges.`
-6. **Un Buen Día** (Los Planetas, 1996) — `Spanish ensaladilla rusa in an elegant quenelle, olive oil drizzle, on dark plate.`
-7. **Lagartija** (Nick Cave ref.) — `Mini gourmet hamburgers with caramelized onion, on a wooden board.`
-8. **Joe Strummer** (The Clash) — `Nachos with guacamole and pico de gallo, vibrant, sharing plate.`
-9. **091** (banda granadina) — `Patatas bravas with homemade alioli and spicy red sauce, rustic bowl.`
-10. **Los Evangelistas** (banda de Eric) — `Large mixed sharing board: cheeses, hams, croquettes, olives, candlelit.`
-11. **Lux Interior** (The Cramps) — `Rock-style chicken wings glazed and glossy, with dipping sauce.`
-12. **Sonic Youth** — `Andalusian gazpacho in a glass with diced vegetable garnish, fresh and cold.`
-13. **Patti Smith** — `Smoked salmon toast (tosta) with capers and dill on artisan bread.`
-14. **Satisfaction** (Rolling Stones) — `Pork loin and roasted pepper montadito on crusty bread.`
-15. **London Calling** (The Clash) — `Fish & chips with tartar sauce, golden battered, lemon wedge.`
+| # | Nombre | Banda | Prompt del plato |
+|---|--------|-------|------------------|
+| 1 | Inercia | Lagartija Nick | `Golden crispy croquetas de jamón ibérico (3 pieces) on white square plate, parsley garnish, dark table.` |
+| 2 | Omega | Lagartija Nick + Morente | `Artisan cheese and Iberian ham board with grapes, breadsticks, on wooden serving board.` |
+| 3 | Qué Puedo Hacer | Los Planetas | `Sizzling garlic prawns (gambas al ajillo) in a clay cazuela with chili, oil and parsley.` |
+| 4 | Pop | Los Planetas | `Mushroom and truffle croquettes, one cut open showing creamy interior, dusted with herbs.` |
+| 5 | Keith Moon | The Who | `Mixed grilled meats platter (surtido de carnes a la brasa), smoky, charred edges, on slate.` |
+| 6 | Un Buen Día | Los Planetas | `Spanish ensaladilla rusa, elegant quenelle shape, olive oil drizzle, paprika, on white plate.` |
+| 7 | Lagartija | – | `Mini gourmet hamburgers (2) with caramelized onion and melted cheese, on a wooden board.` |
+| 8 | Joe Strummer | The Clash | `Nachos with guacamole and pico de gallo, vibrant colors, sharing plate, casual style.` |
+| 9 | 091 | Banda granadina | `Patatas bravas in a rustic bowl, homemade alioli and spicy red bravas sauce, golden potatoes.` |
+| 10 | Los Evangelistas | Banda de Eric | `Large mixed sharing board: cheeses, cured meats, croquettes, olives, breadsticks, for 2-3 people.` |
+| 11 | Lux Interior | The Cramps | `Glazed chicken wings (5-6 pieces), glossy sauce, sesame seeds, with dipping sauce on the side.` |
+| 12 | Sonic Youth | – | `Cold salmorejo in a white square bowl, topped with diced serrano ham and sprouts (similar to bar-real/tapa-salmorejo.jpg).` |
+| 13 | Patti Smith | – | `Smoked salmon toast (tosta) with capers, dill and cream cheese on artisan sourdough bread.` |
+| 14 | Satisfaction | Rolling Stones | `Pork loin and roasted red pepper montadito on crusty bread, toothpick, olive on top.` |
+| 15 | London Calling | The Clash | `Fish & chips: golden battered fish, thick-cut fries, tartar sauce, lemon wedge, paper-lined basket.` |
 
 ---
 
-### 5. Programación — Banners de Eventos (4 tipos)
-**Propósito:** Tarjetas y detalle de eventos (`EventCard`, `programacion/[slug]`)
-**Resolución:** 1200×630px (también sirve como Open Graph)
+### 4. Banners de Eventos — 4 tipos — 🔴 PENDIENTE
+**Propósito:** Tarjetas y detalle de eventos (`/programacion`, `/programacion/[slug]`, `/guia-rockera`)
+**Archivos:** `eventos/concierto.svg`, `exposicion.svg`, `guia-rockera.svg`, `taller.svg`
+**Resolución:** 1200×630px
 **Formato:** JPG/WebP
+
+> **Referencia real:** En la home los eventos ya usan fotos reales del interior del bar. Para las páginas interiores hacen falta imágenes genéricas por tipo de evento.
 
 **Prompt base:**
 ```
-Vintage rock concert poster style banner for a music bar event in Granada.
+Atmospheric event banner image for a rock music bar-museum in Granada, Spain.
 
-Style requirements:
-- Bold editorial layout, distressed paper / silkscreen texture
-- Matte black (#1a1a1a) background, vintage gold (#FFD700) and rock red (#8B0000) typography accents
-- Space at top/bottom for overlaid event title and date
-- Atmospheric, gig-poster aesthetic, NOT clip-art
-
-Technical: 1200x630px, JPG.
+Style: warm, intimate, small venue atmosphere, vintage/editorial feel.
+Palette: deep blacks, warm amber, gold and red accents.
+Technical: 1200x630px, JPG. Leave space at top/bottom for overlaid text.
 ```
 
-**Variantes por tipo (`tipo` del evento):**
-1. **Concierto** — `Silhouette of a live band on a small smoky stage, spotlight beams, gold/red.`
-2. **Exposición** — `Gallery wall of framed black-and-white rock photographs, warm spotlights.`
-3. **Guía Rockera** — `Vintage map of Granada with a musical route marked, guitar and city skyline silhouette.`
-4. **Taller** — `Close-up of hands on drum sticks / vinyl turntable, workshop atmosphere, warm light.`
+**Variantes por tipo:**
+
+| # | Tipo | Prompt |
+|---|------|--------|
+| 1 | **Concierto** | `Small intimate bar stage, drum kit and microphones set up, warm stage lights, empty chairs in foreground waiting for the audience, atmospheric haze. Live music venue about to start.` |
+| 2 | **Exposición** | `Gallery wall densely hung with framed black-and-white photographs in natural wood frames, warm spotlights creating pools of light, museum atmosphere in a bar setting.` |
+| 3 | **Guía Rockera** | `Narrow picturesque street in the Albaicín quarter of Granada, guitar leaning against a whitewashed wall, warm afternoon light, hand-drawn map visible. Musical walking tour feel.` |
+| 4 | **Taller** | `Close-up of hands on a drum kit, wooden drumsticks striking a snare drum, dynamic motion blur, warm sidelight, workshop/learning atmosphere.` |
 
 ---
 
-### 6. Sobre Eric — Retrato (1 imagen principal + ambiente)
-**Propósito:** Sección `SobreEric` (home) y página `/sobre-eric`
+### 5. Retrato de Eric — 1 imagen — 🔴 PENDIENTE
+**Propósito:** Página `/sobre-eric`
+**Archivo:** `equipo/eric.svg`
 **Resolución:** 800×1000px (retrato)
 **Formato:** JPG/WebP
 
-> ⚠️ Para una foto **real** de Eric, ver la sección «Fotos reales» más abajo. El siguiente prompt es solo para un placeholder estilizado si no se dispone de derechos de la foto real.
+> **Ideal:** usar una foto real de Eric proporcionada por él mismo. Ya tenemos la ilustración de Migueline (`bar-real/logo-eric-bateria.jpg`) en la home. Para la página interior se necesita una foto real o un retrato generado.
 
-**Prompt (placeholder estilizado):**
+**Prompt (placeholder estilizado si no hay foto real):**
 ```
-Editorial black-and-white portrait of a veteran Spanish rock drummer in his 50s, behind a vintage drum kit, leather jacket, intense candid expression, dramatic side light, film grain, warm gold rim light. Museum-quality, respectful, iconic. 800x1000px portrait.
+Editorial black-and-white portrait of a veteran Spanish rock drummer in his 50s, behind a vintage drum kit in a small bar. Leather jacket, glasses, intense but warm candid expression. Dramatic side light, film grain, gold rim light reflecting off cymbals. Museum-quality, respectful, iconic.
+
+Reference: The real bar has walls covered in framed photos, a neon sign "El Bar de Eric Museo", and an illustration showing Eric with spiky hair, glasses, and striped shirt behind a drum kit.
+
+800x1000px portrait, JPG.
 ```
 
 ---
 
-### 7. Ubicación — Fachada / Ambiente (1 imagen)
-**Propósito:** Sección `UbicacionHorarios` y `/contacto`
+### 6. Fachada / Ubicación — 1 imagen — 🔴 PENDIENTE
+**Propósito:** Página `/contacto`
+**Archivo:** `ubicacion/fachada.svg`
 **Resolución:** 1200×800px
 **Formato:** JPG/WebP
 
+> **Referencia real:** `bar-real/neon-fachada.jpg` muestra el cartel neón desde dentro. Falta una foto del exterior / fachada de Calle Escuelas 8.
+
 **Prompt:**
 ```
-Exterior facade of a characterful rock bar in the historic center of Granada at dusk, warm light spilling from the windows revealing photo-covered walls inside, vintage hand-painted sign, narrow old-town street, cozy and inviting. Editorial travel photography, golden hour. 1200x800px.
+Exterior facade of a small characterful rock bar called "El Bar de Eric" in the historic center of Granada, Spain, at dusk.
+
+Scene:
+- Narrow old-town street (Calle Escuelas), stone buildings
+- Neon sign in the window reading "el bar de Eric museo" in green and red neon
+- Warm light spilling from inside revealing photo-covered walls
+- Small terrace with a couple of tables outside
+- Cozy, inviting, neighborhood bar feel
+
+Style: editorial travel photography, golden hour/dusk lighting, warm tones.
+1200x800px, JPG.
 ```
 
 ---
 
-### 8. UI — Iconos de Sección (6 iconos)
-**Propósito:** Navegación, dashboard, tarjetas de sección
-**Resolución:** 200×200px
-**Formato:** PNG transparente
-
-**Prompt base:**
-```
-Simple minimalist line-art icon, vintage gold (#FFD700) on transparent background, single weight strokes, rock-music themed, 200x200px transparent PNG.
-```
-
-**Iconos:**
-1. **Museo** — `framed photograph / picture frame icon.`
-2. **Menú** — `tapa plate with a music note icon.`
-3. **Programación** — `calendar with a small guitar pick icon.`
-4. **Guía Rockera** — `map pin with a music note icon.`
-5. **Reservas** — `restaurant table with two chairs icon.`
-6. **Pedidos** — `takeaway bag with a vinyl record icon.`
-
----
-
-### 9. Open Graph / Social Share (1 imagen)
-**Propósito:** Metadatos SEO (`opengraph-image`), compartir en redes
+### 7. Open Graph / Social Share — 1 imagen — 🔴 PENDIENTE
+**Propósito:** Metadatos SEO, compartir en redes sociales
+**Archivo:** `og/og-image.svg`
 **Resolución:** 1200×630px
 **Formato:** JPG/PNG
 
 **Prompt:**
 ```
-Social share image for "El Bar de Eric" rock bar-museum. Black wall of framed black-and-white rock photos, the logo and tagline "Donde la música se hace tapa" in vintage gold (#FFD700) overlaid, rock red (#8B0000) accent bar. Editorial, bold, legible. 1200x630px.
+Social share card image for "El Bar de Eric" rock bar-museum in Granada.
+
+Layout:
+- Left 2/3: real bar interior — wall of framed black-and-white rock photos, warm lighting, neon glow
+- Right 1/3: solid black panel with the text "El Bar de Eric" in vintage gold (#FFD700) and tagline "Donde la música se hace tapa" below
+- Thin horizontal red (#8B0000) accent line separating title and tagline
+- Bottom right: "Granada · Desde 2013"
+
+Style: bold, editorial, legible at thumbnail size.
+1200x630px, JPG.
 ```
 
 ---
 
-### 10. Fondos / Texturas de Fondo (8 imágenes)
-**Propósito:** Fondos de página y de sección (body global, hero, secciones de tapas/eventos/CTA, divisores). Deben ser **sutiles y oscuros** para no competir con el texto (paleta `#1a1a1a`).
-**Formato:** JPG/WebP (fondos completos) y PNG (patrones repetibles con transparencia)
-**Uso técnico:** aplicar con `background-image` + overlay oscuro (`rgba(26,26,26,0.85)`) o como capa con `opacity: 0.1–0.25` detrás del contenido.
+### 8. Fondos / Texturas — 7 archivos — 🔴 PENDIENTE (baja prioridad)
+**Propósito:** Fondos de página y sección
+**Archivos:** `fondos/textura-global.svg` + `hero-collage.svg`, `patron-vinilos.svg`, `madera-menu.svg`, `cartel-eventos.svg`, `neon-reservas.svg`, `dashboard-textura.svg`, `divisor.svg`
 
-**Prompt base:**
-```
-Dark, subtle, seamless background texture for a rock music bar-museum website.
-- Predominantly matte black (#1a1a1a), very low contrast so overlaid white/gold text stays legible
-- Faint vintage gold (#FFD700) and rock red (#8B0000) accents only
-- Moody, atmospheric, editorial; NOT busy or distracting
-- Designed to sit BEHIND text with a dark overlay
-```
+> **Nota:** Los SVG actuales funcionan como texturas sutiles. La `textura-global.svg` se usa como fondo del body en `globals.css`. El `hero-collage.svg` ya no se usa (reemplazado por `neon-fachada.jpg`). Se pueden mantener los SVGs actuales o generar texturas fotográficas.
 
-**Prompts específicos:**
+**Prompts:**
 
-1. **Fondo global de página (body)** — `Seamless tileable dark texture: subtle black concrete/plaster wall with faint grain and vignette, almost solid #1a1a1a, barely-there texture. Tileable, 2048x2048px.`
+| # | Archivo | Prompt |
+|---|---------|--------|
+| 1 | `textura-global.svg` | `Seamless tileable dark texture: subtle black concrete/plaster wall with faint grain, almost solid #1a1a1a. Tileable 2048x2048px.` |
+| 2 | `patron-vinilos.svg` | `Seamless repeating pattern of vinyl records and music notes, dark charcoal on black, extremely low contrast. Tileable PNG 800x800px.` |
+| 3 | `madera-menu.svg` | `Seamless dark aged wood bar-counter texture, deep brown-black, warm low light. Tileable 2048x1024px.` |
+| 4 | `cartel-eventos.svg` | `Distressed silkscreen gig-poster paper texture, black with faint red and gold ink stains, halftone grain. 1920x1080px.` |
+| 5 | `neon-reservas.svg` | `Dark bar wall with soft out-of-focus warm neon glow (gold/red bokeh), heavy blur, mostly black. 1920x800px.` |
+| 6 | `dashboard-textura.svg` | `Very subtle dark texture: faint diagonal carbon-fiber pattern in #1a1a1a / #2a2a2a, minimal, professional. Tileable 2048x2048px.` |
+| 7 | `divisor.svg` | `Thin horizontal grunge divider: distressed film-strip motif in gold (#FFD700) on transparent background. 1920x120px PNG.` |
 
-2. **Fondo del Hero (collage de museo)** — `Full-bleed black wall densely covered with framed black-and-white rock photos and concert posters, heavily darkened and slightly out of focus, warm gold vignette. Space for text on the left. 1920x1080px. Strong dark overlay friendly.`
+---
 
-3. **Patrón repetible de vinilos** — `Seamless repeating pattern of vintage vinyl records and music notes, dark charcoal on black (#1a1a1a), extremely low contrast, subtle gold #FFD700 line accents. Tileable PNG with transparency, 800x800px.`
+### 9. Iconos UI — 6 archivos — 🔴 PENDIENTE (baja prioridad)
+**Archivos:** `iconos/{museo,menu,programacion,guia,reservas,pedidos}.svg`
+**Resolución:** 200×200px, PNG transparente
 
-4. **Fondo sección Menú (madera oscura)** — `Seamless dark aged wood bar-counter texture, deep brown-black, warm low light from the side, subtle gold reflections. Tileable, 2048x1024px.`
+> **Nota:** Los iconos SVG actuales funcionan bien. Solo reemplazar si se quiere un estilo más elaborado.
 
-5. **Fondo sección Eventos (cartel grunge)** — `Distressed silkscreen gig-poster paper texture, torn edges, black with faint red (#8B0000) and gold (#FFD700) ink stains, halftone grain. 1920x1080px, dark and subtle.`
+**Prompt base:** `Simple minimalist line-art icon, vintage gold (#FFD700) on transparent background, single weight strokes, rock-music themed, 200x200px.`
 
-6. **Fondo CTA Reservas (neón tenue)** — `Dark bar wall at night with a soft out-of-focus warm neon glow (gold/red bokeh), heavy blur, mostly black. Cinematic, low contrast. 1920x800px.`
-
-7. **Divisor / textura de separación** — `Thin horizontal grunge divider strip: distressed film-strip / equalizer-bars motif in gold (#FFD700) on transparent background. 1920x120px PNG.`
-
-8. **Fondo del Dashboard admin** — `Very subtle dark texture: faint diagonal carbon-fiber / brushed-metal pattern in near-black tones (#1a1a1a / #2a2a2a), minimal, professional. Tileable, 2048x2048px.`
-
-> **Nota de implementación:** ya hay versiones **placeholder** de estos fondos en `public/images/fondos/`, y algunos están cableados (textura global en `body`, collage en el hero) vía `background-image` con overlay oscuro para mantener el contraste AA del texto. Sustituir por las texturas/fotos definitivas en preproducción.
+| # | Icono | Prompt |
+|---|-------|--------|
+| 1 | Museo | `Framed photograph / picture frame icon.` |
+| 2 | Menú | `Tapa plate with a small music note icon.` |
+| 3 | Programación | `Calendar with a small guitar pick icon.` |
+| 4 | Guía | `Map pin with a music note icon.` |
+| 5 | Reservas | `Restaurant table with two chairs icon.` |
+| 6 | Pedidos | `Takeaway bag with a vinyl record icon.` |
 
 ---
 
 ## 📋 Checklist de Imágenes
 
-Leyenda: ✅ placeholder generado y cableado · 🔴 pendiente foto real (preproducción)
+| Imagen | Placeholder SVG | Foto real | Prioridad |
+| --- | :---: | :---: | --- |
+| **10 fotos del bar** (interior, tapas, neón, Eric) | – | ✅ En `bar-real/` | – |
+| Logo horizontal + favicon cuadrado | ✅ | 🔴 | Alta |
+| 20 fotos de museo | ✅ | 🔴 | Alta |
+| 15 fotos de tapas | ✅ | 🔴 | Alta |
+| 4 banners de eventos | ✅ | 🔴 | Media |
+| Retrato de Eric | ✅ | 🔴 | Alta |
+| Fachada / ubicación | ✅ | 🔴 | Media |
+| Open Graph | ✅ | 🔴 | Media |
+| 7 fondos / texturas | ✅ | 🔴 | Baja |
+| 6 iconos de UI | ✅ | 🔴 | Baja |
 
-| Imagen | Placeholder | Foto real |
-| --- | :---: | :---: |
-| Logo horizontal + favicon cuadrado | ✅ | 🔴 |
-| Hero home | ✅ | 🔴 |
-| 20 fotos de museo | ✅ | 🔴 |
-| 15 fotos de tapas | ✅ | 🔴 |
-| 4 banners de eventos | ✅ | 🔴 |
-| Retrato de Eric | ✅ | 🔴 |
-| Fachada / ubicación | ✅ | 🔴 |
-| 6 iconos de UI | ✅ | 🔴 |
-| Open Graph | ✅ | 🔴 |
-| 7 fondos / texturas | ✅ | 🔴 |
+**Total: 10 fotos reales integradas · 48 placeholders pendientes**
 
-**Total: 58 placeholders generados** · **0 fotos reales** (pendientes de la sesión / archivo de Eric en preproducción).
+### Prioridad de generación recomendada:
+1. **Logo** — Es lo primero que se ve en el Navbar de TODAS las páginas
+2. **20 fotos museo** — La galería es la sección estrella del bar
+3. **15 fotos tapas** — El menú es funcionalidad clave
+4. **Retrato de Eric** — La página `/sobre-eric` necesita una imagen personal
+5. **4 banners eventos** — Para la programación
+6. **Fachada** — Para la página de contacto
+7. **Open Graph** — Para compartir en redes
+8. **Fondos y iconos** — Los actuales funcionan, baja prioridad
 
 ---
 
 ## 🖼️ Fotos REALES de Eric Jiménez y sus bandas (fuentes en Internet)
 
-> **Aviso de derechos:** salvo la ficha de Wikipedia (que suele enlazar a Wikimedia Commons con licencia libre), la mayoría de estas imágenes son **fotos de prensa o del propio bar y tienen copyright**. Para la web pública se recomienda: (1) usar las fotos que **Eric proporcione directamente** —tal y como ya prevé el prompt original del proyecto—, (2) usar la imagen libre de Wikipedia/Commons con su atribución, o (3) licenciar las fotos a sus autores/medios. Lo que sigue son las **fuentes donde encontrar el material**, no enlaces de hotlink.
+> **Aviso de derechos:** la mayoría de estas imágenes tienen **copyright**. Para la web se recomienda: (1) usar las fotos que **Eric proporcione directamente**, (2) usar imágenes con licencia libre de Wikipedia/Commons con atribución, o (3) licenciar las fotos a sus autores/medios.
 
 ### Eric Jiménez (retratos / directo)
-- **Wikipedia (ES)** — ficha biográfica, normalmente con foto en Wikimedia Commons (licencia libre, comprobar atribución): https://es.wikipedia.org/wiki/Eric_Jim%C3%A9nez
-- **Wikimedia Commons** (buscador de imágenes libres): https://commons.wikimedia.org/w/index.php?search=Eric+Jim%C3%A9nez+Lagartija+Nick&type=image
-- **elDiario.es** — «Eric Jiménez… reaparece para su concierto en Sonorama» (foto de prensa en directo): https://www.eldiario.es/cultura/musica/eric-jimenez-bateria-emblematico-planetas-reaparece-concierto-sonorama_1_11577365.html
-- **Valencia Plaza** — «Eric Jiménez (Los Planetas y Lagartija Nick): la verdadera historia»: https://valenciaplaza.com/eric-jimenez-los-planetas-y-lagartija-nick-la-verdadera-historia
-- **Público** — entrevista con fotografías: https://www.publico.es/culturas/musica/ventaja-triunfar-seguir-siendo-libre.html
-- **EFE Eme** — «Músicos en la sombra: Eric Jiménez»: https://www.efeeme.com/musicos-en-la-sombra-eric-jimenez-en-los-tambores-de-lagartija-nick-los-planetas-y-los-evangelistas/
-- **Muzikalia** — entrevista por su libro (incluye fotos): https://muzikalia.com/entrevistamos-a-eric-jimenez-los-planetas-lagartija-nick-por-su-nuevo-libro/
-- **IndyRock** — biografía con material gráfico: https://www.indyrock.es/ericjimenez.htm
-- **Maneras de Vivir** — autoentrevista: https://www.manerasdevivir.com/noticias/62136/autoentrevista-eric-jimenez-planetas-lagartija-nick
+- **Wikipedia (ES):** https://es.wikipedia.org/wiki/Eric_Jim%C3%A9nez
+- **Wikimedia Commons:** https://commons.wikimedia.org/w/index.php?search=Eric+Jim%C3%A9nez+Lagartija+Nick&type=image
+- **elDiario.es** — reaparición Sonorama: https://www.eldiario.es/cultura/musica/eric-jimenez-bateria-emblematico-planetas-reaparece-concierto-sonorama_1_11577365.html
+- **Valencia Plaza** — historia: https://valenciaplaza.com/eric-jimenez-los-planetas-y-lagartija-nick-la-verdadera-historia
+- **EFE Eme** — «Músicos en la sombra»: https://www.efeeme.com/musicos-en-la-sombra-eric-jimenez-en-los-tambores-de-lagartija-nick-los-planetas-y-los-evangelistas/
+- **Muzikalia** — entrevista: https://muzikalia.com/entrevistamos-a-eric-jimenez-los-planetas-lagartija-nick-por-su-nuevo-libro/
 
-### Documental (frames / material promocional)
-- **«La importancia de llamarse Ernesto…»** (documental sobre Eric) — tráiler/material: https://www.youtube.com/watch?v=zW8-nqHYlOY
-- Entrevista a raíz del documental: https://www.youtube.com/watch?v=b55dsZk6I9Y
+### Documental
+- **«La importancia de llamarse Ernesto…»** — tráiler: https://www.youtube.com/watch?v=zW8-nqHYlOY
 
 ### Las bandas
 - **Lagartija Nick** (IndyRock): https://indyrock.es/lagartija.htm
-- **Lagartija Nick** — ciclo homenaje en El Español/El Cultural (fotos recientes 2025): https://www.elespanol.com/el-cultural/escenarios/20250325/viva-lagartija-nick-ciclo-conciertos-documentales-homenajea-banda-surrealista-granada/933656879_0.html
-- Crónica de concierto Lagartija Nick (Exile SH Magazine, 2024): https://exileshmagazine.com/2024/10/lagartija-nick-35-anos-rambleta.html
+- **Lagartija Nick** — homenaje 2025: https://www.elespanol.com/el-cultural/escenarios/20250325/viva-lagartija-nick-ciclo-conciertos-documentales-homenajea-banda-surrealista-granada/933656879_0.html
 
 ### El Bar de Eric (interior, museo, tapas, fachada)
-- **Blog oficial** (WordPress del bar): https://elbardeeric.wordpress.com/
-- **Guía Repsol** (Solete) — ficha con fotos del local: https://www.guiarepsol.com/es/fichas/solete/el-bar-de-eric-326201/
-- **Turismo Ayuntamiento de Granada**: https://turismo.granada.org/en/bar-eric
-- **Visitar Granada** — «Eric Jiménez abre un bar museo de rock»: https://www.visitargranada.com/blog/eric-jimenez-conocido-bateria-granadino-abre-un-bar/
-- **La Guía Go!**: https://www.laguiago.com/articulo/granada/el-bar-de-eric/20150906100924367812.html
-- **Granada por el Mundo** — tapas y actuaciones: https://granadaporelmundo.com/el-bar-de-eric/
-- **Wanderlog** (fotos de usuarios/local): https://wanderlog.com/place/details/1618308/el-bar-de-eric
-- **Facebook del bar**: facebook.com/elbardeeric
-- **Google Maps / Google Business** — «El Bar de Eric, Calle Escuelas 8, Granada» (galería de fotos de clientes, 4,3★ · 1244 reseñas)
+- **Blog oficial:** https://elbardeeric.wordpress.com/
+- **Guía Repsol:** https://www.guiarepsol.com/es/fichas/solete/el-bar-de-eric-326201/
+- **Turismo Granada:** https://turismo.granada.org/en/bar-eric
+- **Facebook del bar:** facebook.com/elbardeeric
+- **Google Maps** — «El Bar de Eric, Calle Escuelas 8, Granada» (4,3★ · 1244 reseñas, galería de fotos)
 
-> **Recomendación práctica:** pedir a Eric el archivo de las **170+ fotografías reales** que ya cuelgan en el bar (museo) — son el contenido ideal y con derechos para la galería del museo digital. Para los retratos de la home/`sobre-eric`, usar la foto de Commons (con atribución) o una sesión propia.
+> **Recomendación práctica:** pedir a Eric el archivo de las **170+ fotografías reales** del museo — son el contenido ideal para la galería digital.
 
 ---
 
 ## 🔧 Instrucciones de Uso
 
 ### Midjourney
-- Usa los prompts tal cual; añade `--ar 16:9` (hero/eventos), `--ar 1:1` (tapas/museo), `--ar 4:5` (retratos).
+- Usa los prompts tal cual; añade `--ar 16:9` (banners/eventos), `--ar 1:1` (tapas/museo), `--ar 4:5` (retratos).
 - `--style raw` para mayor control fotográfico; `--seed 12345` para variaciones consistentes.
 
-### DALL·E 3
-- Simplifica las especificaciones técnicas de píxeles; mantén estilo, escena y paleta HEX.
+### DALL·E 3 / GPT-4o
+- Simplifica las especificaciones de píxeles; mantén estilo, escena y paleta HEX.
 
-### Stable Diffusion / otros
-- Divide prompts largos; genera a mayor resolución y redimensiona; refuerza los HEX cuando el color sea crítico.
+### Stable Diffusion / Flux
+- Divide prompts largos; genera a mayor resolución y redimensiona.
 
 ---
 
@@ -370,12 +403,13 @@ Leyenda: ✅ placeholder generado y cableado · 🔴 pendiente foto real (prepro
 
 1. **Consistencia de paleta:** negro `#1a1a1a` + dorado `#FFD700` + rojo `#8B0000` en todas las piezas.
 2. **Coherencia de museo:** las fotos de galería en **blanco y negro / sepia** con grano de película.
-3. **Tapas apetecibles** sobre fondo oscuro y madera, luz cálida.
-4. **Respeto y derechos:** priorizar fotos reales cedidas por Eric o con licencia libre; citar autoría.
-5. **Optimización web:** exportar en **WebP**, usar `next/image`, tamaños ≤ 200 KB cuando sea posible.
+3. **Tapas apetecibles** sobre fondo oscuro, platos blancos cuadrados (como los reales del bar), luz cálida.
+4. **Respeto y derechos:** priorizar fotos reales cedidas por Eric; citar autoría.
+5. **Optimización web:** exportar en **WebP**, tamaños ≤ 200 KB, usar `next/image` cuando sea posible.
+6. **Reemplazo:** sustituir el archivo SVG manteniendo el **mismo nombre y ruta**, o actualizar la referencia en el componente y en `lib/db/seed.ts`.
 
 ---
 
 **Generado para:** El Bar de Eric — *Donde la música se hace tapa*
 **Fecha:** Junio 2026
-**Versión:** 1.0
+**Versión:** 2.0 — Actualizado con 10 fotos reales integradas
