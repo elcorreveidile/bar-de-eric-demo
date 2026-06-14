@@ -28,6 +28,11 @@ export default async function RutaDetailPage({
   if (!ruta) notFound();
 
   return (
+    <div
+      className="min-h-screen bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: `url('${ruta.fondo}')` }}
+    >
+    <div className="bg-negro/85 min-h-screen">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <Link
         href="/guia-rockera"
@@ -128,6 +133,8 @@ export default async function RutaDetailPage({
           </Link>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }
