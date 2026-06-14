@@ -8,7 +8,7 @@ export function HeroSection() {
         style={{
           backgroundImage: "url('/images/bar-real/neon-fachada.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center 30%",
+          backgroundPosition: "center 75%",
           transform: "scaleX(-1)",
         }}
       />
