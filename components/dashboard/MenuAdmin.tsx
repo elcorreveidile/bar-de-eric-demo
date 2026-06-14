@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 interface MenuItem {
@@ -29,9 +29,36 @@ export function MenuAdmin({ initialItems }: { initialItems: MenuItem[] }) {
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editForm, setEditForm] = useState<EditForm>({ nombre: "", descripcion: "", precio: "", imagen: "" });
+  const [uploading, setUploading] = useState(false);
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
   const [descripcion, setDescripcion] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  async function uploadFile(file: File): Promise<string | null> {
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.url;
+    } catch {
+      return null;
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const url = await uploadFile(file);
+    if (url) {
+      setEditForm({ ...editForm, imagen: url });
+    }
+  }
 
   async function handleCreate() {
     if (!nombre || !precio) return;
@@ -160,25 +187,44 @@ export function MenuAdmin({ initialItems }: { initialItems: MenuItem[] }) {
                   className={inputClass}
                 />
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs text-gris-light mb-1">Precio (€)</label>
+              <div>
+                <label className="block text-xs text-gris-light mb-1">Precio (€)</label>
+                <input
+                  type="number"
+                  step="0.10"
+                  value={editForm.precio}
+                  onChange={(e) => setEditForm({ ...editForm, precio: e.target.value })}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-gris-light mb-1">Imagen</label>
+                <div className="space-y-2">
+                  {editForm.imagen && (
+                    <div
+                      className="w-full h-32 rounded bg-cover bg-center border border-gris/20"
+                      style={{ backgroundImage: `url('${editForm.imagen}')` }}
+                    />
+                  )}
+                  <div className="flex gap-2 items-center">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={uploading}
+                      className="bg-negro border border-dorado/30 text-dorado px-3 py-2 rounded text-xs hover:bg-dorado/10 transition-colors disabled:opacity-50"
+                    >
+                      {uploading ? "Subiendo..." : "Subir imagen"}
+                    </button>
+                    <span className="text-gris-light text-xs truncate flex-1">
+                      {editForm.imagen ? editForm.imagen.split("/").pop() : "Sin imagen"}
+                    </span>
+                  </div>
                   <input
-                    type="number"
-                    step="0.10"
-                    value={editForm.precio}
-                    onChange={(e) => setEditForm({ ...editForm, precio: e.target.value })}
-                    className={inputClass}
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-gris-light mb-1">URL Imagen</label>
-                  <input
-                    type="text"
-                    value={editForm.imagen}
-                    onChange={(e) => setEditForm({ ...editForm, imagen: e.target.value })}
-                    className={inputClass}
-                    placeholder="/images/menu/..."
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="hidden"
                   />
                 </div>
               </div>
@@ -186,7 +232,8 @@ export function MenuAdmin({ initialItems }: { initialItems: MenuItem[] }) {
             <div className="flex gap-2 pt-2">
               <button
                 onClick={saveEdit}
-                className="bg-dorado text-negro px-4 py-2 rounded text-sm font-medium hover:bg-dorado-dark transition-colors"
+                disabled={uploading}
+                className="bg-dorado text-negro px-4 py-2 rounded text-sm font-medium hover:bg-dorado-dark transition-colors disabled:opacity-50"
               >
                 Guardar
               </button>
@@ -216,6 +263,7 @@ export function MenuAdmin({ initialItems }: { initialItems: MenuItem[] }) {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-dorado/20 text-left">
+                <th className="px-4 py-3 text-dorado font-medium">Imagen</th>
                 <th className="px-4 py-3 text-dorado font-medium">Nombre</th>
                 <th className="px-4 py-3 text-dorado font-medium">Categoría</th>
                 <th className="px-4 py-3 text-dorado font-medium">Precio</th>
@@ -226,6 +274,18 @@ export function MenuAdmin({ initialItems }: { initialItems: MenuItem[] }) {
             <tbody>
               {initialItems.map((item) => (
                 <tr key={item.id} className="border-b border-dorado/10">
+                  <td className="px-4 py-3">
+                    {item.imagen ? (
+                      <div
+                        className="w-12 h-12 rounded bg-cover bg-center border border-gris/20"
+                        style={{ backgroundImage: `url('${item.imagen}')` }}
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded bg-gris/20 flex items-center justify-center">
+                        <span className="text-gris-light text-xs">—</span>
+                      </div>
+                    )}
+                  </td>
                   <td className="px-4 py-3 text-white">{item.nombre}</td>
                   <td className="px-4 py-3 text-gris-light">{item.categoriaNombre ?? "Sin categoría"}</td>
                   <td className="px-4 py-3 text-white">{(item.precio / 100).toFixed(2)} €</td>
