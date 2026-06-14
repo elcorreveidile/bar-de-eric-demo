@@ -20,3 +20,13 @@ body {
   color: #ededed;
   font-family: var(--font-body);
 }
+
+.hero-bg {
+  background-position: center 85%;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-position: center 60%;
+  }
+}
