@@ -20,6 +20,7 @@ export default async function FotoDetallePage({
     5: "/images/museo/foto-5.png",
     6: "/images/museo/foto-6.png",
     7: "/images/museo/foto-7.png",
+    8: "/images/museo/foto-8.png",
     9: "/images/museo/foto-9.png",
     10: "/images/museo/foto-10.png",
     11: "/images/museo/foto-11.png",
