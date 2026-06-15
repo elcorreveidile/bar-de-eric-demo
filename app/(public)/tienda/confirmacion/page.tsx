@@ -1,10 +1,16 @@
-import Link from "next/link";
+"use client";
 
-export const metadata = {
-  title: "Pedido confirmado",
-};
+import { useEffect } from "react";
+import Link from "next/link";
+import { useCarrito } from "@/context/CarritoContext";
 
 export default function ConfirmacionPage() {
+  const { vaciar } = useCarrito();
+
+  useEffect(() => {
+    vaciar();
+  }, [vaciar]);
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center max-w-lg">
@@ -18,7 +24,6 @@ export default function ConfirmacionPage() {
         </h1>
         <p className="text-gris-light mb-8 leading-relaxed">
           Gracias por tu compra. Recibirás un email de confirmación con los detalles del envío.
-          Rock on! 🤘
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
