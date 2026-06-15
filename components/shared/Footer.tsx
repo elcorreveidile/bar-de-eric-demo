@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-negro-light border-t border-ambar/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {/* Contacto */}
           <div>
             <h3 className="font-display text-lg text-ambar mb-4">Contacto</h3>
@@ -122,6 +122,33 @@ export function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Legal */}
+        <div>
+          <h3 className="font-display text-lg text-ambar mb-4">Legal</h3>
+          <ul className="space-y-2 text-sm text-gris-light">
+            <li>
+              <Link href="/legal/aviso-legal" className="hover:text-dorado transition-colors">
+                Aviso Legal
+              </Link>
+            </li>
+            <li>
+              <Link href="/legal/privacidad" className="hover:text-dorado transition-colors">
+                Pol&iacute;tica de Privacidad
+              </Link>
+            </li>
+            <li>
+              <Link href="/legal/cookies" className="hover:text-dorado transition-colors">
+                Pol&iacute;tica de Cookies
+              </Link>
+            </li>
+            <li>
+              <Link href="/legal/condiciones" className="hover:text-dorado transition-colors">
+                T&eacute;rminos y Condiciones
+              </Link>
+            </li>
+          </ul>
         </div>
 
         {/* Copyright */}

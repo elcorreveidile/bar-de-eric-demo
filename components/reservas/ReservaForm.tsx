@@ -241,6 +241,23 @@ export function ReservaForm() {
         />
       </div>
 
+      <div className="flex items-start gap-3">
+        <input
+          id="privacidad"
+          name="privacidad"
+          type="checkbox"
+          required
+          className="mt-1 w-4 h-4 accent-rojo"
+        />
+        <label htmlFor="privacidad" className="text-xs text-gris-light leading-relaxed">
+          He leído y acepto la{" "}
+          <a href="/legal/privacidad" target="_blank" className="text-dorado hover:text-dorado-dark underline">
+            Política de Privacidad
+          </a>
+          . Consiento el tratamiento de mis datos personales para gestionar mi reserva. *
+        </label>
+      </div>
+
       {error && (
         <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-4">
           <p className="text-red-400 text-sm">{error}</p>
