@@ -11,7 +11,34 @@ Eres un desarrollador senior fullstack. Tu tarea es crear una web profesional co
 
 [DESCRIBE AQUÍ EL NEGOCIO: nombre, sector, ubicación, qué ofrece, público objetivo]
 
-La web debe replicar EXACTAMENTE la arquitectura técnica y estructura que te describo abajo. Solo cambian los contenidos, textos, colores y productos — la base técnica es idéntica.
+La web debe replicar EXACTAMENTE la arquitectura técnica y estructura que te describo abajo. La base técnica es idéntica, pero el diseño visual DEBE ser completamente original y adaptado al nuevo cliente.
+
+---
+
+## DISEÑO VISUAL (obligatorio: adaptar al cliente)
+
+El diseño NO debe parecerse al proyecto de referencia (bar-museo rock con estética oscura). Cada web debe tener identidad visual propia:
+
+1. **Antes de escribir código**, define:
+   - Paleta de colores coherente con el sector y marca del cliente (claro/oscuro, cálido/frío, etc.)
+   - Tipografías adecuadas al tono (elegante, moderno, informal, corporativo...)
+   - Estilo visual general: minimalista, orgánico, bold, editorial, etc.
+
+2. **Elementos que DEBEN cambiar entre proyectos:**
+   - Colores de fondo, acento, texto y bordes (toda la paleta @theme)
+   - Tipografías display y body (Google Fonts u otras)
+   - Estilo del hero (layout, composición, efectos)
+   - Estilo de las cards y componentes (bordes redondeados vs. rectos, sombras, gradientes...)
+   - Navbar y footer (disposición, colores, estilo)
+   - Fondos y texturas (si las hay)
+   - Iconografía y elementos decorativos
+
+3. **Lo que SÍ se mantiene igual (arquitectura):**
+   - Estructura de carpetas y rutas
+   - Patrón de componentes (server/client)
+   - Lógica de negocio (carrito, auth, pagos, admin)
+   - Stack técnico completo
+   - Patrones de datos y DB
 
 ---
 
@@ -153,23 +180,32 @@ Precios SIEMPRE en céntimos (integer). Formatear al mostrar con Intl.NumberForm
 
 ## TAILWIND v4 (globals.css)
 
+IMPORTANTE: La paleta debe ser 100% original y adecuada al sector del cliente.
+Ejemplos por sector:
+- Restaurante elegante: fondos crema, acentos burdeos, tipografía serif
+- Clínica dental: fondos blancos, acentos azul/verde, tipografía sans-serif limpia
+- Tienda de ropa: fondos claros, acentos según marca, tipografía moderna
+- Bar/pub: fondos oscuros, acentos dorados/ámbar, tipografía display bold
+
 ```css
 @import "tailwindcss";
 
 @theme inline {
-  --color-[nombre-1]: #hex;      /* Fondo principal (oscuro) */
-  --color-[nombre-2]: #hex;      /* Fondo cards */
-  --color-[nombre-accent]: #hex; /* Color primario/acento */
-  --color-[nombre-secondary]: #hex;
-  --color-[gris]: #374151;
-  --color-[gris-light]: #9CA3AF;
-  --font-display: "[Fuente Display]", serif;
-  --font-body: "[Fuente Body]", sans-serif;
+  /* ADAPTAR COMPLETAMENTE AL CLIENTE — no reutilizar colores de otro proyecto */
+  --color-[fondo]: #hex;          /* Fondo principal */
+  --color-[fondo-alt]: #hex;      /* Fondo cards/secciones */
+  --color-[acento]: #hex;         /* Color primario de marca */
+  --color-[acento-dark]: #hex;    /* Hover del acento */
+  --color-[secundario]: #hex;     /* Color secundario */
+  --color-[texto]: #hex;          /* Texto principal */
+  --color-[texto-muted]: #hex;    /* Texto secundario */
+  --font-display: "[Elegir según tono del negocio]", serif;
+  --font-body: "[Elegir según legibilidad y estilo]", sans-serif;
 }
 
 body {
   background-color: var(--color-[fondo]);
-  color: #ededed;
+  color: var(--color-[texto]);
   font-family: var(--font-body);
 }
 ```
