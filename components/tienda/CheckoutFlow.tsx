@@ -270,6 +270,26 @@ export function CheckoutFlow() {
                   </p>
                 </div>
 
+                <div className="flex items-start gap-3">
+                  <input
+                    id="privacidad-checkout"
+                    type="checkbox"
+                    required
+                    className="mt-1 w-4 h-4 accent-rojo"
+                  />
+                  <label htmlFor="privacidad-checkout" className="text-xs text-gris-light leading-relaxed">
+                    He leído y acepto la{" "}
+                    <a href="/legal/privacidad" target="_blank" className="text-dorado hover:text-dorado-dark underline">
+                      Política de Privacidad
+                    </a>{" "}
+                    y los{" "}
+                    <a href="/legal/condiciones" target="_blank" className="text-dorado hover:text-dorado-dark underline">
+                      Términos y Condiciones
+                    </a>
+                    . *
+                  </label>
+                </div>
+
                 {error && <p className="text-red-400 text-sm">{error}</p>}
 
                 <button

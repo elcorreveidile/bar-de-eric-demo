@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
+import { CookieBanner } from "@/components/shared/CookieBanner";
 import { CarritoProvider } from "@/context/CarritoContext";
 
 const playfair = Playfair_Display({
@@ -57,6 +58,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CookieBanner />
         </CarritoProvider>
       </body>
     </html>
