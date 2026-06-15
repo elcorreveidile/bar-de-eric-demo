@@ -2,21 +2,18 @@
 
 import { useRouter } from "next/navigation";
 import { productos } from "@/lib/productos-tienda";
+import { useCarrito } from "@/context/CarritoContext";
 
-interface Props {
-  carrito: Map<string, number>;
-  onQuitar: (id: string) => void;
-}
-
-export function CarritoTienda({ carrito, onQuitar }: Props) {
+export function CarritoTienda() {
   const router = useRouter();
+  const { items, quitar } = useCarrito();
 
-  const items = Array.from(carrito.entries()).map(([id, cantidad]) => ({
+  const carritoItems = Array.from(items.entries()).map(([id, cantidad]) => ({
     producto: productos.find((p) => p.id === id)!,
     cantidad,
   }));
 
-  const total = items.reduce(
+  const total = carritoItems.reduce(
     (sum, item) => sum + item.producto.precio * item.cantidad,
     0
   );
@@ -27,11 +24,6 @@ export function CarritoTienda({ carrito, onQuitar }: Props) {
   }).format(total / 100);
 
   function handleCheckout() {
-    const carritoData = items.map((i) => ({
-      id: i.producto.id,
-      cantidad: i.cantidad,
-    }));
-    localStorage.setItem("carrito-tienda", JSON.stringify(carritoData));
     router.push("/tienda/checkout");
   }
 
@@ -39,7 +31,7 @@ export function CarritoTienda({ carrito, onQuitar }: Props) {
     <div className="fixed bottom-0 inset-x-0 z-40 bg-negro border-t border-ambar/30 p-4 shadow-2xl">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-4 overflow-x-auto">
-          {items.map((item) => (
+          {carritoItems.map((item) => (
             <div
               key={item.producto.id}
               className="flex items-center gap-2 bg-negro-light px-3 py-1.5 rounded-full border border-gris/30 shrink-0"
@@ -48,7 +40,7 @@ export function CarritoTienda({ carrito, onQuitar }: Props) {
                 {item.cantidad}x {item.producto.nombre.split(" ").slice(0, 2).join(" ")}
               </span>
               <button
-                onClick={() => onQuitar(item.producto.id)}
+                onClick={() => quitar(item.producto.id)}
                 className="text-gris-light hover:text-rojo text-xs"
               >
                 ✕

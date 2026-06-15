@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
+import { CarritoProvider } from "@/context/CarritoContext";
 
 const playfair = Playfair_Display({
   variable: "--font-display",
@@ -52,9 +53,11 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${playfair.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-negro text-white font-body">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <CarritoProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </CarritoProvider>
       </body>
     </html>
   );

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { productos, categoriasTienda, type Producto } from "@/lib/productos-tienda";
+import { productos, categoriasTienda } from "@/lib/productos-tienda";
 import { ProductoCard } from "./ProductoCard";
 import { CarritoTienda } from "./CarritoTienda";
+import { useCarrito } from "@/context/CarritoContext";
 
 export function TiendaGrid() {
   const [categoriaActiva, setCategoriaActiva] = useState<string>("Todos");
-  const [carrito, setCarrito] = useState<Map<string, number>>(new Map());
+  const { totalItems } = useCarrito();
 
   const productosFiltrados =
     categoriaActiva === "Todos"
@@ -15,29 +16,6 @@ export function TiendaGrid() {
       : productos.filter(
           (p) => p.categoria === categoriaActiva.toLowerCase()
         );
-
-  function agregarAlCarrito(producto: Producto) {
-    setCarrito((prev) => {
-      const next = new Map(prev);
-      next.set(producto.id, (next.get(producto.id) || 0) + 1);
-      return next;
-    });
-  }
-
-  function quitarDelCarrito(productoId: string) {
-    setCarrito((prev) => {
-      const next = new Map(prev);
-      const current = next.get(productoId) || 0;
-      if (current <= 1) {
-        next.delete(productoId);
-      } else {
-        next.set(productoId, current - 1);
-      }
-      return next;
-    });
-  }
-
-  const totalItems = Array.from(carrito.values()).reduce((a, b) => a + b, 0);
 
   return (
     <div>
@@ -59,19 +37,11 @@ export function TiendaGrid() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {productosFiltrados.map((producto) => (
-          <ProductoCard
-            key={producto.id}
-            producto={producto}
-            cantidad={carrito.get(producto.id) || 0}
-            onAgregar={() => agregarAlCarrito(producto)}
-            onQuitar={() => quitarDelCarrito(producto.id)}
-          />
+          <ProductoCard key={producto.id} producto={producto} />
         ))}
       </div>
 
-      {totalItems > 0 && (
-        <CarritoTienda carrito={carrito} onQuitar={quitarDelCarrito} />
-      )}
+      {totalItems > 0 && <CarritoTienda />}
     </div>
   );
 }
