@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presupuesto — El Bar de Eric</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    background: #fff;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 56px;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .header-left h1 {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .header-left .subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  .header-right {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .header-right strong {
+    color: #1a1a1a;
+  }
+
+  /* Client info */
+  .client-box {
+    background: #f8f8f8;
+    border-left: 4px solid #c8a960;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+  }
+
+  .client-box h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 6px;
+  }
+
+  .client-box p {
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 36px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+  }
+
+  th {
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  th:last-child {
+    text-align: right;
+  }
+
+  td {
+    padding: 10px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+  }
+
+  td:last-child {
+    text-align: right;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  td .desc {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  .subtotal-row td {
+    border-bottom: none;
+    padding-top: 12px;
+    font-weight: 600;
+    color: #666;
+    font-size: 12px;
+  }
+
+  /* Total */
+  .total-box {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
+  .total-box .label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+
+  .total-box .label small {
+    display: block;
+    font-size: 10px;
+    color: #aaa;
+    font-weight: 400;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+  }
+
+  .total-box .amount {
+    font-size: 32px;
+    font-weight: 900;
+    color: #c8a960;
+  }
+
+  .after-year {
+    font-size: 11px;
+    color: #888;
+    text-align: right;
+    margin-bottom: 32px;
+  }
+
+  /* Comparison */
+  .comparison {
+    margin-top: 40px;
+    page-break-before: always;
+  }
+
+  .comparison-title {
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .comparison-subtitle {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .comp-table th {
+    padding: 12px 16px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .comp-table th:first-child {
+    text-align: left;
+    width: 44%;
+  }
+
+  .comp-table .col-agency {
+    background: #f0f0f0;
+    color: #999;
+  }
+
+  .comp-table .col-ours {
+    background: #1a1a1a;
+    color: #c8a960;
+  }
+
+  .comp-table td {
+    padding: 10px 16px;
+    font-size: 13px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .comp-table td:first-child {
+    text-align: left;
+    color: #555;
+  }
+
+  .comp-table .agency-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 12px;
+  }
+
+  .comp-table .our-price {
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .comp-total td {
+    border-top: 2px solid #1a1a1a;
+    border-bottom: none;
+    font-weight: 800;
+    font-size: 15px;
+    padding-top: 14px;
+  }
+
+  .comp-total .agency-price {
+    font-size: 15px;
+  }
+
+  .comp-total .our-price {
+    color: #c8a960;
+    font-size: 18px;
+  }
+
+  .savings-box {
+    background: linear-gradient(135deg, #f9f5eb, #fdf8ee);
+    border: 2px solid #c8a960;
+    padding: 20px 24px;
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .savings-box .amount {
+    font-size: 36px;
+    font-weight: 900;
+    color: #c8a960;
+  }
+
+  .savings-box .label {
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  .savings-box .percent {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 4px;
+  }
+
+  /* Footer */
+  .notes {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .notes h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 10px;
+  }
+
+  .notes ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .notes li {
+    font-size: 11px;
+    color: #888;
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .notes li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #c8a960;
+    font-weight: 900;
+  }
+
+  .guarantee {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border: 1px solid #c8a960;
+    background: #fdf8ee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .guarantee-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .guarantee p {
+    font-size: 12px;
+    color: #555;
+  }
+
+  .guarantee strong {
+    color: #1a1a1a;
+  }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 2px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 32px 40px; }
+    .comparison { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Presupuesto</h1>
+      <p class="subtitle">Desarrollo web — El Bar de Eric</p>
+    </div>
+    <div class="header-right">
+      <strong>por2duros.com</strong><br>
+      Fecha: 15 de junio de 2026<br>
+      Validez: 30 días<br>
+      Ref: P-2026-ERIC-001
+    </div>
+  </div>
+
+  <!-- CLIENT -->
+  <div class="client-box">
+    <h3>Cliente</h3>
+    <p><strong>El Bar de Eric</strong> — Bar-museo musical, Granada</p>
+  </div>
+
+  <!-- PROJECT DESCRIPTION -->
+  <p style="font-size: 13px; color: #555; margin-bottom: 8px;">
+    Desarrollo completo de sitio web con 7 secciones públicas (inicio, museo, menú, programación, guía rockera, tienda, reservas, sobre Eric), e-commerce con carrito persistente y pasarela Stripe, panel de administración con subida de imágenes, verificación de email por magic link, y elementos creativos personalizados.
+  </p>
+
+  <!-- BASE -->
+  <h3 class="section-title">Base del proyecto</h3>
+  <table>
+    <thead><tr><th>Concepto</th><th>Precio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          E-commerce avanzado
+          <div class="desc">Web multipágina (7 secciones) + tienda online con Stripe Checkout</div>
+        </td>
+        <td>€1.497</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EXTRAS CATÁLOGO -->
+  <h3 class="section-title">Extras incluidos</h3>
+  <table>
+    <thead><tr><th>Extra</th><th>Precio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          Panel de contenido (CMS)
+          <div class="desc">Admin de galería + eventos con creación, edición y eliminación</div>
+        </td>
+        <td>€197</td>
+      </tr>
+      <tr>
+        <td>
+          Login / Registro
+          <div class="desc">Verificación de email por magic link (Resend)</div>
+        </td>
+        <td>€147</td>
+      </tr>
+      <tr>
+        <td>
+          Pagos online
+          <div class="desc">Integración completa con Stripe Checkout</div>
+        </td>
+        <td>€197</td>
+      </tr>
+      <tr>
+        <td>
+          SEO básico
+          <div class="desc">Meta tags, estructura semántica, Open Graph</div>
+        </td>
+        <td>€97</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Subtotal extras catálogo</td>
+        <td>€638</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EXTRAS FUERA CATÁLOGO -->
+  <h3 class="section-title">Desarrollo adicional (fuera de catálogo)</h3>
+  <table>
+    <thead><tr><th>Concepto</th><th>Precio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          Subida de imágenes (Vercel Blob)
+          <div class="desc">Upload desde panel admin con almacenamiento en la nube</div>
+        </td>
+        <td>€97</td>
+      </tr>
+      <tr>
+        <td>
+          Marcos creativos CSS
+          <div class="desc">TV vintage + SEAT 600 para embeber vídeos de YouTube</div>
+        </td>
+        <td>€147</td>
+      </tr>
+      <tr>
+        <td>
+          Carrito persistente
+          <div class="desc">Context global + localStorage con protección de race conditions</div>
+        </td>
+        <td>€97</td>
+      </tr>
+      <tr>
+        <td>
+          Email transaccional
+          <div class="desc">Integración Resend con dominio personalizado</div>
+        </td>
+        <td>€97</td>
+      </tr>
+      <tr class="subtotal-row">
+        <td>Subtotal desarrollo adicional</td>
+        <td>€438</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- MANTENIMIENTO -->
+  <h3 class="section-title">Mantenimiento (primer año incluido)</h3>
+  <table>
+    <thead><tr><th>Concepto</th><th>Precio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>
+          Plan Básico — 12 meses
+          <div class="desc">Hosting y dominio · Actualizaciones de seguridad · Backups semanales · Soporte por email</div>
+        </td>
+        <td>€348</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TOTAL -->
+  <div class="total-box">
+    <div class="label">
+      Total proyecto
+      <small>Incluye primer año de mantenimiento básico</small>
+    </div>
+    <div class="amount">€2.921</div>
+  </div>
+  <p class="after-year">Tras el primer año: Plan Básico €29/mes · Plan Pro €49/mes</p>
+
+  <!-- ==================== PAGE 2: COMPARISON ==================== -->
+  <div class="comparison">
+    <h2 class="comparison-title">Comparativa de precios</h2>
+    <p class="comparison-subtitle">Agencia de desarrollo tradicional vs. por2duros</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th class="col-agency">Agencia tradicional</th>
+          <th class="col-ours">por2duros</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Web multipágina (7 secciones)</td>
+          <td class="agency-price">€4.000 – €6.000</td>
+          <td class="our-price">€1.497</td>
+        </tr>
+        <tr>
+          <td>E-commerce + Stripe</td>
+          <td class="agency-price">€2.500 – €4.000</td>
+          <td class="our-price">Incluido</td>
+        </tr>
+        <tr>
+          <td>Panel admin (CMS) con CRUD</td>
+          <td class="agency-price">€1.500 – €3.000</td>
+          <td class="our-price">€197</td>
+        </tr>
+        <tr>
+          <td>Autenticación (magic link)</td>
+          <td class="agency-price">€500 – €1.000</td>
+          <td class="our-price">€147</td>
+        </tr>
+        <tr>
+          <td>Pasarela de pagos</td>
+          <td class="agency-price">€800 – €1.500</td>
+          <td class="our-price">€197</td>
+        </tr>
+        <tr>
+          <td>SEO básico</td>
+          <td class="agency-price">€300 – €600</td>
+          <td class="our-price">€97</td>
+        </tr>
+        <tr>
+          <td>Upload de imágenes (cloud)</td>
+          <td class="agency-price">€300 – €600</td>
+          <td class="our-price">€97</td>
+        </tr>
+        <tr>
+          <td>Elementos creativos custom</td>
+          <td class="agency-price">€500 – €1.200</td>
+          <td class="our-price">€147</td>
+        </tr>
+        <tr>
+          <td>Carrito persistente avanzado</td>
+          <td class="agency-price">€400 – €800</td>
+          <td class="our-price">€97</td>
+        </tr>
+        <tr>
+          <td>Email transaccional</td>
+          <td class="agency-price">€300 – €500</td>
+          <td class="our-price">€97</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento (12 meses)</td>
+          <td class="agency-price">€1.200 – €2.400</td>
+          <td class="our-price">€348</td>
+        </tr>
+        <tr class="comp-total">
+          <td>TOTAL</td>
+          <td class="agency-price">€12.300 – €21.600</td>
+          <td class="our-price">€2.921</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="savings-box">
+      <div class="amount">€9.379 – €18.679</div>
+      <div class="label">de ahorro respecto a una agencia tradicional</div>
+      <div class="percent">El cliente paga hasta un 76% menos</div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes">
+    <h4>Condiciones</h4>
+    <ul>
+      <li>Garantía de satisfacción de 15 días. Devolución sin preguntas si no queda satisfecho.</li>
+      <li>Entrega del proyecto funcional en 48 horas.</li>
+      <li>No incluye costes de servicios de terceros (Vercel, Stripe fees, Resend, registro de dominio).</li>
+      <li>Las imágenes actuales son placeholders. La sustitución por fotos reales se gestiona dentro del mantenimiento.</li>
+      <li>Tras el primer año, el mantenimiento se renueva mensualmente según el plan elegido.</li>
+      <li>Los precios fuera de catálogo son partidas estimadas para funcionalidades no estándar.</li>
+    </ul>
+
+    <div class="guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <p>
+        <strong>Garantía 15 días.</strong>
+        Si el cliente no queda satisfecho con el resultado, se devuelve el importe íntegro del proyecto. Sin preguntas.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>por2duros.com</span>
+    <span>Presupuesto P-2026-ERIC-001 · 15/06/2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
