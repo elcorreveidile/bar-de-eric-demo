@@ -1,11 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
-
-interface CarritoItem {
-  id: string;
-  cantidad: number;
-}
+import { createContext, useContext, useState, useEffect, useCallback, useRef, type ReactNode } from "react";
 
 interface CarritoContextType {
   items: Map<string, number>;
@@ -19,32 +14,47 @@ const CarritoContext = createContext<CarritoContextType | null>(null);
 
 const STORAGE_KEY = "carrito-tienda";
 
-export function CarritoProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<Map<string, number>>(new Map());
-  const [loaded, setLoaded] = useState(false);
+function readStorage(): Map<string, number> {
+  if (typeof window === "undefined") return new Map();
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed: { id: string; cantidad: number }[] = JSON.parse(stored);
+      const map = new Map<string, number>();
+      parsed.forEach((item) => map.set(item.id, item.cantidad));
+      return map;
+    }
+  } catch {}
+  return new Map();
+}
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed: CarritoItem[] = JSON.parse(stored);
-        const map = new Map<string, number>();
-        parsed.forEach((item) => map.set(item.id, item.cantidad));
-        setItems(map);
-      }
-    } catch {}
-    setLoaded(true);
-  }, []);
-
-  useEffect(() => {
-    if (!loaded) return;
+function writeStorage(items: Map<string, number>) {
+  try {
     const data = Array.from(items.entries()).map(([id, cantidad]) => ({ id, cantidad }));
     if (data.length > 0) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } else {
       localStorage.removeItem(STORAGE_KEY);
     }
-  }, [items, loaded]);
+  } catch {}
+}
+
+export function CarritoProvider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<Map<string, number>>(new Map());
+  const [mounted, setMounted] = useState(false);
+  const skipWrite = useRef(true);
+
+  useEffect(() => {
+    const stored = readStorage();
+    setItems(stored);
+    setMounted(true);
+    skipWrite.current = false;
+  }, []);
+
+  useEffect(() => {
+    if (skipWrite.current) return;
+    writeStorage(items);
+  }, [items]);
 
   const agregar = useCallback((id: string) => {
     setItems((prev) => {
@@ -71,7 +81,9 @@ export function CarritoProvider({ children }: { children: ReactNode }) {
     setItems(new Map());
   }, []);
 
-  const totalItems = Array.from(items.values()).reduce((a, b) => a + b, 0);
+  const totalItems = mounted
+    ? Array.from(items.values()).reduce((a, b) => a + b, 0)
+    : 0;
 
   return (
     <CarritoContext.Provider value={{ items, agregar, quitar, vaciar, totalItems }}>
