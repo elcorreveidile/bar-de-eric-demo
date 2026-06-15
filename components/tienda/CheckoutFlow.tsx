@@ -4,33 +4,22 @@ import { useState, useEffect, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { productos } from "@/lib/productos-tienda";
+import { useCarrito } from "@/context/CarritoContext";
 
 type Step = "email" | "email-sent" | "datos" | "procesando";
-
-interface CarritoItem {
-  id: string;
-  cantidad: number;
-}
 
 export function CheckoutFlow() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const { items, vaciar } = useCarrito();
 
   const [step, setStep] = useState<Step>(token ? "datos" : "email");
   const [email, setEmail] = useState("");
   const [verifiedEmail, setVerifiedEmail] = useState("");
   const [nombre, setNombre] = useState("");
   const [telefono, setTelefono] = useState("");
-  const [carrito, setCarrito] = useState<CarritoItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    const stored = localStorage.getItem("carrito-tienda");
-    if (stored) {
-      setCarrito(JSON.parse(stored));
-    }
-  }, []);
 
   useEffect(() => {
     if (token) {
@@ -70,6 +59,8 @@ export function CheckoutFlow() {
     }
   }
 
+  const carrito = Array.from(items.entries()).map(([id, cantidad]) => ({ id, cantidad }));
+
   async function handleDatosSubmit(e: FormEvent) {
     e.preventDefault();
     setLoading(true);
@@ -88,7 +79,7 @@ export function CheckoutFlow() {
       });
       const data = await res.json();
       if (data.url) {
-        localStorage.removeItem("carrito-tienda");
+        vaciar();
         window.location.href = data.url;
       } else {
         throw new Error();

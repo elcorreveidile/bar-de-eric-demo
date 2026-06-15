@@ -1,15 +1,12 @@
 "use client";
 
 import type { Producto } from "@/lib/productos-tienda";
+import { useCarrito } from "@/context/CarritoContext";
 
-interface Props {
-  producto: Producto;
-  cantidad: number;
-  onAgregar: () => void;
-  onQuitar: () => void;
-}
+export function ProductoCard({ producto }: { producto: Producto }) {
+  const { items, agregar, quitar } = useCarrito();
+  const cantidad = items.get(producto.id) || 0;
 
-export function ProductoCard({ producto, cantidad, onAgregar, onQuitar }: Props) {
   const precioFormateado = new Intl.NumberFormat("es-ES", {
     style: "currency",
     currency: "EUR",
@@ -45,7 +42,7 @@ export function ProductoCard({ producto, cantidad, onAgregar, onQuitar }: Props)
         <div className="mt-4">
           {cantidad === 0 ? (
             <button
-              onClick={onAgregar}
+              onClick={() => agregar(producto.id)}
               className="w-full bg-rojo hover:bg-rojo/80 text-white font-medium px-4 py-2.5 rounded-lg transition-colors"
             >
               Añadir al carrito
@@ -53,14 +50,14 @@ export function ProductoCard({ producto, cantidad, onAgregar, onQuitar }: Props)
           ) : (
             <div className="flex items-center justify-between bg-negro-light rounded-lg px-4 py-2 border border-gris/30">
               <button
-                onClick={onQuitar}
+                onClick={() => quitar(producto.id)}
                 className="text-dorado hover:text-white text-xl font-bold w-8 h-8 flex items-center justify-center"
               >
                 −
               </button>
               <span className="text-white font-medium">{cantidad}</span>
               <button
-                onClick={onAgregar}
+                onClick={() => agregar(producto.id)}
                 className="text-dorado hover:text-white text-xl font-bold w-8 h-8 flex items-center justify-center"
               >
                 +
