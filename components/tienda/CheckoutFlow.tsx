@@ -11,7 +11,7 @@ type Step = "email" | "email-sent" | "datos" | "procesando";
 export function CheckoutFlow() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
-  const { items, vaciar } = useCarrito();
+  const { items } = useCarrito();
 
   const [step, setStep] = useState<Step>(token ? "datos" : "email");
   const [email, setEmail] = useState("");
@@ -79,7 +79,6 @@ export function CheckoutFlow() {
       });
       const data = await res.json();
       if (data.url) {
-        vaciar();
         window.location.href = data.url;
       } else {
         throw new Error();
